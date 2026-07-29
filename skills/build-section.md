@@ -12,7 +12,11 @@ Use this skill when building page sections (e.g., Hero, Features, Testimonials) 
 - Parent page context.
 
 ## 3. Workflow
-1. **Analyze Design**: Identify the layout structure (e.g., column count, grid alignment) and list needed child components.
+1. **Analyze Design**:
+   - If a Figma URL is provided, extract the `fileKey` and `node-id` (if present).
+   - Fetch design layouts and contents using the Figma MCP tool `get_figma_data` with the file key and node ID.
+   - If image assets or icons are needed, download them to standard directories (e.g., `public/images/`) using `download_figma_images`.
+   - Identify the layout structure (e.g., column count, grid alignment) and list needed child components based on the fetched data.
 2. **Setup Tokens**: Read existing design system tokens in [rules/ui.md](file:///home/chris/beyondfitness/beyond-fitness/rules/ui.md).
 3. **Structure Markup**: Create a semantic HTML container (e.g., `<section>`) with an appropriate ID.
 4. **Implement Layout**: Use CSS Grid or Flexbox. Apply mobile-first styling classes.

@@ -12,13 +12,16 @@ Use this skill when creating low-level, reusable components (e.g., buttons, inpu
 - Design specifications (states: default, hover, active, focus, disabled).
 
 ## 3. Workflow
-1. **Search Existing**: Scan the component library to confirm the component does not already exist.
-2. **Define Props**: Write a clear TypeScript interface for props. Restrict props to 5 or fewer.
-3. **Draft markup**: Write semantic HTML structures.
-4. **Style Component**: Use Tailwind utility classes. Reference semantic tokens from [rules/ui.md](file:///home/chris/beyondfitness/beyond-fitness/rules/ui.md). Do not use inline styles.
-5. **State Management**: Keep state local. If interactive, implement accessible handlers.
-6. **Focus States**: Add explicit keyboard focus states (`focus-visible:outline-...`).
-7. **Write Tests**: Create unit tests verifying rendering, user interactions, and prop updates per [rules/testing.md](file:///home/chris/beyondfitness/beyond-fitness/rules/testing.md).
+1. **Analyze Design**:
+   - If a Figma URL is provided, retrieve layout parameters and visual states using the `get_figma_data` MCP tool.
+   - If the component requires graphic assets or custom icons, download them using `download_figma_images`.
+2. **Search Existing**: Scan the component library to confirm the component does not already exist.
+3. **Define Props**: Write a clear TypeScript interface for props. Restrict props to 5 or fewer.
+4. **Draft markup**: Write semantic HTML structures.
+5. **Style Component**: Use Tailwind utility classes. Reference semantic tokens from [rules/ui.md](file:///home/chris/beyondfitness/beyond-fitness/rules/ui.md). Do not use inline styles.
+6. **State Management**: Keep state local. If interactive, implement accessible handlers.
+7. **Focus States**: Add explicit keyboard focus states (`focus-visible:outline-...`).
+8. **Write Tests**: Create unit tests verifying rendering, user interactions, and prop updates per [rules/testing.md](file:///home/chris/beyondfitness/beyond-fitness/rules/testing.md).
 
 ## 4. Expected Output
 - Reusable component file (e.g., `components/ui/Button.tsx`).
