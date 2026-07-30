@@ -160,7 +160,7 @@ export default function Footer() {
                 <Link
                   key={policy}
                   href={`/${policy.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="text-white/50 text-[14px] font-normal leading-[21px] hover:text-white transition-colors underline"
+                  className="text-white/50 text-[14px] font-normal leading-[21px] hover:text-white transition-colors"
                 >
                   {policy}
                 </Link>
