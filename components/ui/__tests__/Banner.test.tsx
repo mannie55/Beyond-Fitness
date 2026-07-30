@@ -19,17 +19,17 @@ describe("Banner Component", () => {
   it("applies the medium speed class by default", () => {
     render(<Banner />);
     const animationWrapper = screen.getAllByText("BEYOND")[0].closest(".whitespace-nowrap");
-    expect((animationWrapper as HTMLElement).className).toContain("animate-[marquee_30s_linear_infinite]");
+    expect((animationWrapper as HTMLElement).className).toContain("animate-[marquee_60s_linear_infinite]");
   });
 
   it("applies custom speed classes correctly", () => {
     const { rerender } = render(<Banner speed="fast" />);
     let animationWrapper = screen.getAllByText("BEYOND")[0].closest(".whitespace-nowrap");
-    expect((animationWrapper as HTMLElement).className).toContain("animate-[marquee_15s_linear_infinite]");
+    expect((animationWrapper as HTMLElement).className).toContain("animate-[marquee_30s_linear_infinite]");
 
     rerender(<Banner speed="slow" />);
     animationWrapper = screen.getAllByText("BEYOND")[0].closest(".whitespace-nowrap");
-    expect((animationWrapper as HTMLElement).className).toContain("animate-[marquee_45s_linear_infinite]");
+    expect((animationWrapper as HTMLElement).className).toContain("animate-[marquee_90s_linear_infinite]");
   });
 
   it("configures hover pause state correctly", () => {
