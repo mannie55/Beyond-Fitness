@@ -43,12 +43,12 @@ export default function Footer() {
             </p>
 
             {/* Newsletter Subscription Form */}
-            <form onSubmit={handleSubscribe} className="flex flex-wrap sm:flex-nowrap gap-4 w-full">
+            <form onSubmit={handleSubscribe} className="flex flex-wrap sm:flex-nowrap items-center gap-4 w-full">
               <input
                 type="email"
                 placeholder="Your email"
                 required
-                className="w-full sm:w-[264px] h-[40px] rounded-[30px] border border-white/30 bg-white/5 px-3 py-2 text-[16px] leading-[24px] text-white/60 placeholder-white/60 focus:border-white focus:outline-none transition-colors"
+                className="w-full sm:w-[264px] h-[46px] rounded-[30px] border border-white/30 bg-white/5 px-3 py-2 text-[16px] leading-[24px] text-white/60 placeholder-white/60 focus:border-white focus:outline-none transition-colors"
               />
               <button
                 type="submit"
