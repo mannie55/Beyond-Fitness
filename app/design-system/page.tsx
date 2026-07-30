@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
+import Banner from "@/components/ui/Banner";
 
 export default function DesignSystemPage() {
   const primitiveColors = [
@@ -182,7 +183,28 @@ export default function DesignSystemPage() {
 
       </section>
 
-      {/* 3. Footer Showcase */}
+      {/* 3. Banner Showcase */}
+      <section className="px-padding-global py-12 max-w-container-large mx-auto flex flex-col gap-6">
+        <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
+          Infinite Marquee Banner
+        </h2>
+        <div className="flex flex-col gap-6 bg-white/5 rounded-xl border border-white/10 p-6 overflow-hidden">
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Medium Speed (default, pause-on-hover)</span>
+            <Banner />
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Fast Speed</span>
+            <Banner speed="fast" />
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Slow Speed</span>
+            <Banner speed="slow" />
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Footer Showcase */}
       <section className="w-full mt-12 border-t border-white/10 pt-12">
         <div className="px-padding-global max-w-container-large mx-auto mb-6">
           <h2 className="text-heading-4 font-bold text-white uppercase tracking-wider">
