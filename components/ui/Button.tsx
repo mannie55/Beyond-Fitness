@@ -11,6 +11,10 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   type?: "button" | "submit" | "reset";
+  // Exact Figma layout controls
+  width?: string;
+  paddingLeft?: string;
+  textWidth?: string;
 }
 
 function ArrowIcon({ className }: { className?: string }) {
@@ -49,9 +53,11 @@ export default function Button({
   onClick,
   className = "",
   type = "button",
+  width = "w-fit",
+  paddingLeft = "pl-[24px]",
+  textWidth = "w-auto",
 }: ButtonProps) {
-  const baseClasses =
-    "group h-[52px] rounded-full flex items-center justify-between gap-[16px] pl-[24px] pr-[4px] py-[4px] text-text-small font-sans font-semibold tracking-wider uppercase transition-all select-none cursor-pointer duration-300 w-fit";
+  const baseClasses = `group h-[52px] rounded-full flex items-center justify-between gap-[16px] pr-[4px] py-[4px] text-text-small font-sans tracking-wider uppercase transition-all select-none cursor-pointer duration-300 ${width} ${paddingLeft}`;
 
   const themeVariants = {
     dark: {
@@ -79,12 +85,26 @@ export default function Button({
     },
   };
 
+  const themeWeights = {
+    dark: {
+      primary: "font-medium",
+      secondary: "font-semibold",
+      special: "font-bold",
+    },
+    light: {
+      primary: "font-normal",
+      secondary: "font-bold",
+      special: "font-bold",
+    },
+  };
+
   const variantClasses = themeVariants[theme][variant];
   const arrowCircleClasses = themeArrowCircles[theme][variant];
+  const weightClass = themeWeights[theme][variant];
 
   const innerContent = (
     <>
-      <span className="flex-1 text-center">{children}</span>
+      <span className={`text-center flex-shrink-0 ${textWidth} ${weightClass}`}>{children}</span>
       <div className={arrowCircleClasses}>
         <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
