@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 interface ButtonProps {
   children: ReactNode;
   variant?: "primary" | "secondary";
+  theme?: "dark" | "light";
   href?: string;
   onClick?: () => void;
   className?: string;
@@ -41,6 +42,7 @@ function ArrowIcon({ className }: { className?: string }) {
 export default function Button({
   children,
   variant = "primary",
+  theme = "dark",
   href,
   onClick,
   className = "",
@@ -49,15 +51,30 @@ export default function Button({
   const baseClasses =
     "group h-[52px] rounded-full flex items-center justify-between gap-[16px] pl-[24px] pr-[4px] py-[4px] text-text-small font-sans font-semibold tracking-wider uppercase transition-all select-none cursor-pointer duration-300 w-fit";
 
-  const variantClasses =
-    variant === "primary"
-      ? "bg-white text-black hover:bg-neutral-lightest"
-      : "bg-transparent text-white border border-white hover:bg-white/10";
+  const themeVariants = {
+    dark: {
+      primary: "bg-white text-black hover:bg-neutral-lightest",
+      secondary: "bg-transparent text-white border border-white hover:bg-white/10",
+    },
+    light: {
+      primary: "bg-black text-white hover:bg-neutral-darker",
+      secondary: "bg-transparent text-black border border-black hover:bg-black/5",
+    },
+  };
 
-  const arrowCircleClasses =
-    variant === "primary"
-      ? "w-[44px] h-[44px] bg-black text-white rounded-full flex items-center justify-center flex-shrink-0"
-      : "w-[44px] h-[44px] border border-white text-white rounded-full flex items-center justify-center flex-shrink-0";
+  const themeArrowCircles = {
+    dark: {
+      primary: "w-[44px] h-[44px] bg-black text-white rounded-full flex items-center justify-center flex-shrink-0",
+      secondary: "w-[44px] h-[44px] border border-white text-white rounded-full flex items-center justify-center flex-shrink-0",
+    },
+    light: {
+      primary: "w-[44px] h-[44px] bg-neutral-lightest text-black rounded-full flex items-center justify-center flex-shrink-0",
+      secondary: "w-[44px] h-[44px] border border-black text-black rounded-full flex items-center justify-center flex-shrink-0",
+    },
+  };
+
+  const variantClasses = themeVariants[theme][variant];
+  const arrowCircleClasses = themeArrowCircles[theme][variant];
 
   const innerContent = (
     <>

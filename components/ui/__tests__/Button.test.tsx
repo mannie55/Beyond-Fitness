@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import Button from "../Button";
 
 describe("Button Component", () => {
-  it("renders the primary button variant correctly", () => {
-    render(<Button variant="primary">View Membership</Button>);
+  it("renders the primary button variant for dark background correctly", () => {
+    render(<Button variant="primary" theme="dark">View Membership</Button>);
     
     const button = screen.getByRole("button", { name: /view membership/i });
     expect(button).toBeDefined();
@@ -12,13 +12,31 @@ describe("Button Component", () => {
     expect(button.className).toContain("text-black");
   });
 
-  it("renders the secondary button variant correctly", () => {
-    render(<Button variant="secondary">Events</Button>);
+  it("renders the secondary button variant for dark background correctly", () => {
+    render(<Button variant="secondary" theme="dark">Events</Button>);
     
     const button = screen.getByRole("button", { name: /events/i });
     expect(button).toBeDefined();
     expect(button.className).toContain("bg-transparent");
     expect(button.className).toContain("border-white");
+  });
+
+  it("renders the primary button variant for light background correctly", () => {
+    render(<Button variant="primary" theme="light">Register</Button>);
+    
+    const button = screen.getByRole("button", { name: /register/i });
+    expect(button).toBeDefined();
+    expect(button.className).toContain("bg-black");
+    expect(button.className).toContain("text-white");
+  });
+
+  it("renders the secondary button variant for light background correctly", () => {
+    render(<Button variant="secondary" theme="light">Get Started</Button>);
+    
+    const button = screen.getByRole("button", { name: /get started/i });
+    expect(button).toBeDefined();
+    expect(button.className).toContain("bg-transparent");
+    expect(button.className).toContain("border-black");
   });
 
   it("triggers onClick event handler when clicked", () => {
