@@ -132,16 +132,8 @@ export default function DesignSystemPage() {
                   <Button variant="special" theme="dark">Join Annual</Button>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <span className="text-text-tiny text-white/50">Special (Figma Size: 341px)</span>
-                  <Button
-                    variant="special"
-                    theme="dark"
-                    width="w-[341px]"
-                    paddingLeft="pl-[72.88px]"
-                    textWidth="w-[163px]"
-                  >
-                    Join Annual
-                  </Button>
+                  <span className="text-text-tiny text-white/50">Long Text Auto-Expand</span>
+                  <Button variant="special" theme="dark">Book Your Next Performance Assessment Today</Button>
                 </div>
               </div>
             </div>
@@ -161,20 +153,12 @@ export default function DesignSystemPage() {
                   <Button variant="secondary" theme="light">Get Started</Button>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <span className="text-text-tiny text-black/50">Secondary (Figma Size: 341px)</span>
-                  <Button
-                    variant="secondary"
-                    theme="light"
-                    width="w-[341px]"
-                    paddingLeft="pl-[60.88px]"
-                    textWidth="w-[163px]"
-                  >
-                    Get Started
-                  </Button>
-                </div>
-                <div className="flex flex-col gap-2">
                   <span className="text-text-tiny text-black/50">Special</span>
                   <Button variant="special" theme="light">Join Annual</Button>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-text-tiny text-black/50">Long Text Auto-Expand</span>
+                  <Button variant="primary" theme="light">Secure Your Spot For Our Grand Opening Event</Button>
                 </div>
               </div>
             </div>

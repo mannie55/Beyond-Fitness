@@ -57,7 +57,7 @@ export default function Button({
   paddingLeft = "pl-[24px]",
   textWidth = "w-auto",
 }: ButtonProps) {
-  const baseClasses = `group h-[52px] rounded-full flex items-center justify-between gap-[16px] pr-[4px] py-[4px] text-text-small font-sans tracking-wider uppercase transition-all select-none cursor-pointer duration-300 ${width} ${paddingLeft}`;
+  const baseClasses = `group h-[52px] rounded-full inline-flex items-center justify-between gap-[16px] pr-[4px] py-[4px] text-text-small font-sans tracking-wider uppercase transition-all select-none cursor-pointer duration-300 ${width} ${paddingLeft}`;
 
   const themeVariants = {
     dark: {
@@ -104,8 +104,8 @@ export default function Button({
 
   const innerContent = (
     <>
-      <span className={`text-center flex-shrink-0 ${textWidth} ${weightClass}`}>{children}</span>
-      <div className={arrowCircleClasses}>
+      <span className={`text-center whitespace-nowrap flex-grow flex-shrink-0 ${textWidth} ${weightClass}`}>{children}</span>
+      <div className={`${arrowCircleClasses} flex-shrink-0`}>
         <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
     </>

@@ -130,9 +130,6 @@ export default function Navbar() {
         <Button
           variant="special"
           theme="light"
-          width="w-[257px]"
-          paddingLeft="pl-[23.88px]"
-          textWidth="w-[172px]"
           href="/schedule"
         >
           BOOK YOUR FIRST CLASS
@@ -194,9 +191,6 @@ export default function Navbar() {
             <Button
               variant="special"
               theme="light"
-              width="w-[257px]"
-              paddingLeft="pl-[23.88px]"
-              textWidth="w-[172px]"
               href="/schedule"
               onClick={() => setIsMobileMenuOpen(false)}
             >

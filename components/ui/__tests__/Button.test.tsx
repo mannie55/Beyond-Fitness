@@ -64,4 +64,11 @@ describe("Button Component", () => {
     expect(link).toBeDefined();
     expect(link.getAttribute("href")).toBe("/schedule");
   });
+
+  it("applies layout class configuration for auto-expanding text width", () => {
+    render(<Button>Auto Expand Test</Button>);
+    const button = screen.getByRole("button", { name: /auto expand test/i });
+    expect(button.className).toContain("inline-flex");
+    expect(button.className).toContain("justify-between");
+  });
 });
