@@ -189,7 +189,7 @@ export default function DesignSystemPage() {
         <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <span className="text-text-small text-white/50 font-semibold">Light Theme Navbar (Figma Spec)</span>
-            <div className="rounded-lg overflow-hidden border border-black/10">
+            <div className="rounded-lg border border-black/10">
               <Navbar />
             </div>
           </div>
