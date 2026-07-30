@@ -39,6 +39,15 @@ describe("Button Component", () => {
     expect(button.className).toContain("border-black");
   });
 
+  it("renders the special button variant correctly", () => {
+    render(<Button variant="special">Join Annual</Button>);
+    
+    const button = screen.getByRole("button", { name: /join annual/i });
+    expect(button).toBeDefined();
+    expect(button.className).toContain("bg-dandelion");
+    expect(button.className).toContain("text-black");
+  });
+
   it("triggers onClick event handler when clicked", () => {
     const handleClick = vi.fn();
     render(<Button onClick={handleClick}>Click Me</Button>);

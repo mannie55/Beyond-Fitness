@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "special";
   theme?: "dark" | "light";
   href?: string;
   onClick?: () => void;
@@ -55,10 +55,12 @@ export default function Button({
     dark: {
       primary: "bg-white text-black hover:bg-neutral-lightest",
       secondary: "bg-transparent text-white border border-white hover:bg-white/10",
+      special: "bg-dandelion text-black hover:bg-dandelion-light",
     },
     light: {
       primary: "bg-black text-white hover:bg-neutral-darker",
       secondary: "bg-transparent text-black border border-black hover:bg-black/5",
+      special: "bg-dandelion text-black hover:bg-dandelion-light",
     },
   };
 
@@ -66,10 +68,12 @@ export default function Button({
     dark: {
       primary: "w-[44px] h-[44px] bg-black text-white rounded-full flex items-center justify-center flex-shrink-0",
       secondary: "w-[44px] h-[44px] border border-white text-white rounded-full flex items-center justify-center flex-shrink-0",
+      special: "w-[44px] h-[44px] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
     },
     light: {
       primary: "w-[44px] h-[44px] bg-neutral-lightest text-black rounded-full flex items-center justify-center flex-shrink-0",
       secondary: "w-[44px] h-[44px] border border-black text-black rounded-full flex items-center justify-center flex-shrink-0",
+      special: "w-[44px] h-[44px] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
     },
   };
 
