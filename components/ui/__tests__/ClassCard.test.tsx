@@ -17,7 +17,7 @@ describe("ClassCard Component", () => {
     expect(screen.getByText("high")).toBeDefined();
   });
 
-  it("applies hover and layout class names correctly", () => {
+  it("applies hover background class on card wrapper", () => {
     const { container } = render(
       <ClassCard
         title="Lift"
@@ -28,6 +28,7 @@ describe("ClassCard Component", () => {
 
     const card = container.firstChild as HTMLElement;
     expect(card.className).toContain("hover:bg-[#FEF6DF]");
+    expect(card.className).toContain("hover:p-[8px]");
     expect(card.className).toContain("group");
   });
 });
