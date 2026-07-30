@@ -37,6 +37,19 @@ export default function DesignSystemPage() {
     { name: "Text Tiny", class: "text-text-tiny", desc: "Micro labels (scaled: 0.625rem to 0.75rem)" },
   ];
 
+  const communityColumn = [
+    { name: "STORIES", href: "/community/member-stories", desc: "Real member transformations from the studio floor" },
+    { name: "BEYOND ON TOUR", href: "/community/on-tour", desc: "Our signature event series across the city" },
+    { name: "BEYOND PINK WALK", href: "/community/pink-walk", desc: "Join the movement for breast cancer awareness" },
+    { name: "EVENTS", href: "/community", desc: "All upcoming community gatherings and workshops" },
+  ];
+
+  const aboutColumn = [
+    { name: "CORPORATE", href: "/corporate-wellness", desc: "Wellness programs for high-performance teams" },
+    { name: "ABOUT", href: "/about", desc: "The story behind the studio and our mission" },
+    { name: "CONTACT", href: "/contact", desc: "Find us in Victoria Island, Lagos" },
+  ];
+
   return (
     <main className="w-full min-h-screen bg-[#0F0E0D] text-white font-sans">
       
@@ -173,10 +186,65 @@ export default function DesignSystemPage() {
         <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
           Header Navbar Component
         </h2>
-        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-4">
-          <span className="text-text-small text-white/50 font-semibold">Light Theme Navbar (Figma Spec)</span>
-          <div className="rounded-lg overflow-hidden border border-black/10">
-            <Navbar />
+        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Light Theme Navbar (Figma Spec)</span>
+            <div className="rounded-lg overflow-hidden border border-black/10">
+              <Navbar />
+            </div>
+          </div>
+          
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Community Dropdown Menu Content (794px Figma Spec)</span>
+            <div className="flex justify-center">
+              <div className="w-[794px] bg-white border border-black/10 rounded-lg shadow-xl overflow-hidden">
+                <div className="w-full px-[64px] py-[32px] flex justify-center items-start gap-[16px] font-sans">
+                  {/* Column 1: OUR COMMUNITY */}
+                  <div className="flex-1 max-w-[268px] flex flex-col gap-[16px]">
+                    <span className="text-[#0D0B05] text-[12px] font-semibold tracking-widest uppercase">
+                      OUR COMMUNITY
+                    </span>
+                    <div className="flex flex-col gap-[8px]">
+                      {communityColumn.map((item, idx) => (
+                        <div
+                          key={item.name}
+                          className={`p-[8px] rounded-lg flex flex-col gap-0.5 ${idx === 0 ? "bg-[#FEF6DF]" : ""}`}
+                        >
+                          <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                            {item.name}
+                          </span>
+                          <span className="text-dandelion-darkest text-[14px] leading-relaxed">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Column 2: ABOUT US */}
+                  <div className="flex-1 max-w-[306px] flex flex-col gap-[16px]">
+                    <span className="text-[#0D0B05] text-[12px] font-semibold tracking-widest uppercase">
+                      ABOUT US
+                    </span>
+                    <div className="flex flex-col gap-[8px]">
+                      {aboutColumn.map((item) => (
+                        <div
+                          key={item.name}
+                          className="p-[8px] rounded-lg flex flex-col gap-0.5"
+                        >
+                          <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                            {item.name}
+                          </span>
+                          <span className="text-dandelion-darkest text-[14px] leading-relaxed">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
