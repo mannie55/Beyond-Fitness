@@ -17,11 +17,11 @@ This document defines standards for layout, styling, typography, and spacing. Al
 - **Font Scaling**: Use a typographic ratio (e.g., 1.25 Major Third or 1.333 Perfect Fourth) to define hierarchy.
 
 ## 3. Design Tokens
-- **CSS Variables**: Define all primitive and semantic tokens in the root stylesheet as custom CSS properties.
-- **Semantic Mapping**: Map primitive variables to semantic functions:
-  - Example: Map `--blue-600` (primitive) to `--color-button-primary` (semantic).
-  - Components must reference semantic variables instead of primitive colors.
-- **Hardcoded Colors**: Hex codes or raw RGB colors inside component files are prohibited.
+- **Primary Source of Truth**: [app/theme.css](file:///home/chris/beyondfitness/beyond-fitness/app/theme.css) is the absolute source of truth for all primitive and semantic tokens (including colors, typography, layout constants, border radii, and spacing values).
+- **Lookup Protocol**: For every layout implementation, styling rule, or component build, you MUST look in [app/theme.css](file:///home/chris/beyondfitness/beyond-fitness/app/theme.css) first to find existing matches before creating new rules.
+- **Semantic Mapping**: Map primitive variables to semantic functions. Components must reference semantic variables instead of primitive colors.
+- **Tailwind Integration**: All custom `--color-*`, `--radius-*`, `--font-*`, or spacing variables used in utility classes must be registered within the `@theme` directive in [app/globals.css](file:///home/chris/beyondfitness/beyond-fitness/app/globals.css) to ensure Tailwind builds the classes correctly.
+- **Hardcoded Colors**: Hex codes or raw RGB colors inside component files are prohibited. Always use matching variables from [app/theme.css](file:///home/chris/beyondfitness/beyond-fitness/app/theme.css).
 
 ## 4. Grids and Layouts
 - **CSS Grid**: Use CSS Grid for two-dimensional layouts (e.g., page layouts, dashboards, photo grids).

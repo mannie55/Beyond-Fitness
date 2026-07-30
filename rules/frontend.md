@@ -31,6 +31,6 @@ This document defines permanent standards for frontend code. All code must adher
 - **Cumulative Layout Shift (CLS)**: Reserve spaces for dynamic content to avoid layout shifts. Set heights on placeholders or skeletons.
 
 ## 6. Styling Integration
-- **Design Tokens**: Read styles, colors, and layout configurations from CSS variables defined in [global.css](file:///home/chris/beyondfitness/beyond-fitness/app/globals.css) or equivalent global stylesheets.
-- **Tailwind CSS**: Write classes using utility classes configured in `tailwind.config.ts`.
+- **Design Tokens**: Read all primitive styles, colors, and layout configurations from variables defined in [app/theme.css](file:///home/chris/beyondfitness/beyond-fitness/app/theme.css) first. Always search for matching tokens in [app/theme.css](file:///home/chris/beyondfitness/beyond-fitness/app/theme.css) before implementing any style rules.
+- **Tailwind CSS**: Write classes using utility classes mapped from theme tokens (e.g. `--color-dandelion` mapped to `bg-dandelion` inside `app/globals.css`).
 - **Inline Styles**: Avoid inline style attributes except for truly dynamic values, such as CSS variables updated through JavaScript.
