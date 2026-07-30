@@ -10,11 +10,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-black text-white px-padding-global py-padding-section-large flex flex-col items-center">
-      <div className="w-full max-w-container-large flex flex-col items-center gap-[4rem] md:gap-[5rem]">
+    <footer className="w-full bg-black text-white px-6 md:px-16 py-20 flex flex-col items-center overflow-hidden font-sans">
+      <div className="w-full max-w-[1280px] flex flex-col items-center gap-20">
         
         {/* Main Footer Contents */}
-        <div className="w-full flex flex-col lg:flex-row justify-between gap-[3rem] lg:gap-[8rem]">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-[128px] lg:gap-32">
           
           {/* Newsletter and Brand Section */}
           <div className="flex flex-col gap-6 max-w-[500px] w-full">
@@ -27,32 +27,32 @@ export default function Footer() {
                 height={55}
                 className="h-[55px] w-[55px]"
               />
-              <div className="flex flex-col leading-tight">
-                <span className="font-sans font-medium text-[1.5rem] tracking-tight">
+              <div className="flex flex-col justify-start items-start font-sans">
+                <span className="text-white text-[24px] font-bold leading-[33.6px]">
                   BEYOND
                 </span>
-                <span className="text-text-small font-light tracking-[0.2em] text-white/60">
+                <span className="text-white text-[14px] font-normal leading-[21px] tracking-wide">
                   FITNESS
                 </span>
               </div>
             </div>
 
             {/* Description */}
-            <p className="text-text-small text-white/60 leading-relaxed">
+            <p className="text-white text-[14px] font-normal leading-[21px]">
               Join our community for exclusive event access and training insights.
             </p>
 
             {/* Newsletter Subscription Form */}
-            <form onSubmit={handleSubscribe} className="flex flex-row gap-4 w-full">
+            <form onSubmit={handleSubscribe} className="flex flex-wrap sm:flex-nowrap gap-4 w-full">
               <input
                 type="email"
                 placeholder="Your email"
                 required
-                className="flex-1 max-w-[264px] rounded-[30px] border border-white/30 bg-white/5 px-[12px] py-[8px] text-text-regular text-white placeholder-white/60 focus:border-white focus:outline-none transition-colors"
+                className="w-full sm:w-[264px] h-[40px] rounded-[30px] border border-white/30 bg-white/5 px-3 py-2 text-[16px] leading-[24px] text-white/60 placeholder-white/60 focus:border-white focus:outline-none transition-colors"
               />
               <button
                 type="submit"
-                className="w-[105px] h-[46px] rounded-[100px] bg-white text-black font-sans font-bold text-text-small transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+                className="w-[105px] h-[46px] rounded-full bg-white text-black font-bold text-[14px] leading-[21px] flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer flex-shrink-0"
               >
                 JOIN
               </button>
@@ -60,18 +60,18 @@ export default function Footer() {
           </div>
 
           {/* Links Section */}
-          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="flex-1 flex flex-row flex-wrap justify-between gap-[40px] w-full">
             {/* CLASSES Column */}
-            <div className="flex flex-col gap-4">
-              <h3 className="text-text-regular font-semibold tracking-wider text-white">
+            <div className="flex flex-col gap-4 min-w-[140px]">
+              <h3 className="text-white text-[16px] font-semibold leading-[24px] tracking-wider">
                 CLASSES
               </h3>
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col">
                 {["Ride", "Lift", "Barre Pilates", "Sculpt", "HIIT Boxing"].map((link) => (
-                  <li key={link}>
+                  <li key={link} className="py-2">
                     <Link
                       href={`/classes/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-text-small text-white/60 hover:text-white transition-colors"
+                      className="text-white/60 text-[14px] font-normal leading-[21px] hover:text-white transition-colors"
                     >
                       {link}
                     </Link>
@@ -81,11 +81,11 @@ export default function Footer() {
             </div>
 
             {/* COMMUNITY Column */}
-            <div className="flex flex-col gap-4">
-              <h3 className="text-text-regular font-semibold tracking-wider text-white">
+            <div className="flex flex-col gap-4 min-w-[140px]">
+              <h3 className="text-white text-[16px] font-semibold leading-[24px] tracking-wider">
                 COMMUNITY
               </h3>
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col">
                 {[
                   "Member Stories",
                   "On Tour",
@@ -93,10 +93,10 @@ export default function Footer() {
                   "Corporate Wellness",
                   "About",
                 ].map((link) => (
-                  <li key={link}>
+                  <li key={link} className="py-2">
                     <Link
                       href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-text-small text-white/60 hover:text-white transition-colors"
+                      className="text-white/60 text-[14px] font-normal leading-[21px] hover:text-white transition-colors"
                     >
                       {link}
                     </Link>
@@ -106,11 +106,11 @@ export default function Footer() {
             </div>
 
             {/* FOLLOW US Column */}
-            <div className="flex flex-col gap-4 col-span-2 md:col-span-1">
-              <h3 className="text-text-regular font-semibold tracking-wider text-white">
+            <div className="flex flex-col gap-4 min-w-[140px]">
+              <h3 className="text-white text-[16px] font-semibold leading-[24px] tracking-wider">
                 FOLLOW US
               </h3>
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col">
                 {[
                   { name: "Facebook", icon: "/icons/facebook.svg" },
                   { name: "Instagram", icon: "/icons/instagram.svg" },
@@ -118,12 +118,12 @@ export default function Footer() {
                   { name: "Youtube", icon: "/icons/youtube.svg" },
                   { name: "X", icon: "/icons/x.svg" },
                 ].map((item) => (
-                  <li key={item.name}>
+                  <li key={item.name} className="py-2">
                     <Link
                       href={`https://${item.name.toLowerCase()}.com`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-text-small text-white/60 hover:text-white transition-colors"
+                      className="flex items-center gap-3 text-white/60 text-[14px] font-normal leading-[21px] hover:text-white transition-colors"
                     >
                       <Image
                         src={item.icon}
@@ -142,20 +142,22 @@ export default function Footer() {
         </div>
 
         {/* Massive Decorative Typography */}
-        <div className="w-full select-none text-center font-sans font-bold text-white tracking-[0.38em] text-heading-1 leading-none mt-[2rem]">
+        <div className="w-full select-none text-center text-white font-bold text-[10vw] lg:text-[225px] leading-none lg:leading-[270px] tracking-[0.38em] lg:tracking-[85.5px] pl-[0.38em] lg:pl-[85.5px]">
           BEYOND
         </div>
 
         {/* Divider and Credits */}
-        <div className="w-full flex flex-col gap-[2rem] border-t border-white/10 pt-[2rem]">
-          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-text-small text-white/60">
-            <span>© 2026 Beyond Fitness. All rights reserved.</span>
+        <div className="w-full flex flex-col gap-8 border-t border-white/15 pt-8">
+          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4">
+            <span className="text-white/60 text-[14px] font-normal leading-[21px]">
+              © 2026 Beyond Fitness. All rights reserved.
+            </span>
             <div className="flex gap-6">
               {["Privacy Policy", "Terms of Service", "Cookies Settings"].map((policy) => (
                 <Link
                   key={policy}
                   href={`/${policy.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="hover:text-white transition-colors underline"
+                  className="text-white/50 text-[14px] font-normal leading-[21px] hover:text-white transition-colors underline"
                 >
                   {policy}
                 </Link>
