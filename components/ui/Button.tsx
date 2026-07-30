@@ -50,8 +50,17 @@ export default function Button({
   className = "",
   type = "button",
 }: ButtonProps) {
-  const baseClasses =
-    "group h-[52px] rounded-full flex items-center justify-between gap-[16px] pl-[24px] pr-[4px] py-[4px] text-text-small font-sans font-semibold tracking-wider uppercase transition-all select-none cursor-pointer duration-300 w-fit";
+  // Parse className to detect manual overrides for width and padding
+  const classesArray = className.split(" ");
+  const hasWidth = classesArray.some((c) => c.startsWith("w-") || c.startsWith("max-w-"));
+  const hasPl = classesArray.some((c) => c.startsWith("pl-") || c.startsWith("px-") || c.startsWith("p-"));
+  const hasPr = classesArray.some((c) => c.startsWith("pr-") || c.startsWith("px-") || c.startsWith("p-"));
+
+  const widthClass = hasWidth ? "" : "w-fit";
+  const paddingLeftClass = hasPl ? "" : "pl-[24px]";
+  const paddingRightClass = hasPr ? "" : "pr-[4px]";
+
+  const baseClasses = `group h-[52px] rounded-full flex items-center justify-between gap-[16px] py-[4px] text-text-small font-sans tracking-wider uppercase transition-all select-none cursor-pointer duration-300 ${widthClass} ${paddingLeftClass} ${paddingRightClass}`;
 
   const themeVariants = {
     dark: {
@@ -79,12 +88,26 @@ export default function Button({
     },
   };
 
+  const themeWeights = {
+    dark: {
+      primary: "font-medium",
+      secondary: "font-semibold",
+      special: "font-bold",
+    },
+    light: {
+      primary: "font-normal",
+      secondary: "font-bold",
+      special: "font-bold",
+    },
+  };
+
   const variantClasses = themeVariants[theme][variant];
   const arrowCircleClasses = themeArrowCircles[theme][variant];
+  const weightClass = themeWeights[theme][variant];
 
   const innerContent = (
     <>
-      <span className="flex-1 text-center">{children}</span>
+      <span className={`flex-1 text-center ${weightClass}`}>{children}</span>
       <div className={arrowCircleClasses}>
         <ArrowIcon className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
       </div>

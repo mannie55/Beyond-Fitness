@@ -116,7 +116,7 @@ export default function DesignSystemPage() {
               <span className="text-text-small text-white/40 uppercase tracking-widest block border-b border-white/5 pb-2">
                 Dark Background Mode (default)
               </span>
-              <div className="flex flex-wrap gap-4 items-center">
+              <div className="flex flex-wrap gap-6 items-start">
                 <div className="flex flex-col gap-2">
                   <span className="text-text-tiny text-white/50">Primary</span>
                   <Button variant="primary" theme="dark">View Membership</Button>
@@ -126,8 +126,12 @@ export default function DesignSystemPage() {
                   <Button variant="secondary" theme="dark">Events</Button>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <span className="text-text-tiny text-white/50">Special</span>
+                  <span className="text-text-tiny text-white/50">Special (Hugging)</span>
                   <Button variant="special" theme="dark">Join Annual</Button>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-text-tiny text-white/50">Special (Figma Designed Size: 341px)</span>
+                  <Button variant="special" theme="dark" className="w-[341px] pl-[72.88px]">Join Annual</Button>
                 </div>
               </div>
             </div>
@@ -137,14 +141,18 @@ export default function DesignSystemPage() {
               <span className="text-text-small text-black/40 uppercase tracking-widest block border-b border-black/5 pb-2">
                 Light Background Mode
               </span>
-              <div className="flex flex-wrap gap-4 items-center">
+              <div className="flex flex-wrap gap-6 items-start">
                 <div className="flex flex-col gap-2">
                   <span className="text-text-tiny text-black/50">Primary</span>
                   <Button variant="primary" theme="light">Register</Button>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <span className="text-text-tiny text-black/50">Secondary</span>
+                  <span className="text-text-tiny text-black/50">Secondary (Hugging)</span>
                   <Button variant="secondary" theme="light">Get Started</Button>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-text-tiny text-black/50">Secondary (Figma Designed Size: 341px)</span>
+                  <Button variant="secondary" theme="light" className="w-[341px] pl-[60.88px]">Get Started</Button>
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-text-tiny text-black/50">Special</span>
