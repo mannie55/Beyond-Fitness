@@ -146,7 +146,7 @@ export default function Footer() {
           
           {/* Massive Decorative Typography */}
           <div className="w-full flex justify-center overflow-visible">
-            <div className="select-none text-center text-white font-bold text-[20vw] lg:text-[260px] leading-[0.8] tracking-[0.08em] lg:tracking-[85.5px] indent-[0.08em] lg:indent-[85.5px] -my-6 lg:-my-16 whitespace-nowrap">
+            <div className="select-none text-center text-white font-bold text-[20vw] lg:text-[260px] leading-[0.8] tracking-[0.08em] lg:tracking-[85.5px] indent-[0.08em] lg:indent-[85.5px] -mt-6 mb-2 lg:-mt-16 lg:mb-4 whitespace-nowrap">
               BEYOND
             </div>
           </div>
