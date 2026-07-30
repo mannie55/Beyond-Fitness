@@ -4,6 +4,7 @@ import Banner from "@/components/ui/Banner";
 import Navbar from "@/components/Navbar";
 import ClassCard from "@/components/ui/ClassCard";
 import StatsBar from "@/components/ui/StatsBar";
+import FeatureItem from "@/components/ui/FeatureItem";
 
 export default function DesignSystemPage() {
   const primitiveColors = [
@@ -313,7 +314,29 @@ export default function DesignSystemPage() {
         </div>
       </section>
 
-      {/* 7. Footer Showcase */}
+      {/* 7. FeatureItem Showcase */}
+      <section className="px-padding-global py-12 max-w-container-large mx-auto flex flex-col gap-6">
+        <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
+          Feature Item Component
+        </h2>
+        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Hover to expand (light background context)</span>
+            <div className="bg-white rounded-lg border border-black/10 p-8 flex gap-[32px] flex-wrap">
+              <FeatureItem
+                title="BOUTIQUE PREMIUM EXPERIENCE"
+                description="Curated classes, immersive spaces and intentional design — every detail is considered."
+              />
+              <FeatureItem
+                title="HIGH-PERFORMING COMMUNITY"
+                description="A network of driven individuals pushing each other toward their best."
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Footer Showcase */}
       <section className="w-full mt-12 border-t border-white/10 pt-12">
         <div className="px-padding-global max-w-container-large mx-auto mb-6">
           <h2 className="text-heading-4 font-bold text-white uppercase tracking-wider">
