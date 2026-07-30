@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/Button";
 import Banner from "@/components/ui/Banner";
+import Navbar from "@/components/Navbar";
 
 export default function DesignSystemPage() {
   const primitiveColors = [
@@ -183,7 +184,20 @@ export default function DesignSystemPage() {
 
       </section>
 
-      {/* 3. Banner Showcase */}
+      {/* 3. Navbar Showcase */}
+      <section className="px-padding-global py-12 max-w-container-large mx-auto flex flex-col gap-6">
+        <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
+          Header Navbar Component
+        </h2>
+        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-4">
+          <span className="text-text-small text-white/50 font-semibold">Light Theme Navbar (Figma Spec)</span>
+          <div className="rounded-lg overflow-hidden border border-black/10">
+            <Navbar />
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Banner Showcase */}
       <section className="px-padding-global py-12 max-w-container-large mx-auto flex flex-col gap-6">
         <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
           Infinite Marquee Banner
@@ -204,7 +218,7 @@ export default function DesignSystemPage() {
         </div>
       </section>
 
-      {/* 4. Footer Showcase */}
+      {/* 5. Footer Showcase */}
       <section className="w-full mt-12 border-t border-white/10 pt-12">
         <div className="px-padding-global max-w-container-large mx-auto mb-6">
           <h2 className="text-heading-4 font-bold text-white uppercase tracking-wider">
