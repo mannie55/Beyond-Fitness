@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <header className="w-full max-w-[1435px] mx-auto px-4 md:px-[64px] h-[72px] flex items-center relative z-50 font-sans text-[#0D0B05]">
       {/* Rounded Navbar Body Card */}
-      <div className="w-full h-full px-4 md:px-6 bg-white border border-black/10 rounded-lg flex justify-between items-center relative">
+      <div className="w-full h-full p-[16px] bg-white rounded-lg flex justify-between items-center relative">
         {/* Brand Logo & Name */}
         <Link href="/" className="flex items-center gap-3 select-none group">
           <div className="w-[55px] h-[55px] relative overflow-hidden flex-shrink-0">
@@ -65,8 +65,8 @@ export default function Navbar() {
               </defs>
             </svg>
           </div>
-          <div className="flex flex-col justify-start items-start font-sans">
-            <span className="text-black text-[24px] font-bold leading-[33.6px]">
+          <div className="w-[98px] flex flex-col justify-start items-start font-sans">
+            <span className="text-black text-[24px] font-medium leading-[33.6px]">
               BEYOND
             </span>
             <span className="text-black text-[14px] font-normal leading-[21px] tracking-wide">
@@ -81,7 +81,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[14px] font-medium leading-[21px] transition-colors duration-300 text-[#0D0B05] hover:text-[#CBAA4C]"
+              className="text-[14px] font-normal leading-[21px] transition-colors duration-300 text-[#0D0B05] hover:text-[#CBAA4C]"
             >
               {link.name}
             </Link>
@@ -93,33 +93,30 @@ export default function Navbar() {
             onMouseEnter={() => setIsCommunityDropdownOpen(true)}
             onMouseLeave={() => setIsCommunityDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 text-[14px] font-medium leading-[21px] cursor-pointer transition-colors duration-300 text-[#0D0B05] hover:text-[#CBAA4C] py-2">
+            <button className="flex items-start gap-[2px] text-[14px] font-normal leading-[21px] cursor-pointer transition-colors duration-300 text-[#0D0B05] hover:text-[#CBAA4C] py-2">
               <span>COMMUNITY</span>
               <svg 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
+                width="19" 
+                height="18" 
+                viewBox="0 0 19 18" 
                 fill="none" 
                 className={`transition-transform duration-200 ${isCommunityDropdownOpen ? "rotate-180" : ""}`}
               >
                 <path 
-                  d="M5.7 8.7L12 15L18.3 8.7" 
-                  stroke="currentColor" 
-                  strokeWidth="1.99" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
+                  d="M4.51 6.53L9.5 11.87L14.48 6.53" 
+                  fill="currentColor"
                 />
               </svg>
             </button>
 
             {/* Community Mega Menu Dropdown (Centered relative to the header) */}
             {isCommunityDropdownOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[794px] pt-[12px] z-50">
-                <div className="w-full bg-white border border-black/10 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.08)] overflow-hidden">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[794px] pt-[8px] z-50">
+                <div className="w-full bg-white rounded-lg overflow-hidden">
                   <div className="w-full px-[64px] py-[32px] flex justify-center items-start gap-[16px] font-sans">
                     {/* Column 1: OUR COMMUNITY */}
                     <div className="flex-1 max-w-[268px] flex flex-col gap-[16px]">
-                      <span className="text-[#0D0B05] text-[12px] font-semibold tracking-widest uppercase">
+                      <span className="text-[#0D0B05] text-[12px] font-semibold leading-[18px] tracking-widest uppercase">
                         OUR COMMUNITY
                       </span>
                       <div className="flex flex-col gap-[8px]">
@@ -128,12 +125,12 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
+                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col hover:bg-[#FEF6DF]"
                           >
-                            <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                            <span className="text-[#0D0B05] text-[14px] font-[550] leading-[21px] uppercase">
                               {item.name}
                             </span>
-                            <span className="text-dandelion-darkest text-[14px] leading-relaxed">
+                            <span className="text-[#4C3F1C] text-[14px] font-normal leading-[21px]">
                               {item.desc}
                             </span>
                           </Link>
@@ -143,7 +140,7 @@ export default function Navbar() {
 
                     {/* Column 2: ABOUT US */}
                     <div className="flex-1 max-w-[306px] flex flex-col gap-[16px]">
-                      <span className="text-[#0D0B05] text-[12px] font-semibold tracking-widest uppercase">
+                      <span className="text-[#0D0B05] text-[12px] font-semibold leading-[18px] tracking-widest uppercase">
                         ABOUT US
                       </span>
                       <div className="flex flex-col gap-[8px]">
@@ -152,12 +149,12 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
+                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col hover:bg-[#FEF6DF]"
                           >
-                            <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                            <span className="text-[#0D0B05] text-[14px] font-[550] leading-[21px] uppercase">
                               {item.name}
                             </span>
-                            <span className="text-dandelion-darkest text-[14px] leading-relaxed">
+                            <span className="text-[#4C3F1C] text-[14px] font-normal leading-[21px]">
                               {item.desc}
                             </span>
                           </Link>
