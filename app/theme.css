@@ -1,0 +1,144 @@
+/* GENERATED DESIGN TOKENS. DO NOT EDIT DIRECTLY. */
+
+:root {
+  /* Primitives - Colors */
+  --color-white: #FFFFFF;
+  --color-neutral-lightest: #F2F2F2;
+  --color-neutral-lighter: #DADAD9;
+  --color-neutral-light: #B6B5B4;
+  --color-neutral: #868582;
+  --color-neutral-dark: #555450;
+  --color-neutral-darker: #25231E;
+  --color-neutral-darkest: #0D0B05;
+  --color-black-lightest: #E5E5E5;
+  --color-black-lighter: #CCCCCC;
+  --color-black-light: #4C4C4C;
+  --color-black: #000000;
+  --color-black-dark: #000000;
+  --color-black-darker: #000000;
+  --color-black-darkest: #000000;
+  --color-white-lightest: #FFFFFF;
+  --color-white-lighter: #FFFFFF;
+  --color-white-light: #FFFFFF;
+  --color-white-dark: #CCCCCC;
+  --color-white-darker: #666666;
+  --color-white-darkest: #4C4C4C;
+  --color-dandelion-lightest: #FEFAEF;
+  --color-dandelion-lighter: #FEF6DF;
+  --color-dandelion-light: #FEE18F;
+  --color-dandelion: #FED55F;
+  --color-dandelion-dark: #CBAA4C;
+  --color-dandelion-darker: #655526;
+  --color-dandelion-darkest: #4C3F1C;
+
+  /* Primitives - Opacities */
+  --color-transparent: rgba(255, 255, 255, 0);
+  --color-white-5: rgba(255, 255, 255, 0.05);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-15: rgba(255, 255, 255, 0.15);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-50: rgba(255, 255, 255, 0.5);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-neutral-darkest-5: rgba(13, 11, 5, 0.05);
+  --color-neutral-darkest-10: rgba(13, 11, 5, 0.1);
+  --color-neutral-darkest-15: rgba(13, 11, 5, 0.15);
+  --color-neutral-darkest-20: rgba(13, 11, 5, 0.2);
+  --color-neutral-darkest-30: rgba(13, 11, 5, 0.3);
+  --color-neutral-darkest-40: rgba(13, 11, 5, 0.4);
+  --color-neutral-darkest-50: rgba(13, 11, 5, 0.5);
+  --color-neutral-darkest-60: rgba(13, 11, 5, 0.6);
+
+  /* UI Styles - Corner Radii */
+  --radius-small: 0px;
+  --radius-medium: 0px;
+  --radius-large: 0px;
+
+  /* UI Styles - Stroke Widths */
+  --border-width-border-width: 1px;
+  --border-width-divider-width: 1px;
+
+  /* Spacing & Sizing - Layout constants */
+  --width-container-large: 80rem;
+  --width-container-medium: 64rem;
+  --width-container-small: 48rem;
+  --max-width-max-width-xxlarge: 80rem;
+  --max-width-max-width-xlarge: 64rem;
+  --max-width-max-width-large: 48rem;
+  --max-width-max-width-medium: 35rem;
+  --max-width-max-width-small: 30rem;
+  --max-width-max-width-xsmall: 25rem;
+  --max-width-max-width-xxsmall: 20rem;
+
+  /* Spacing & Sizing - Responsive Padding (Mobile default) */
+  --spacing-padding-global: 1.25rem;
+  --spacing-padding-section-large: 4rem;
+  --spacing-padding-section-medium: 3rem;
+  --spacing-padding-section-small: 2rem;
+
+  /* Typography - Font Sizes (Mobile default) */
+  --text-heading-1: 2.5rem;
+  --text-heading-2: 2.25rem;
+  --text-heading-3: 2rem;
+  --text-heading-4: 1.5rem;
+  --text-heading-5: 1.25rem;
+  --text-heading-6: 1.125rem;
+  --text-text-large: 1.125rem;
+  --text-text-medium: 1rem;
+  --text-text-regular: 0.875rem;
+  --text-text-small: 0.75rem;
+  --text-text-tiny: 0.625rem;
+}
+
+/* Desktop layout overrides */
+@media (min-width: 768px) {
+  :root {
+    /* Spacing overrides */
+    --spacing-padding-global: 4rem;
+    --spacing-padding-section-large: 7rem;
+    --spacing-padding-section-medium: 5rem;
+    --spacing-padding-section-small: 3rem;
+
+    /* Typography overrides */
+    --text-heading-1: 14.0625rem;
+    --text-heading-2: 3.75rem;
+    --text-heading-3: 2.5rem;
+    --text-heading-4: 2rem;
+    --text-heading-5: 1.5rem;
+    --text-heading-6: 1.25rem;
+    --text-text-large: 1.25rem;
+    --text-text-medium: 1.125rem;
+    --text-text-regular: 1rem;
+    --text-text-small: 0.875rem;
+    --text-text-tiny: 0.75rem;
+  }
+}
+
+/* Color Scheme: Color Scheme 1 */
+.color-scheme-1 {
+  --color-text: var(--color-neutral-darkest);
+  --color-foreground: var(--color-neutral-lightest);
+  --color-background: var(--color-white);
+  --color-border: var(--color-neutral-darkest-15);
+  --color-accent: var(--color-black);
+}
+
+/* Color Scheme: Color Scheme 2 */
+.color-scheme-2 {
+  --color-text: var(--color-neutral-darkest);
+  --color-background: var(--color-neutral-lightest);
+  --color-border: var(--color-neutral-darkest-15);
+  --color-accent: var(--color-black);
+  --color-foreground: var(--color-white);
+}
+
+/* Color Scheme: Color Scheme 3 */
+.color-scheme-3 {
+  --color-text: var(--color-neutral-darkest);
+  --color-background: var(--color-black-lightest);
+  --color-border: var(--color-neutral-darkest-15);
+  --color-accent: var(--color-black);
+  --color-foreground: var(--color-black-lighter);
+}
+
