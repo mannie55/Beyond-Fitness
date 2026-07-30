@@ -19,7 +19,7 @@ export default function ClassCard({
   href,
 }: ClassCardProps) {
   const cardContent = (
-    <div className="inline-flex flex-col justify-start items-start gap-[32px] p-0 bg-transparent hover:p-[8px] hover:bg-[#FEF6DF] transition-all duration-300 group cursor-pointer font-sans text-left">
+    <div className="inline-flex flex-col justify-start items-start gap-[32px] p-[8px] bg-transparent hover:bg-[#FEF6DF] transition-colors duration-300 group cursor-pointer font-sans text-left">
       {/* Image wrapper — alignSelf: stretch from Figma */}
       <div className="self-stretch flex justify-start items-center gap-[10px]">
         {/* Image container — 400×400, no border-radius, dark overlay */}

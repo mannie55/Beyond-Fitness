@@ -28,7 +28,6 @@ describe("ClassCard Component", () => {
 
     const card = container.firstChild as HTMLElement;
     expect(card.className).toContain("hover:bg-[#FEF6DF]");
-    expect(card.className).toContain("hover:p-[8px]");
     expect(card.className).toContain("group");
   });
 });
