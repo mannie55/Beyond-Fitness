@@ -12,6 +12,16 @@
 @theme {
   --font-sans: var(--font-aspira);
   --font-mono: var(--font-geist-mono);
+  
+  --color-dandelion: var(--color-dandelion);
+  --color-dandelion-light: var(--color-dandelion-light);
+  --color-dandelion-dark: var(--color-dandelion-dark);
+  
+  --color-neutral-lightest: var(--color-neutral-lightest);
+  --color-neutral-darker: var(--color-neutral-darker);
+  
+  --color-black: var(--color-black);
+  --color-white: var(--color-white);
 }
 
 body {
