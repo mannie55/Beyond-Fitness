@@ -141,13 +141,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Massive Decorative Typography */}
-        <div className="w-full select-none text-center text-white font-bold text-[10vw] lg:text-[225px] leading-none lg:leading-[270px] tracking-[0.38em] lg:tracking-[85.5px] pl-[0.38em] lg:pl-[85.5px]">
-          BEYOND
-        </div>
-
         {/* Divider and Credits */}
         <div className="w-full flex flex-col gap-8 border-t border-white/15 pt-8">
+          
+          {/* Massive Decorative Typography */}
+          <div className="w-full select-none text-center text-white font-bold text-[15vw] lg:text-[225px] leading-[0.8] tracking-[0.12em] lg:tracking-[85.5px] -my-4 lg:-my-12">
+            BEYOND
+          </div>
+
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4">
             <span className="text-white/60 text-[14px] font-normal leading-[21px]">
               © 2026 Beyond Fitness. All rights reserved.
