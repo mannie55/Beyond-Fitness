@@ -128,12 +128,12 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
+                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col gap-[12px] hover:bg-[#FEF6DF]"
                           >
-                            <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                            <span className="text-[#0D0B05] text-[14px] font-[550] leading-[21px] uppercase">
                               {item.name}
                             </span>
-                            <span className="text-dandelion-darkest text-[14px] leading-relaxed">
+                            <span className="text-dandelion-darkest text-[14px] leading-[21px]">
                               {item.desc}
                             </span>
                           </Link>
@@ -152,12 +152,12 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
+                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col gap-[12px] hover:bg-[#FEF6DF]"
                           >
-                            <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                            <span className="text-[#0D0B05] text-[14px] font-[550] leading-[21px] uppercase">
                               {item.name}
                             </span>
-                            <span className="text-dandelion-darkest text-[14px] leading-relaxed">
+                            <span className="text-dandelion-darkest text-[14px] leading-[21px]">
                               {item.desc}
                             </span>
                           </Link>
