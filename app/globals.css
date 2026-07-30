@@ -16,6 +16,8 @@
   --color-dandelion: var(--color-dandelion);
   --color-dandelion-light: var(--color-dandelion-light);
   --color-dandelion-dark: var(--color-dandelion-dark);
+  --color-dandelion-lighter: var(--color-dandelion-lighter);
+  --color-dandelion-darkest: var(--color-dandelion-darkest);
   
   --color-neutral-lightest: var(--color-neutral-lightest);
   --color-neutral-darker: var(--color-neutral-darker);

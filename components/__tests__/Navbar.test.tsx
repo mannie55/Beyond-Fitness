@@ -28,14 +28,25 @@ describe("Navbar Component", () => {
     
     // Hover over Community button to open menu
     const communityBtn = screen.getByRole("button", { name: /COMMUNITY/i });
-    expect(screen.queryByText("Member Stories")).toBeNull();
+    expect(screen.queryByText("STORIES")).toBeNull();
     
     fireEvent.mouseEnter(communityBtn);
-    expect(screen.getByText("Member Stories")).toBeDefined();
-    expect(screen.getByText("Pink Walk")).toBeDefined();
+    expect(screen.getByText("STORIES")).toBeDefined();
+    expect(screen.getByText("BEYOND PINK WALK")).toBeDefined();
+    expect(screen.getByText("Real member transformations from the studio floor")).toBeDefined();
     
     fireEvent.mouseLeave(communityBtn.parentElement!);
-    expect(screen.queryByText("Member Stories")).toBeNull();
+    expect(screen.queryByText("STORIES")).toBeNull();
+  });
+
+  it("applies theme classes based on theme prop", () => {
+    const { rerender } = render(<Navbar theme="light" />);
+    const headerLight = screen.getByRole("banner");
+    expect(headerLight.className).toContain("bg-white");
+
+    rerender(<Navbar theme="dark" />);
+    const headerDark = screen.getByRole("banner");
+    expect(headerDark.className).toContain("bg-black");
   });
 
   it("toggles mobile hamburger overlay on click", () => {

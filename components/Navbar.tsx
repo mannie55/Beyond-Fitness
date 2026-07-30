@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useState } from "react";
 import Button from "./ui/Button";
 
-export default function Navbar() {
+interface NavbarProps {
+  theme?: "light" | "dark";
+}
+
+export default function Navbar({ theme = "light" }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCommunityDropdownOpen, setIsCommunityDropdownOpen] = useState(false);
 
@@ -14,22 +18,58 @@ export default function Navbar() {
     { name: "PRICING", href: "/pricing" },
   ];
 
-  const communityLinks = [
-    { name: "Member Stories", href: "/community/member-stories" },
-    { name: "On Tour", href: "/community/on-tour" },
-    { name: "Pink Walk", href: "/community/pink-walk" },
-    { name: "Corporate Wellness", href: "/community/corporate-wellness" },
-    { name: "About", href: "/about" },
+  const communityColumn = [
+    { name: "STORIES", href: "/community/member-stories", desc: "Real member transformations from the studio floor" },
+    { name: "BEYOND ON TOUR", href: "/community/on-tour", desc: "Our signature event series across the city" },
+    { name: "BEYOND PINK WALK", href: "/community/pink-walk", desc: "Join the movement for breast cancer awareness" },
+    { name: "EVENTS", href: "/community", desc: "All upcoming community gatherings and workshops" },
   ];
 
+  const aboutColumn = [
+    { name: "CORPORATE", href: "/corporate-wellness", desc: "Wellness programs for high-performance teams" },
+    { name: "ABOUT", href: "/about", desc: "The story behind the studio and our mission" },
+    { name: "CONTACT", href: "/contact", desc: "Find us in Victoria Island, Lagos" },
+  ];
+
+  // Dynamic style mappings based on theme prop
+  const themeClasses = {
+    light: {
+      header: "bg-white border-black/10 text-[#0D0B05]",
+      brandText: "text-black",
+      navLink: "text-[#0D0B05] hover:text-[#CBAA4C]",
+      hamburger: "text-black hover:text-[#CBAA4C]",
+      dropdownBg: "bg-white border-black/5 shadow-[0_10px_30px_rgba(0,0,0,0.08)]",
+      colHeader: "text-[#0D0B05]/60",
+      itemHover: "hover:bg-dandelion-lighter",
+      itemName: "text-[#0D0B05]",
+      itemDesc: "text-dandelion-darkest",
+      mobileMenu: "bg-white border-black/10 shadow-xl",
+      mobileBorder: "border-black/5",
+    },
+    dark: {
+      header: "bg-black border-white/10 text-white",
+      brandText: "text-white",
+      navLink: "text-white hover:text-[#FED55F]",
+      hamburger: "text-white hover:text-[#FED55F]",
+      dropdownBg: "bg-[#0D0B05] border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)]",
+      colHeader: "text-white/60",
+      itemHover: "hover:bg-white/5",
+      itemName: "text-white",
+      itemDesc: "text-white/60 group-hover:text-[#FED55F]",
+      mobileMenu: "bg-[#0D0B05] border-white/10 shadow-2xl",
+      mobileBorder: "border-white/5",
+    },
+  };
+
+  const activeTheme = themeClasses[theme];
+
   return (
-    <header className="w-full bg-white border-b border-black/10 px-4 md:px-8 py-4 flex justify-between items-center relative z-50 font-sans">
+    <header className={`w-full border-b px-4 md:px-8 py-4 flex justify-between items-center relative z-50 font-sans transition-colors duration-300 ${activeTheme.header}`}>
       {/* Brand Logo & Name */}
       <Link href="/" className="flex items-center gap-3 select-none group">
         <div className="w-[55px] h-[55px] relative overflow-hidden flex-shrink-0">
           <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip_nav_logo)">
-              {/* Outer circular and structural paths */}
               <path 
                 fillRule="evenodd" 
                 clipRule="evenodd" 
@@ -38,7 +78,6 @@ export default function Navbar() {
                 stroke="#FED55F" 
                 strokeWidth="0.5"
               />
-              {/* Vertical letter-bar components */}
               <path 
                 fillRule="evenodd" 
                 clipRule="evenodd" 
@@ -60,10 +99,10 @@ export default function Navbar() {
           </svg>
         </div>
         <div className="flex flex-col justify-start items-start font-sans">
-          <span className="text-black text-[24px] font-bold leading-[33.6px]">
+          <span className={`text-[24px] font-bold leading-[33.6px] transition-colors duration-300 ${activeTheme.brandText}`}>
             BEYOND
           </span>
-          <span className="text-black text-[14px] font-normal leading-[21px] tracking-wide">
+          <span className={`text-[14px] font-normal leading-[21px] tracking-wide transition-colors duration-300 ${activeTheme.brandText}`}>
             FITNESS
           </span>
         </div>
@@ -75,19 +114,19 @@ export default function Navbar() {
           <Link
             key={link.name}
             href={link.href}
-            className="text-[#0D0B05] text-[14px] font-medium leading-[21px] hover:text-[#CBAA4C] transition-colors"
+            className={`text-[14px] font-medium leading-[21px] transition-colors duration-300 ${activeTheme.navLink}`}
           >
             {link.name}
           </Link>
         ))}
 
-        {/* Dropdown Community Link */}
+        {/* Dropdown Community Link Trigger */}
         <div 
-          className="relative"
+          className="relative py-2"
           onMouseEnter={() => setIsCommunityDropdownOpen(true)}
           onMouseLeave={() => setIsCommunityDropdownOpen(false)}
         >
-          <button className="flex items-center gap-1 text-[#0D0B05] text-[14px] font-medium leading-[21px] hover:text-[#CBAA4C] transition-colors cursor-pointer">
+          <button className={`flex items-center gap-1 text-[14px] font-medium leading-[21px] cursor-pointer transition-colors duration-300 ${activeTheme.navLink}`}>
             <span>COMMUNITY</span>
             <svg 
               width="24" 
@@ -98,30 +137,13 @@ export default function Navbar() {
             >
               <path 
                 d="M5.7 8.7L12 15L18.3 8.7" 
-                stroke="#0D0B05" 
+                stroke="currentColor" 
                 strokeWidth="1.99" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
               />
             </svg>
           </button>
-
-          {/* Community Hover Menu */}
-          {isCommunityDropdownOpen && (
-            <div className="absolute top-full left-0 pt-2 w-[220px]">
-              <div className="bg-white border border-black/10 rounded-lg shadow-xl p-2 flex flex-col gap-1">
-                {communityLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="px-4 py-2 text-[#0D0B05] text-[14px] hover:bg-neutral-lightest rounded-md hover:text-[#CBAA4C] transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </nav>
 
@@ -129,7 +151,7 @@ export default function Navbar() {
       <div className="hidden lg:block">
         <Button
           variant="special"
-          theme="light"
+          theme={theme}
           href="/schedule"
         >
           BOOK YOUR FIRST CLASS
@@ -139,7 +161,7 @@ export default function Navbar() {
       {/* Mobile Hamburger Toggle */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="block lg:hidden text-black hover:text-[#CBAA4C] transition-colors focus:outline-none cursor-pointer"
+        className={`block lg:hidden focus:outline-none cursor-pointer transition-colors duration-300 ${activeTheme.hamburger}`}
         aria-label="Toggle navigation menu"
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -151,35 +173,123 @@ export default function Navbar() {
         </svg>
       </button>
 
+      {/* Community Mega Menu Dropdown */}
+      {isCommunityDropdownOpen && (
+        <div 
+          className={`absolute top-full left-0 w-full z-50 border-t transition-colors duration-300 ${activeTheme.dropdownBg}`}
+          onMouseEnter={() => setIsCommunityDropdownOpen(true)}
+          onMouseLeave={() => setIsCommunityDropdownOpen(false)}
+        >
+          <div className="max-w-[1200px] mx-auto px-16 py-8 grid grid-cols-2 gap-16 font-sans">
+            {/* Column 1: OUR COMMUNITY */}
+            <div className="flex flex-col gap-4">
+              <span className={`text-[12px] font-bold tracking-widest uppercase transition-colors duration-300 ${activeTheme.colHeader}`}>
+                OUR COMMUNITY
+              </span>
+              <div className="flex flex-col gap-2">
+                {communityColumn.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsCommunityDropdownOpen(false)}
+                    className={`group p-2 rounded-lg transition-all duration-300 flex flex-col gap-0.5 ${activeTheme.itemHover}`}
+                  >
+                    <span className={`text-[14px] font-bold tracking-wide uppercase transition-colors duration-300 ${activeTheme.itemName}`}>
+                      {item.name}
+                    </span>
+                    <span className={`text-[14px] leading-relaxed transition-colors duration-300 ${activeTheme.itemDesc}`}>
+                      {item.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Column 2: ABOUT US */}
+            <div className="flex flex-col gap-4">
+              <span className={`text-[12px] font-bold tracking-widest uppercase transition-colors duration-300 ${activeTheme.colHeader}`}>
+                ABOUT US
+              </span>
+              <div className="flex flex-col gap-2">
+                {aboutColumn.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsCommunityDropdownOpen(false)}
+                    className={`group p-2 rounded-lg transition-all duration-300 flex flex-col gap-0.5 ${activeTheme.itemHover}`}
+                  >
+                    <span className={`text-[14px] font-bold tracking-wide uppercase transition-colors duration-300 ${activeTheme.itemName}`}>
+                      {item.name}
+                    </span>
+                    <span className={`text-[14px] leading-relaxed transition-colors duration-300 ${activeTheme.itemDesc}`}>
+                      {item.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Mobile Slide-Down Overlay */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white border-b border-black/10 shadow-xl flex flex-col p-6 gap-6 lg:hidden animate-[fadeIn_0.2s_ease-out]">
+        <div className={`absolute top-full left-0 w-full shadow-2xl flex flex-col p-6 gap-6 lg:hidden animate-[fadeIn_0.2s_ease-out] ${activeTheme.mobileMenu}`}>
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-[#0D0B05] text-[16px] font-semibold leading-[24px] hover:text-[#CBAA4C] py-1 border-b border-black/5"
+                className={`text-[16px] font-semibold leading-[24px] py-1 border-b hover:text-[#CBAA4C] transition-colors duration-300 ${activeTheme.mobileBorder}`}
               >
                 {link.name}
               </Link>
             ))}
             
-            {/* Mobile Community Header & Links */}
-            <div className="flex flex-col gap-2">
-              <span className="text-[#0D0B05]/40 text-[12px] font-bold tracking-widest uppercase">
-                COMMUNITY
+            {/* Mobile Column 1: OUR COMMUNITY */}
+            <div className="flex flex-col gap-2 pt-2">
+              <span className={`text-[12px] font-bold tracking-widest uppercase transition-colors duration-300 ${activeTheme.colHeader}`}>
+                OUR COMMUNITY
               </span>
-              <div className="flex flex-col gap-2 pl-4 border-l border-[#CBAA4C]/25">
-                {communityLinks.map((link) => (
+              <div className={`flex flex-col gap-1 pl-4 border-l border-[#CBAA4C]/20`}>
+                {communityColumn.map((item) => (
                   <Link
-                    key={link.name}
-                    href={link.href}
+                    key={item.name}
+                    href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-[#0D0B05] text-[15px] font-medium hover:text-[#CBAA4C] py-1"
+                    className={`group p-2 rounded-lg transition-all duration-300 flex flex-col gap-0.5 ${activeTheme.itemHover}`}
                   >
-                    {link.name}
+                    <span className={`text-[14px] font-bold tracking-wide uppercase transition-colors duration-300 ${activeTheme.itemName}`}>
+                      {item.name}
+                    </span>
+                    <span className={`text-[13px] leading-relaxed transition-colors duration-300 ${activeTheme.itemDesc}`}>
+                      {item.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Column 2: ABOUT US */}
+            <div className="flex flex-col gap-2 pt-2">
+              <span className={`text-[12px] font-bold tracking-widest uppercase transition-colors duration-300 ${activeTheme.colHeader}`}>
+                ABOUT US
+              </span>
+              <div className={`flex flex-col gap-1 pl-4 border-l border-[#CBAA4C]/20`}>
+                {aboutColumn.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`group p-2 rounded-lg transition-all duration-300 flex flex-col gap-0.5 ${activeTheme.itemHover}`}
+                  >
+                    <span className={`text-[14px] font-bold tracking-wide uppercase transition-colors duration-300 ${activeTheme.itemName}`}>
+                      {item.name}
+                    </span>
+                    <span className={`text-[13px] leading-relaxed transition-colors duration-300 ${activeTheme.itemDesc}`}>
+                      {item.desc}
+                    </span>
                   </Link>
                 ))}
               </div>
@@ -190,7 +300,7 @@ export default function Navbar() {
           <div className="w-full flex justify-center pt-2">
             <Button
               variant="special"
-              theme="light"
+              theme={theme}
               href="/schedule"
               onClick={() => setIsMobileMenuOpen(false)}
             >
