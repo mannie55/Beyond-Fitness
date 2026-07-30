@@ -39,16 +39,6 @@ describe("Navbar Component", () => {
     expect(screen.queryByText("STORIES")).toBeNull();
   });
 
-  it("applies theme classes based on theme prop", () => {
-    const { rerender } = render(<Navbar theme="light" />);
-    const headerLight = screen.getByRole("banner");
-    expect(headerLight.className).toContain("bg-white");
-
-    rerender(<Navbar theme="dark" />);
-    const headerDark = screen.getByRole("banner");
-    expect(headerDark.className).toContain("bg-black");
-  });
-
   it("toggles mobile hamburger overlay on click", () => {
     render(<Navbar />);
     

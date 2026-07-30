@@ -173,18 +173,10 @@ export default function DesignSystemPage() {
         <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
           Header Navbar Component
         </h2>
-        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
-            <span className="text-text-small text-white/50 font-semibold">Light Theme Navbar (Figma Spec)</span>
-            <div className="rounded-lg overflow-hidden border border-black/10">
-              <Navbar theme="light" />
-            </div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-text-small text-white/50 font-semibold">Dark Theme Navbar</span>
-            <div className="rounded-lg overflow-hidden border border-white/10">
-              <Navbar theme="dark" />
-            </div>
+        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-4">
+          <span className="text-text-small text-white/50 font-semibold">Light Theme Navbar (Figma Spec)</span>
+          <div className="rounded-lg overflow-hidden border border-black/10">
+            <Navbar />
           </div>
         </div>
       </section>
