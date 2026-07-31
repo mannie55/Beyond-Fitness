@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import ClassCard from "@/components/ui/ClassCard";
 import StatsBar from "@/components/ui/StatsBar";
 import FeatureItem from "@/components/ui/FeatureItem";
+import LogoSection from "@/components/ui/LogoSection";
 
 export default function DesignSystemPage() {
   const primitiveColors = [
@@ -331,6 +332,21 @@ export default function DesignSystemPage() {
                 title="HIGH-PERFORMING COMMUNITY"
                 description="A network of driven individuals pushing each other toward their best."
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Logo Section Showcase */}
+      <section className="px-padding-global py-12 max-w-container-large mx-auto flex flex-col gap-6">
+        <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
+          Logo Section Component
+        </h2>
+        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Logos Ticker Context</span>
+            <div className="bg-[#E5E7EB] rounded-lg border border-black/10 py-[1rem]">
+              <LogoSection />
             </div>
           </div>
         </div>
