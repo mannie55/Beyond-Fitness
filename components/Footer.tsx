@@ -11,13 +11,13 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-black text-white px-6 md:px-16 py-20 flex flex-col items-center overflow-hidden font-sans">
-      <div className="w-full max-w-[1280px] flex flex-col items-center gap-20">
+      <div className="w-full max-w-[80rem] flex flex-col items-center gap-20">
         
         {/* Main Footer Contents */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-[128px] lg:gap-32">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-32">
           
           {/* Newsletter and Brand Section */}
-          <div className="flex flex-col gap-6 max-w-[500px] w-full">
+          <div className="flex flex-col gap-6 max-w-[31.25rem] w-full">
             {/* Brand Logo and Name */}
             <div className="flex items-center gap-3">
               <Image
@@ -28,31 +28,31 @@ export default function Footer() {
                 className="h-[55px] w-[55px]"
               />
               <div className="flex flex-col justify-start items-start font-sans">
-                <span className="text-white text-[24px] font-bold leading-[33.6px]">
+                <span className="text-white text-heading-4 font-bold leading-[1.4]">
                   BEYOND
                 </span>
-                <span className="text-white text-[14px] font-normal leading-[21px] tracking-wide">
+                <span className="text-white text-text-regular font-normal leading-[1.5] tracking-wide">
                   FITNESS
                 </span>
               </div>
             </div>
 
             {/* Description */}
-            <p className="text-white text-[14px] font-normal leading-[21px]">
+            <p className="text-white text-text-regular font-normal leading-[1.5]">
               Join our community for exclusive event access and training insights.
             </p>
 
             {/* Newsletter Subscription Form */}
-            <form onSubmit={handleSubscribe} className="flex flex-row items-center gap-4 w-full max-w-[385px]">
+            <form onSubmit={handleSubscribe} className="flex flex-row items-center gap-4 w-full max-w-[24.0625rem]">
               <input
                 type="email"
                 placeholder="Your email"
                 required
-                className="flex-1 min-w-0 h-[46px] rounded-[30px] border border-white/30 bg-white/5 px-3 py-2 text-[16px] leading-[24px] text-white/60 placeholder-white/60 focus:border-white focus:outline-none transition-colors"
+                className="flex-1 min-w-0 h-[2.875rem] rounded-[30px] border border-white/30 bg-white/5 px-3 py-2 text-text-medium leading-[1.5] text-white/60 placeholder-white/60 focus:border-white focus:outline-none transition-colors"
               />
               <button
                 type="submit"
-                className="w-[105px] h-[46px] rounded-full bg-white text-black font-bold text-[14px] leading-[21px] flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer flex-shrink-0"
+                className="w-[6.5625rem] h-[2.875rem] rounded-full bg-white text-black font-bold text-text-regular leading-[1.5] flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer flex-shrink-0"
               >
                 JOIN
               </button>
@@ -60,10 +60,10 @@ export default function Footer() {
           </div>
 
           {/* Links Section */}
-          <div className="flex-1 flex flex-row flex-wrap justify-between gap-[40px] w-full">
+          <div className="flex-1 flex flex-row flex-wrap justify-between gap-10 w-full">
             {/* CLASSES Column */}
             <div className="flex flex-col gap-4 min-w-[140px]">
-              <h3 className="text-white text-[16px] font-semibold leading-[24px] tracking-wider">
+              <h3 className="text-white text-text-medium font-semibold leading-[1.5] tracking-wider">
                 CLASSES
               </h3>
               <ul className="flex flex-col">
@@ -71,7 +71,7 @@ export default function Footer() {
                   <li key={link} className="py-2">
                     <Link
                       href={`/classes/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-white/60 text-[14px] font-normal leading-[21px] hover:text-white transition-colors"
+                      className="text-white/60 text-text-regular font-normal leading-[1.5] hover:text-white transition-colors"
                     >
                       {link}
                     </Link>
@@ -82,7 +82,7 @@ export default function Footer() {
 
             {/* COMMUNITY Column */}
             <div className="flex flex-col gap-4 min-w-[140px]">
-              <h3 className="text-white text-[16px] font-semibold leading-[24px] tracking-wider">
+              <h3 className="text-white text-text-medium font-semibold leading-[1.5] tracking-wider">
                 COMMUNITY
               </h3>
               <ul className="flex flex-col">
@@ -96,7 +96,7 @@ export default function Footer() {
                   <li key={link} className="py-2">
                     <Link
                       href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-white/60 text-[14px] font-normal leading-[21px] hover:text-white transition-colors"
+                      className="text-white/60 text-text-regular font-normal leading-[1.5] hover:text-white transition-colors"
                     >
                       {link}
                     </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
 
             {/* FOLLOW US Column */}
             <div className="flex flex-col gap-4 min-w-[140px]">
-              <h3 className="text-white text-[16px] font-semibold leading-[24px] tracking-wider">
+              <h3 className="text-white text-text-medium font-semibold leading-[1.5] tracking-wider">
                 FOLLOW US
               </h3>
               <ul className="flex flex-col">
@@ -123,7 +123,7 @@ export default function Footer() {
                       href={`https://${item.name.toLowerCase()}.com`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-white/60 text-[14px] font-normal leading-[21px] hover:text-white transition-colors"
+                      className="flex items-center gap-3 text-white/60 text-text-regular font-normal leading-[1.5] hover:text-white transition-colors"
                     >
                       <Image
                         src={item.icon}
@@ -146,13 +146,13 @@ export default function Footer() {
           
           {/* Massive Decorative Typography */}
           <div className="w-full flex justify-center overflow-visible">
-            <div className="select-none text-center text-white font-bold text-[20vw] lg:text-[260px] leading-[0.8] tracking-[0.08em] lg:tracking-[85.5px] indent-[0.08em] lg:indent-[85.5px] -mt-6 mb-2 lg:-mt-16 lg:mb-4 whitespace-nowrap">
+            <div className="select-none text-center text-white font-bold text-[20vw] lg:text-[16.25rem] leading-[0.8] tracking-[0.08em] lg:tracking-[5.34rem] indent-[0.08em] lg:indent-[5.34rem] -mt-6 mb-2 lg:-mt-16 lg:mb-4 whitespace-nowrap">
               BEYOND
             </div>
           </div>
 
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4">
-            <span className="text-white/60 text-[14px] font-normal leading-[21px]">
+            <span className="text-white/60 text-text-regular font-normal leading-[1.5]">
               © 2026 Beyond Fitness. All rights reserved.
             </span>
             <div className="flex gap-6">
@@ -160,7 +160,7 @@ export default function Footer() {
                 <Link
                   key={policy}
                   href={`/${policy.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="text-white/50 text-[14px] font-normal leading-[21px] hover:text-white transition-colors"
+                  className="text-white/50 text-text-regular font-normal leading-[1.5] hover:text-white transition-colors"
                 >
                   {policy}
                 </Link>

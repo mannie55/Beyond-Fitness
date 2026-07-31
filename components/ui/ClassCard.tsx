@@ -19,11 +19,11 @@ export default function ClassCard({
   href,
 }: ClassCardProps) {
   const cardContent = (
-    <div className="inline-flex flex-col justify-start items-start gap-[32px] p-[8px] bg-transparent hover:bg-[#FEF6DF] transition-colors duration-300 group cursor-pointer font-sans text-left">
+    <div className="inline-flex flex-col justify-start items-start gap-4 p-4 bg-transparent hover:bg-[#FEF6DF] transition-colors duration-300 group cursor-pointer font-sans text-left">
       {/* Image wrapper — alignSelf: stretch from Figma */}
-      <div className="self-stretch flex justify-start items-center gap-[10px]">
+      <div className="self-stretch flex justify-start items-center gap-2.5">
         {/* Image container — 400×400, no border-radius, dark overlay */}
-        <div className="w-[400px] h-[400px] relative overflow-hidden bg-neutral-100">
+        <div className="w-[25rem] h-[25rem] relative overflow-hidden bg-neutral-100">
           <Image
             src={imageSrc}
             alt={title}
@@ -35,8 +35,8 @@ export default function ClassCard({
           <div className="absolute inset-0 bg-black/5 pointer-events-none" />
 
           {/* Difficulty badge — positioned bottom-left inside image */}
-          <div className="absolute left-[18px] bottom-[36px] px-[9.96px] pt-[8.95px] pb-[10.46px] bg-black rounded-[24px] inline-flex flex-col justify-start items-start">
-            <span className="text-[#FED55F] text-[13.3px] font-bold uppercase leading-[17.51px] font-sans">
+          <div className="absolute left-[1.125rem] bottom-[2.25rem] px-2.5 pt-2 pb-2.5 bg-black rounded-[1.5rem] inline-flex flex-col justify-start items-start">
+            <span className="text-[#FED55F] text-text-regular font-bold uppercase leading-[1.3] font-sans">
               {tag}
             </span>
           </div>
@@ -44,11 +44,11 @@ export default function ClassCard({
       </div>
 
       {/* Text content section */}
-      <div className="w-[346px] flex flex-col justify-start items-start gap-[8px]">
-        <h3 className="text-[#0D0B05] text-[24px] font-bold leading-[28.8px] font-sans">
+      <div className="w-[21.625rem] flex flex-col justify-start items-start gap-2">
+        <h3 className="text-[#0D0B05] text-heading-4 font-bold leading-[1.2] font-sans">
           {title}
         </h3>
-        <p className="text-[#25231E] text-[16px] font-normal leading-[24px] font-sans">
+        <p className="text-[#25231E] text-text-medium font-normal leading-[1.5] font-sans">
           {description}
         </p>
       </div>

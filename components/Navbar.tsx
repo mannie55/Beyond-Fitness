@@ -28,7 +28,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full max-w-[1435px] mx-auto px-4 md:px-[64px] h-[72px] flex items-center relative z-50 font-sans text-[#0D0B05]">
+    <header className="w-full max-w-[89.6875rem] mx-auto px-4 md:px-16 h-[4.5rem] flex items-center relative z-50 font-sans text-[#0D0B05]">
       {/* Rounded Navbar Body Card */}
       <div className="w-full h-full px-4 md:px-6 bg-white border border-black/10 rounded-lg flex justify-between items-center relative">
         {/* Brand Logo & Name */}
@@ -66,22 +66,22 @@ export default function Navbar() {
             </svg>
           </div>
           <div className="flex flex-col justify-start items-start font-sans">
-            <span className="text-black text-[24px] font-bold leading-[33.6px]">
+            <span className="text-black text-heading-4 font-bold leading-[1.4]">
               BEYOND
             </span>
-            <span className="text-black text-[14px] font-normal leading-[21px] tracking-wide">
+            <span className="text-black text-text-regular font-normal leading-[1.5] tracking-wide">
               FITNESS
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-[32px] h-full">
+        <nav className="hidden lg:flex items-center gap-8 h-full">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-[14px] font-medium leading-[21px] transition-colors duration-300 text-[#0D0B05] hover:text-[#CBAA4C]"
+              className="text-text-regular font-medium leading-[1.5] transition-colors duration-300 text-[#0D0B05] hover:text-[#CBAA4C]"
             >
               {link.name}
             </Link>
@@ -93,7 +93,7 @@ export default function Navbar() {
             onMouseEnter={() => setIsCommunityDropdownOpen(true)}
             onMouseLeave={() => setIsCommunityDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 text-[14px] font-medium leading-[21px] cursor-pointer transition-colors duration-300 text-[#0D0B05] hover:text-[#CBAA4C] py-2">
+            <button className="flex items-center gap-1 text-text-regular font-medium leading-[1.5] cursor-pointer transition-colors duration-300 text-[#0D0B05] hover:text-[#CBAA4C] py-2">
               <span>COMMUNITY</span>
               <svg 
                 width="24" 
@@ -114,26 +114,26 @@ export default function Navbar() {
 
             {/* Community Mega Menu Dropdown (Centered relative to the header) */}
             {isCommunityDropdownOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[794px] pt-[12px] z-50">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[49.625rem] pt-3 z-50">
                 <div className="w-full bg-white border border-black/10 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.08)] overflow-hidden">
-                  <div className="w-full px-[64px] py-[32px] flex justify-center items-start gap-[16px] font-sans">
+                  <div className="w-full px-16 py-8 flex justify-center items-start gap-4 font-sans">
                     {/* Column 1: OUR COMMUNITY */}
-                    <div className="flex-1 max-w-[268px] flex flex-col gap-[16px]">
-                      <span className="text-[#0D0B05] text-[12px] font-semibold tracking-widest uppercase">
+                    <div className="flex-1 max-w-[16.75rem] flex flex-col gap-4">
+                      <span className="text-[#0D0B05] text-text-small font-semibold tracking-widest uppercase">
                         OUR COMMUNITY
                       </span>
-                      <div className="flex flex-col gap-[8px]">
+                      <div className="flex flex-col gap-2">
                         {communityColumn.map((item) => (
                           <Link
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col gap-[12px] hover:bg-[#FEF6DF]"
+                            className="group p-2 rounded-lg transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
                           >
-                            <span className="text-[#0D0B05] text-[14px] font-[550] leading-[21px] uppercase">
+                            <span className="text-[#0D0B05] text-text-regular font-[550] leading-[1.5] uppercase">
                               {item.name}
                             </span>
-                            <span className="text-dandelion-darkest text-[14px] leading-[21px]">
+                            <span className="text-dandelion-darkest text-text-regular leading-[1.5]">
                               {item.desc}
                             </span>
                           </Link>
@@ -142,22 +142,22 @@ export default function Navbar() {
                     </div>
 
                     {/* Column 2: ABOUT US */}
-                    <div className="flex-1 max-w-[306px] flex flex-col gap-[16px]">
-                      <span className="text-[#0D0B05] text-[12px] font-semibold tracking-widest uppercase">
+                    <div className="flex-1 max-w-[19.125rem] flex flex-col gap-4">
+                      <span className="text-[#0D0B05] text-text-small font-semibold tracking-widest uppercase">
                         ABOUT US
                       </span>
-                      <div className="flex flex-col gap-[8px]">
+                      <div className="flex flex-col gap-2">
                         {aboutColumn.map((item) => (
                           <Link
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-[8px] rounded-lg transition-all duration-300 flex flex-col gap-[12px] hover:bg-[#FEF6DF]"
+                            className="group p-2 rounded-lg transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
                           >
-                            <span className="text-[#0D0B05] text-[14px] font-[550] leading-[21px] uppercase">
+                            <span className="text-[#0D0B05] text-text-regular font-[550] leading-[1.5] uppercase">
                               {item.name}
                             </span>
-                            <span className="text-dandelion-darkest text-[14px] leading-[21px]">
+                            <span className="text-dandelion-darkest text-text-regular leading-[1.5]">
                               {item.desc}
                             </span>
                           </Link>
@@ -206,7 +206,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-[16px] font-semibold leading-[24px] py-1 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/5"
+                  className="text-text-medium font-semibold leading-[1.5] py-1 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/5"
                 >
                   {link.name}
                 </Link>
@@ -214,7 +214,7 @@ export default function Navbar() {
               
               {/* Mobile Column 1: OUR COMMUNITY */}
               <div className="flex flex-col gap-2 pt-2">
-                <span className="text-[#0D0B05]/60 text-[12px] font-bold tracking-widest uppercase">
+                <span className="text-[#0D0B05]/60 text-text-small font-bold tracking-widest uppercase">
                   OUR COMMUNITY
                 </span>
                 <div className="flex flex-col gap-1 pl-4 border-l border-[#CBAA4C]/20">
@@ -225,10 +225,10 @@ export default function Navbar() {
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="group p-2 rounded-lg transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
                     >
-                      <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                      <span className="text-[#0D0B05] text-text-regular font-bold tracking-wide uppercase">
                         {item.name}
                       </span>
-                      <span className="text-dandelion-darkest text-[13px] leading-relaxed">
+                      <span className="text-dandelion-darkest text-text-regular leading-relaxed">
                         {item.desc}
                       </span>
                     </Link>
@@ -238,7 +238,7 @@ export default function Navbar() {
 
               {/* Mobile Column 2: ABOUT US */}
               <div className="flex flex-col gap-2 pt-2">
-                <span className="text-[#0D0B05]/60 text-[12px] font-bold tracking-widest uppercase">
+                <span className="text-[#0D0B05]/60 text-text-small font-bold tracking-widest uppercase">
                   ABOUT US
                 </span>
                 <div className="flex flex-col gap-1 pl-4 border-l border-[#CBAA4C]/20">
@@ -249,10 +249,10 @@ export default function Navbar() {
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="group p-2 rounded-lg transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
                     >
-                      <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                      <span className="text-[#0D0B05] text-text-regular font-bold tracking-wide uppercase">
                         {item.name}
                       </span>
-                      <span className="text-dandelion-darkest text-[13px] leading-relaxed">
+                      <span className="text-dandelion-darkest text-text-regular leading-relaxed">
                         {item.desc}
                       </span>
                     </Link>
