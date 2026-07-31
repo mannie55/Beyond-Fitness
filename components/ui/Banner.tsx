@@ -16,18 +16,18 @@ export default function Banner({ speed = "medium", pauseOnHover = true }: Banner
   };
 
   return (
-    <div className="w-full overflow-hidden bg-black py-[3px] flex items-center select-none border-y border-white/5">
+    <div className="w-full overflow-hidden bg-black py-[0.1875rem] flex items-center select-none border-y border-white/5">
       <div className={`flex whitespace-nowrap ${speedClasses[speed]} ${pauseOnHover ? "hover:[animation-play-state:paused]" : ""}`}>
         
         {/* First marquee list copy */}
         <div className="flex items-center flex-shrink-0">
           {segments.map((item, idx) => (
-            <div key={`first-${idx}`} className="flex items-center gap-[4px] mr-[8px] flex-shrink-0 font-sans">
-              <span className="text-[#FFFEFE] text-[12px] font-bold leading-[18px]">
+            <div key={`first-${idx}`} className="flex items-center gap-[0.25rem] mr-[0.5rem] flex-shrink-0 font-sans">
+              <span className="text-[#FFFEFE] text-[0.75rem] font-bold leading-[1.125rem]">
                 {item.text1}
               </span>
-              <div className="w-[5px] h-[5px] bg-white rounded-full flex-shrink-0" />
-              <span className="text-[#FFFEFE] text-[12px] font-bold leading-[18px]">
+              <div className="w-[0.3125rem] h-[0.3125rem] bg-white rounded-full flex-shrink-0" />
+              <span className="text-[#FFFEFE] text-[0.75rem] font-bold leading-[1.125rem]">
                 {item.text2}
               </span>
             </div>
@@ -37,18 +37,17 @@ export default function Banner({ speed = "medium", pauseOnHover = true }: Banner
         {/* Second marquee list copy for seamless infinite loop */}
         <div className="flex items-center flex-shrink-0" aria-hidden="true">
           {segments.map((item, idx) => (
-            <div key={`second-${idx}`} className="flex items-center gap-[4px] mr-[8px] flex-shrink-0 font-sans">
-              <span className="text-[#FFFEFE] text-[12px] font-bold leading-[18px]">
+            <div key={`second-${idx}`} className="flex items-center gap-[0.25rem] mr-[0.5rem] flex-shrink-0 font-sans">
+              <span className="text-[#FFFEFE] text-[0.75rem] font-bold leading-[1.125rem]">
                 {item.text1}
               </span>
-              <div className="w-[5px] h-[5px] bg-white rounded-full flex-shrink-0" />
-              <span className="text-[#FFFEFE] text-[12px] font-bold leading-[18px]">
+              <div className="w-[0.3125rem] h-[0.3125rem] bg-white rounded-full flex-shrink-0" />
+              <span className="text-[#FFFEFE] text-[0.75rem] font-bold leading-[1.125rem]">
                 {item.text2}
               </span>
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );

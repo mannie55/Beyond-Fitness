@@ -91,18 +91,18 @@ export default function StatsBar({
   return (
     <div
       ref={containerRef}
-      className="w-full flex justify-center items-start gap-[16px]"
+      className="w-full flex justify-center items-start gap-[1rem]"
     >
-      <div className="w-full max-w-[601px] flex justify-start items-center gap-[8px]">
+      <div className="w-full max-w-[37.5625rem] flex justify-start items-center gap-[0.5rem]">
         {stats.map((stat, i) => (
           <div
             key={stat.label}
-            className="flex-1 self-stretch p-[32px] inline-flex flex-col justify-center items-center gap-[8px]"
+            className="flex-1 self-stretch p-[2rem] inline-flex flex-col justify-center items-center gap-[0.5rem]"
           >
-            <span className="text-[color:var(--color-black,#000)] text-[40px] font-[550] leading-[48px] font-sans tabular-nums">
+            <span className="text-[color:var(--color-black,#000)] text-[2.5rem] font-[550] leading-[3rem] font-sans tabular-nums">
               {displayValues[i]}
             </span>
-            <span className="text-[color:var(--color-neutral-darker,#25231E)] text-[16px] font-normal leading-[24px] font-sans">
+            <span className="text-[color:var(--color-neutral-darker,#25231E)] text-[1rem] font-normal leading-[1.5rem] font-sans">
               {stat.label}
             </span>
           </div>

@@ -200,20 +200,20 @@ export default function DesignSystemPage() {
           <div className="flex flex-col gap-2">
             <span className="text-text-small text-white/50 font-semibold">Community Dropdown Menu Content (794px Figma Spec)</span>
             <div className="flex justify-center">
-              <div className="w-[794px] bg-white border border-black/10 rounded-lg shadow-xl overflow-hidden">
-                <div className="w-full px-[64px] py-[32px] flex justify-center items-start gap-[16px] font-sans">
+              <div className="w-[49.625rem] bg-white border border-black/10 rounded-lg shadow-xl overflow-hidden">
+                <div className="w-full px-[4rem] py-[2rem] flex justify-center items-start gap-[1rem] font-sans">
                   {/* Column 1: OUR COMMUNITY */}
-                  <div className="flex-1 max-w-[268px] flex flex-col gap-[16px]">
-                    <span className="text-[#0D0B05] text-[12px] font-semibold tracking-widest uppercase">
+                  <div className="flex-1 max-w-[16.75rem] flex flex-col gap-[1rem]">
+                    <span className="text-[#0D0B05] text-[0.75rem] font-semibold tracking-widest uppercase">
                       OUR COMMUNITY
                     </span>
-                    <div className="flex flex-col gap-[8px]">
+                    <div className="flex flex-col gap-[0.5rem]">
                       {communityColumn.map((item, idx) => (
                         <div
                           key={item.name}
-                          className={`p-[8px] rounded-lg flex flex-col gap-0.5 ${idx === 0 ? "bg-[#FEF6DF]" : ""}`}
+                          className={`p-[0.5rem] rounded-lg flex flex-col gap-0.5 ${idx === 0 ? "bg-[#FEF6DF]" : ""}`}
                         >
-                          <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                          <span className="text-[#0D0B05] text-[0.875rem] font-bold tracking-wide uppercase">
                             {item.name}
                           </span>
                           <span className="text-dandelion-darkest text-[14px] leading-relaxed">
@@ -225,17 +225,17 @@ export default function DesignSystemPage() {
                   </div>
 
                   {/* Column 2: ABOUT US */}
-                  <div className="flex-1 max-w-[306px] flex flex-col gap-[16px]">
-                    <span className="text-[#0D0B05] text-[12px] font-semibold tracking-widest uppercase">
+                  <div className="flex-1 max-w-[19.125rem] flex flex-col gap-[1rem]">
+                    <span className="text-[#0D0B05] text-[0.75rem] font-semibold tracking-widest uppercase">
                       ABOUT US
                     </span>
-                    <div className="flex flex-col gap-[8px]">
+                    <div className="flex flex-col gap-[0.5rem]">
                       {aboutColumn.map((item) => (
                         <div
                           key={item.name}
-                          className="p-[8px] rounded-lg flex flex-col gap-0.5"
+                          className="p-[0.5rem] rounded-lg flex flex-col gap-0.5"
                         >
-                          <span className="text-[#0D0B05] text-[14px] font-bold tracking-wide uppercase">
+                          <span className="text-[#0D0B05] text-[0.875rem] font-bold tracking-wide uppercase">
                             {item.name}
                           </span>
                           <span className="text-dandelion-darkest text-[14px] leading-relaxed">
@@ -322,7 +322,7 @@ export default function DesignSystemPage() {
         <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <span className="text-text-small text-white/50 font-semibold">Hover to expand (light background context)</span>
-            <div className="bg-white rounded-lg border border-black/10 p-8 flex gap-[32px] flex-wrap">
+            <div className="bg-white rounded-lg border border-black/10 p-[2rem] flex gap-[2rem] flex-wrap">
               <FeatureItem
                 title="BOUTIQUE PREMIUM EXPERIENCE"
                 description="Curated classes, immersive spaces and intentional design — every detail is considered."

@@ -29,9 +29,9 @@ describe("FeatureItem Component", () => {
     fireEvent.mouseEnter(card);
 
     expect(card.className).toContain("bg-[#FEF6DF]");
-    expect(card.className).toContain("p-[8px]");
-    // Description should now be visible (max-h-[200px])
-    const expandedWrapper = container.querySelector(".max-h-\\[200px\\]");
+    expect(card.className).toContain("p-[0.5rem]");
+    // Description should now be visible (max-h-[12.5rem])
+    const expandedWrapper = container.querySelector(".max-h-\\[12\\.5rem\\]");
     expect(expandedWrapper).not.toBeNull();
   });
 

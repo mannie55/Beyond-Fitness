@@ -12,16 +12,16 @@ export default function FeatureItem({ title, description }: FeatureItemProps) {
 
   return (
     <div
-      className={`w-[265px] flex justify-start items-start gap-[16px] transition-all duration-300 ${
-        isOpen ? "p-[8px] bg-[#FEF6DF]" : "p-0 bg-transparent"
+      className={`w-[16.5625rem] flex justify-start items-start gap-[1rem] transition-all duration-300 ${
+        isOpen ? "p-[0.5rem] bg-[#FEF6DF]" : "p-0 bg-transparent"
       }`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <div className="flex-1 flex flex-col justify-start items-start gap-[4px]">
+      <div className="flex-1 flex flex-col justify-start items-start gap-[0.25rem]">
         {/* Header row: title + arrow */}
-        <div className="self-stretch h-[22px] border-b border-[color:var(--color-neutral,#868582)] flex justify-between items-start">
-          <span className="text-[#171717] text-[14px] font-[550] leading-[21px] font-sans">
+        <div className="self-stretch h-[1.375rem] border-b border-[color:var(--color-neutral,#868582)] flex justify-between items-start">
+          <span className="text-[#171717] text-[0.875rem] font-[550] leading-[1.3125rem] font-sans">
             {title}
           </span>
           {/* Arrow icon — points right by default, rotates 45° on hover */}
@@ -47,10 +47,10 @@ export default function FeatureItem({ title, description }: FeatureItemProps) {
         {/* Expandable description content */}
         <div
           className={`self-stretch overflow-hidden transition-all duration-300 ${
-            isOpen ? "max-h-[200px] opacity-100 pb-[1px]" : "max-h-0 opacity-0"
+            isOpen ? "max-h-[12.5rem] opacity-100 pb-[0.0625rem]" : "max-h-0 opacity-0"
           }`}
         >
-          <p className="text-[color:var(--color-neutral,#868582)] text-[14px] font-normal leading-[21px] font-sans">
+          <p className="text-[color:var(--color-neutral,#868582)] text-[0.875rem] font-normal leading-[1.3125rem] font-sans">
             {description}
           </p>
         </div>

@@ -54,10 +54,10 @@ export default function Button({
   className = "",
   type = "button",
   width = "w-fit",
-  paddingLeft = "pl-[24px]",
+  paddingLeft = "pl-[1.5rem]",
   textWidth = "w-auto",
 }: ButtonProps) {
-  const baseClasses = `group h-[52px] rounded-full inline-flex items-center justify-between gap-[16px] pr-[4px] py-[4px] text-text-small font-sans tracking-wider uppercase transition-all select-none cursor-pointer duration-300 ${width} ${paddingLeft}`;
+  const baseClasses = `group h-[3.25rem] rounded-full inline-flex items-center justify-between gap-[1rem] pr-[0.25rem] py-[0.25rem] text-text-small font-sans tracking-wider uppercase transition-all select-none cursor-pointer duration-300 ${width} ${paddingLeft}`;
 
   const themeVariants = {
     dark: {
@@ -74,14 +74,14 @@ export default function Button({
 
   const themeArrowCircles = {
     dark: {
-      primary: "w-[44px] h-[44px] bg-black text-white rounded-full flex items-center justify-center flex-shrink-0",
-      secondary: "w-[44px] h-[44px] border border-white text-white rounded-full flex items-center justify-center flex-shrink-0",
-      special: "w-[44px] h-[44px] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
+      primary: "w-[2.75rem] h-[2.75rem] bg-black text-white rounded-full flex items-center justify-center flex-shrink-0",
+      secondary: "w-[2.75rem] h-[2.75rem] border border-white text-white rounded-full flex items-center justify-center flex-shrink-0",
+      special: "w-[2.75rem] h-[2.75rem] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
     },
     light: {
-      primary: "w-[44px] h-[44px] bg-neutral-lightest text-black rounded-full flex items-center justify-center flex-shrink-0",
-      secondary: "w-[44px] h-[44px] border border-black text-black rounded-full flex items-center justify-center flex-shrink-0",
-      special: "w-[44px] h-[44px] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
+      primary: "w-[2.75rem] h-[2.75rem] bg-neutral-lightest text-black rounded-full flex items-center justify-center flex-shrink-0",
+      secondary: "w-[2.75rem] h-[2.75rem] border border-black text-black rounded-full flex items-center justify-center flex-shrink-0",
+      special: "w-[2.75rem] h-[2.75rem] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
     },
   };
 
