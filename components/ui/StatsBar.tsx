@@ -44,6 +44,7 @@ export default function StatsBar({
 }: StatsBarProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
+
   const [displayValues, setDisplayValues] = useState<string[]>(
     stats.map(() => "0")
   );
@@ -81,7 +82,7 @@ export default function StatsBar({
           requestAnimationFrame(tick);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0, rootMargin: "150px" }
     );
 
     observer.observe(node);
@@ -97,12 +98,12 @@ export default function StatsBar({
         {stats.map((stat, i) => (
           <div
             key={stat.label}
-            className="flex-1 self-stretch p-[2rem] inline-flex flex-col justify-center items-center gap-[0.5rem]"
+            className="flex-1 self-stretch py-[var(--component-stats-padding-y)] px-[var(--component-stats-padding-x)] inline-flex flex-col justify-center items-center gap-[0.5rem]"
           >
-            <span className="text-[color:var(--color-black,#000)] text-[2.5rem] font-[550] leading-[3rem] font-sans tabular-nums">
+            <span className="text-[color:var(--color-black,#000)] text-[length:var(--component-stats-value-size)] font-[550] leading-[var(--component-stats-value-line-height)] font-sans tabular-nums">
               {displayValues[i]}
             </span>
-            <span className="text-[color:var(--color-neutral-darker,#25231E)] text-[1rem] font-normal leading-[1.5rem] font-sans">
+            <span className="text-[color:var(--color-neutral-darker,#25231E)] text-[length:var(--component-stats-label-size)] font-normal leading-[1.5] font-sans text-center">
               {stat.label}
             </span>
           </div>

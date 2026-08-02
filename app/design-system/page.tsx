@@ -6,6 +6,12 @@ import ClassCard from "@/components/ui/ClassCard";
 import StatsBar from "@/components/ui/StatsBar";
 import FeatureItem from "@/components/ui/FeatureItem";
 import LogoSection from "@/components/ui/LogoSection";
+import FirstTimersCard from "@/components/ui/FirstTimersCard";
+import MembershipCard from "@/components/ui/MembershipCard";
+import CommunitySection from "@/components/ui/CommunitySection";
+import AnnualCard from "@/components/ui/AnnualCard";
+import StudioIntroSection from "@/components/ui/StudioIntroSection";
+import CtaSection from "@/components/ui/CtaSection";
 
 export default function DesignSystemPage() {
   const primitiveColors = [
@@ -148,10 +154,7 @@ export default function DesignSystemPage() {
                   <span className="text-text-tiny text-white/50">Special (Hugging)</span>
                   <Button variant="special" theme="dark">Join Annual</Button>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <span className="text-text-tiny text-white/50">Long Text Auto-Expand</span>
-                  <Button variant="special" theme="dark">Book Your Next Performance Assessment Today</Button>
-                </div>
+
               </div>
             </div>
 
@@ -173,10 +176,7 @@ export default function DesignSystemPage() {
                   <span className="text-text-tiny text-black/50">Special</span>
                   <Button variant="special" theme="light">Join Annual</Button>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <span className="text-text-tiny text-black/50">Long Text Auto-Expand</span>
-                  <Button variant="primary" theme="light">Secure Your Spot For Our Grand Opening Event</Button>
-                </div>
+
               </div>
             </div>
 
@@ -282,18 +282,18 @@ export default function DesignSystemPage() {
         <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <span className="text-text-small text-white/50 font-semibold">Interactive Class Card (Hover to view background highlight)</span>
-            <div className="flex flex-wrap gap-8 justify-center p-6 bg-white rounded-lg border border-black/10">
-              <ClassCard
-                title="Ride"
-                description="A dark room, a heavy beat, a hill that never ends."
+            <div className="flex flex-row gap-4 md:gap-8 justify-start md:justify-center p-4 md:p-6 bg-white rounded-lg border border-black/10 overflow-x-auto snap-x snap-mandatory w-full scroll-smooth">
+              <ClassCard 
+                title="Class Ride" 
+                description="Our signature 45-minute rhythm cycling class. Get ready to sweat, ride to the beat, and transform your mind and body." 
                 tag="high"
-                imageSrc="/images/class_ride.jpg"
+                imageSrc="/images/class-ride.png"
               />
               <ClassCard
                 title="LIFT (Strength)"
                 description="Compound movements. Find out what you're made of."
                 tag="high"
-                imageSrc="/images/class_ride.jpg"
+                imageSrc="/images/class-ride.png"
               />
             </div>
           </div>
@@ -327,6 +327,7 @@ export default function DesignSystemPage() {
               <FeatureItem
                 title="BOUTIQUE PREMIUM EXPERIENCE"
                 description="Curated classes, immersive spaces and intentional design — every detail is considered."
+                initialOpen={true}
               />
               <FeatureItem
                 title="HIGH-PERFORMING COMMUNITY"
@@ -351,6 +352,92 @@ export default function DesignSystemPage() {
           </div>
         </div>
       </section>
+
+      {/* 9. First Timers Card Showcase */}
+      <section className="px-padding-global py-12 max-w-container-large mx-auto flex flex-col gap-6">
+        <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
+          First Timers Card Component
+        </h2>
+        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Pricing Card Context</span>
+            <div className="bg-[#E5E7EB] rounded-lg border border-black/10 py-[2rem] px-[2rem] flex justify-center">
+              <FirstTimersCard />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. Membership Card Showcase */}
+      <section className="px-padding-global py-12 max-w-container-large mx-auto flex flex-col gap-6">
+        <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
+          Membership Card Component
+        </h2>
+        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Pricing Card Context</span>
+            <div className="bg-[#E5E7EB] rounded-lg border border-black/10 py-[4rem] px-[2rem] flex justify-center">
+              <MembershipCard />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Annual Card Showcase */}
+      <section className="px-padding-global py-12 max-w-container-large mx-auto flex flex-col gap-6">
+        <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
+          Annual Card Component
+        </h2>
+        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Pricing Card Context</span>
+            <div className="bg-[#E5E7EB] rounded-lg border border-black/10 py-[4rem] px-[2rem] flex justify-center">
+              <AnnualCard />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Community Section Showcase */}
+      <section className="px-padding-global py-12 max-w-container-large mx-auto flex flex-col gap-6">
+        <h2 className="text-heading-4 font-bold border-b border-white/10 pb-3 mb-6 text-white uppercase tracking-wider">
+          Community Section Component
+        </h2>
+        <div className="bg-white/5 rounded-xl border border-white/10 p-6 flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <span className="text-text-small text-white/50 font-semibold">Hero Banner Context</span>
+            <div className="rounded-lg border border-white/10 overflow-hidden">
+              <CommunitySection />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 12. Studio Intro Animated Section Showcase */}
+      <section className="w-full flex flex-col gap-6 mt-12 border-t border-white/10 pt-12">
+        <div className="px-padding-global max-w-container-large mx-auto mb-6 w-full">
+          <h2 className="text-heading-4 font-bold text-white uppercase tracking-wider">
+            Studio Intro Section (Scroll Driven)
+          </h2>
+          <span className="text-text-small text-white/50">Keep scrolling to see the GSAP pinning animation</span>
+        </div>
+        <div className="w-full">
+          <StudioIntroSection />
+        </div>
+      </section>
+
+      {/* 13. CTA Section Showcase */}
+      <section className="w-full flex flex-col gap-6 mt-12 border-t border-white/10 pt-12">
+        <div className="px-padding-global max-w-container-large mx-auto mb-6 w-full">
+          <h2 className="text-heading-4 font-bold text-white uppercase tracking-wider">
+            CTA Section Component
+          </h2>
+        </div>
+        <div className="w-full">
+          <CtaSection />
+        </div>
+      </section>
+
 
       {/* 8. Footer Showcase */}
       <section className="w-full mt-12 border-t border-white/10 pt-12">

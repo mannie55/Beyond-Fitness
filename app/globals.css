@@ -25,6 +25,15 @@
   --color-black: var(--color-black);
   --color-white: var(--color-white);
 
+  --spacing-padding-global: var(--spacing-padding-global);
+  --spacing-padding-section-large: var(--spacing-padding-section-large);
+  --spacing-padding-section-medium: var(--spacing-padding-section-medium);
+  --spacing-padding-section-small: var(--spacing-padding-section-small);
+
+  --container-large: var(--width-container-large);
+  --container-medium: var(--width-container-medium);
+  --container-small: var(--width-container-small);
+
   --animate-marquee: marquee 30s linear infinite;
 
   @keyframes marquee {

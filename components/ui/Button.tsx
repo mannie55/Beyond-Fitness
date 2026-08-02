@@ -20,12 +20,10 @@ interface ButtonProps {
 function ArrowIcon({ className }: { className?: string }) {
   return (
     <svg
-      width="24"
-      height="24"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`w-[var(--component-button-svg-size)] h-[var(--component-button-svg-size)] ${className || ""}`}
     >
       <path
         d="M12.0015 4.93387L19.0725 12.005L12.0015 19.0761"
@@ -54,10 +52,10 @@ export default function Button({
   className = "",
   type = "button",
   width = "w-fit",
-  paddingLeft = "pl-[1.5rem]",
+  paddingLeft = "pl-[var(--component-button-padding-left)]",
   textWidth = "w-auto",
 }: ButtonProps) {
-  const baseClasses = `group h-[3.25rem] rounded-full inline-flex items-center justify-between gap-[1rem] pr-[0.25rem] py-[0.25rem] text-text-small font-sans tracking-wider uppercase transition-all select-none cursor-pointer duration-300 ${width} ${paddingLeft}`;
+  const baseClasses = `group h-[var(--component-button-height)] rounded-full inline-flex items-center justify-between gap-[var(--component-button-gap)] pr-[0.25rem] py-[0.25rem] text-[length:var(--component-button-text-size)] font-sans tracking-wider uppercase transition-all select-none cursor-pointer duration-300 ${width} ${paddingLeft}`;
 
   const themeVariants = {
     dark: {
@@ -74,14 +72,14 @@ export default function Button({
 
   const themeArrowCircles = {
     dark: {
-      primary: "w-[2.75rem] h-[2.75rem] bg-black text-white rounded-full flex items-center justify-center flex-shrink-0",
-      secondary: "w-[2.75rem] h-[2.75rem] border border-white text-white rounded-full flex items-center justify-center flex-shrink-0",
-      special: "w-[2.75rem] h-[2.75rem] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
+      primary: "w-[var(--component-button-icon-size)] h-[var(--component-button-icon-size)] bg-black text-white rounded-full flex items-center justify-center flex-shrink-0",
+      secondary: "w-[var(--component-button-icon-size)] h-[var(--component-button-icon-size)] border border-white text-white rounded-full flex items-center justify-center flex-shrink-0",
+      special: "w-[var(--component-button-icon-size)] h-[var(--component-button-icon-size)] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
     },
     light: {
-      primary: "w-[2.75rem] h-[2.75rem] bg-neutral-lightest text-black rounded-full flex items-center justify-center flex-shrink-0",
-      secondary: "w-[2.75rem] h-[2.75rem] border border-black text-black rounded-full flex items-center justify-center flex-shrink-0",
-      special: "w-[2.75rem] h-[2.75rem] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
+      primary: "w-[var(--component-button-icon-size)] h-[var(--component-button-icon-size)] bg-neutral-lightest text-black rounded-full flex items-center justify-center flex-shrink-0",
+      secondary: "w-[var(--component-button-icon-size)] h-[var(--component-button-icon-size)] border border-black text-black rounded-full flex items-center justify-center flex-shrink-0",
+      special: "w-[var(--component-button-icon-size)] h-[var(--component-button-icon-size)] bg-black text-dandelion rounded-full flex items-center justify-center flex-shrink-0",
     },
   };
 

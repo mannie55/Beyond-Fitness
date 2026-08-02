@@ -59,6 +59,33 @@
   --border-width-border-width: 1px;
   --border-width-divider-width: 1px;
 
+  /* Component Sizing - Mobile Default */
+  --component-button-height: 2.375rem;
+  --component-button-icon-size: 1.875rem;
+  --component-button-svg-size: 1.125rem;
+  --component-button-padding-left: 1.125rem;
+  --component-button-gap: 0.5rem;
+  --component-button-text-size: clamp(0.625rem, 2.5vw, 0.875rem);
+  --component-classcard-width: 15rem;
+  --component-stats-padding-y: 1.25rem;
+  --component-stats-padding-x: 0.75rem;
+  --component-stats-value-size: 1.75rem;
+  --component-stats-value-line-height: 1.2;
+  --component-stats-label-size: 0.75rem;
+  --component-feature-width: 100%;
+  --component-feature-padding: 0.5rem;
+  --component-feature-gap: 0.5rem;
+  --component-feature-title-size: 1.125rem;
+  --component-feature-desc-size: 0.875rem;
+  --component-pricing-padding: 1.25rem;
+  --component-pricing-gap: 1.25rem;
+  --component-pricing-title-size: 1.5rem;
+  --component-pricing-title-line-height: 2rem;
+  --component-pricing-subtitle-size: 0.875rem;
+  --component-pricing-price-size: 2.5rem;
+  --component-pricing-price-line-height: 3rem;
+  --component-pricing-feature-size: 0.875rem;
+
   /* Spacing & Sizing - Layout constants */
   --width-container-large: 80rem;
   --width-container-medium: 64rem;
@@ -99,6 +126,32 @@
     --spacing-padding-section-large: 7rem;
     --spacing-padding-section-medium: 5rem;
     --spacing-padding-section-small: 3rem;
+
+    /* Component Sizing overrides */
+    --component-button-height: 3.25rem;
+    --component-button-icon-size: 2.75rem;
+    --component-button-svg-size: 1.5rem;
+    --component-button-padding-left: 1.5rem;
+    --component-button-gap: 1rem;
+    --component-classcard-width: 25rem;
+    --component-stats-padding-y: 2rem;
+    --component-stats-padding-x: 2rem;
+    --component-stats-value-size: 2.5rem;
+    --component-stats-value-line-height: 3rem;
+    --component-stats-label-size: 1rem;
+    --component-feature-width: 16.5625rem;
+    --component-feature-padding: 0.5rem;
+    --component-feature-gap: 0.75rem;
+    --component-feature-title-size: 0.875rem;
+    --component-feature-desc-size: 0.875rem;
+    --component-pricing-padding: 2rem;
+    --component-pricing-gap: 2rem;
+    --component-pricing-title-size: 2rem;
+    --component-pricing-title-line-height: 2.6rem;
+    --component-pricing-subtitle-size: 1rem;
+    --component-pricing-price-size: 3.125rem;
+    --component-pricing-price-line-height: 3.75rem;
+    --component-pricing-feature-size: 1rem;
 
     /* Typography overrides */
     --text-heading-1: 14.0625rem;
