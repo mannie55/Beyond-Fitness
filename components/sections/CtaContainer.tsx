@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "@/components/ui/Button";
 
 export default function CtaContainer() {
   return (
@@ -12,24 +12,24 @@ export default function CtaContainer() {
           
           {/* Heading */}
           <div className="flex flex-col items-start">
-            <span className="text-[length:var(--text-heading-3)] md:text-[3.125rem] font-normal leading-[1.2em] tracking-[-0.01em] text-white w-full max-w-[768px]">
+            <span className="text-[length:var(--text-heading-3)] md:text-[clamp(4rem,6vw,5.5rem)] font-normal md:font-bold leading-[1.2em] tracking-[-0.01em] text-white w-full max-w-[768px]">
               Not just an 
             </span>
-            <span className="text-[length:var(--text-heading-3)] md:text-[3.125rem] font-normal leading-[1.2em] tracking-[-0.01em] text-[#FED55F] w-full max-w-[768px]">
+            <span className="text-[length:var(--text-heading-3)] md:text-[clamp(4rem,6vw,5.5rem)] font-normal md:font-bold leading-[1.2em] tracking-[-0.01em] text-[#FED55F] w-full max-w-[768px]">
               experience.
             </span>
             <div className="flex flex-col md:flex-row items-start md:items-center gap-0 md:gap-[10px]">
-              <span className="text-[length:var(--text-heading-3)] md:text-[3.125rem] font-normal leading-[1.2em] tracking-[-0.01em] text-white">
+              <span className="text-[length:var(--text-heading-3)] md:text-[clamp(4rem,6vw,5.5rem)] font-normal md:font-bold leading-[1.2em] tracking-[-0.01em] text-white">
                 a return to  
               </span>
               <div className="flex flex-col justify-center -space-y-[0.35rem] md:-space-y-[9px]">
-                <span className="text-[length:var(--text-heading-3)] md:text-[3.125rem] font-normal leading-[1.2em] tracking-[-0.01em] text-white whitespace-nowrap">
+                <span className="text-[length:var(--text-heading-3)] md:text-[clamp(4rem,6vw,5.5rem)] font-normal md:font-bold leading-[1.2em] tracking-[-0.01em] text-white whitespace-nowrap">
                   who you are
                 </span>
                 <img 
                   src="/icons/underline-yellow.svg" 
                   alt="underline" 
-                  className="w-[12rem] md:w-[290.17px] h-auto md:h-[6.93px] object-contain"
+                  className="w-[12rem] md:w-[clamp(24rem,30vw,28rem)] h-auto md:h-[6.93px] object-contain"
                 />
               </div>
             </div>

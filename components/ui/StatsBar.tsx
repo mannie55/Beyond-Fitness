@@ -94,16 +94,16 @@ export default function StatsBar({
       ref={containerRef}
       className="w-full flex justify-center items-start gap-[1rem]"
     >
-      <div className="w-full max-w-[37.5625rem] flex justify-start items-center gap-[0.5rem]">
+      <div className="w-full max-w-[60rem] flex flex-row justify-between md:justify-center items-start md:items-center gap-2 md:gap-4">
         {stats.map((stat, i) => (
           <div
             key={stat.label}
-            className="flex-1 self-stretch py-[var(--component-stats-padding-y)] px-[var(--component-stats-padding-x)] inline-flex flex-col justify-center items-center gap-[0.5rem]"
+            className="flex-1 w-auto py-[0.5rem] md:py-[var(--component-stats-padding-y)] px-[0.25rem] md:px-[var(--component-stats-padding-x)] flex flex-col justify-center items-center gap-[0.25rem] md:gap-[0.5rem]"
           >
-            <span className="text-[color:var(--color-black,#000)] text-[length:var(--component-stats-value-size)] font-[550] leading-[var(--component-stats-value-line-height)] font-sans tabular-nums">
+            <span className="text-[color:var(--color-black,#000)] text-[1.5rem] md:text-[length:var(--component-stats-value-size)] font-[550] leading-[1.2] md:leading-[var(--component-stats-value-line-height)] font-sans tabular-nums whitespace-nowrap">
               {displayValues[i]}
             </span>
-            <span className="text-[color:var(--color-neutral-darker,#25231E)] text-[length:var(--component-stats-label-size)] font-normal leading-[1.5] font-sans text-center">
+            <span className="text-[color:var(--color-neutral-darker,#25231E)] text-[0.75rem] md:text-[length:var(--component-stats-label-size)] font-normal leading-[1.3] md:leading-[1.5] font-sans text-center max-w-[150px]">
               {stat.label}
             </span>
           </div>

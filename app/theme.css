@@ -87,10 +87,10 @@
   --component-pricing-feature-size: 0.875rem;
 
   /* Spacing & Sizing - Layout constants */
-  --width-container-large: 80rem;
+  --width-container-large: 90rem;
   --width-container-medium: 64rem;
   --width-container-small: 48rem;
-  --max-width-max-width-xxlarge: 80rem;
+  --max-width-max-width-xxlarge: 90rem;
   --max-width-max-width-xlarge: 64rem;
   --max-width-max-width-large: 48rem;
   --max-width-max-width-medium: 35rem;

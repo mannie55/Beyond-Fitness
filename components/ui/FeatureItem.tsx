@@ -7,14 +7,15 @@ interface FeatureItemProps {
   title: string;
   description: string;
   initialOpen?: boolean;
+  className?: string;
 }
 
-export default function FeatureItem({ title, description, initialOpen = false }: FeatureItemProps) {
+export default function FeatureItem({ title, description, initialOpen = false, className = "" }: FeatureItemProps) {
   const [isOpen, setIsOpen] = useState(initialOpen);
 
   return (
     <div 
-      className="group w-full md:w-[var(--component-feature-width,16.5625rem)] flex flex-col justify-start items-start p-[var(--component-feature-padding,0.5rem)] transition-colors duration-300 bg-transparent hover:bg-[var(--color-dandelion-lighter,#FEF6DF)] cursor-pointer"
+      className={`group w-full md:w-[var(--component-feature-width,16.5625rem)] flex flex-col justify-start items-start p-[var(--component-feature-padding,0.5rem)] rounded-[4px] transition-all duration-300 bg-transparent hover:bg-[var(--color-dandelion-lighter,#FEF6DF)] cursor-pointer ${className}`}
       onClick={() => setIsOpen(!isOpen)}
     >
       

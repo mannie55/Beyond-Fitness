@@ -3,7 +3,7 @@ import CtaContainer from "./CtaContainer";
 
 export default function CtaSection() {
   return (
-    <section className="relative w-full min-h-[50vh] md:min-h-[711px] py-[var(--spacing-padding-section-medium)] md:pt-[5rem] md:pb-[7rem] px-padding-global flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-[50vh] md:min-h-[clamp(711px,80vh,1000px)] py-[var(--spacing-padding-section-medium)] md:pt-[5rem] md:pb-[7rem] px-padding-global flex flex-col items-center justify-center overflow-hidden">
       
       {/* Background Image */}
       <Image 

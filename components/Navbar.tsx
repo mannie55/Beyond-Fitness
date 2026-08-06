@@ -7,6 +7,7 @@ import Button from "./ui/Button";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCommunityDropdownOpen, setIsCommunityDropdownOpen] = useState(false);
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
   const navLinks = [
     { name: "CLASSES", href: "/classes" },
@@ -28,7 +29,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full max-w-[89.6875rem] mx-auto px-4 md:px-16 h-[4.5rem] flex items-center relative z-50 font-sans text-[#0D0B05]">
+    <header className="w-full max-w-[100rem] mx-auto px-4 md:px-[2rem] h-[4.5rem] flex items-center relative z-50 font-sans text-[#0D0B05]">
       {/* Rounded Navbar Body Card */}
       <div className="w-full h-full px-4 md:px-6 bg-white border border-black/10 rounded-lg flex justify-between items-center relative">
         {/* Brand Logo & Name */}
@@ -128,7 +129,7 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-2 rounded-lg transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
+                            className="group p-2 rounded-[4px] transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
                           >
                             <span className="text-[#0D0B05] text-text-regular font-[550] leading-[1.5] uppercase">
                               {item.name}
@@ -152,7 +153,7 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-2 rounded-lg transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
+                            className="group p-2 rounded-[4px] transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
                           >
                             <span className="text-[#0D0B05] text-text-regular font-[550] leading-[1.5] uppercase">
                               {item.name}
@@ -184,7 +185,10 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Toggle */}
         <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={() => {
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+            if (isMobileMenuOpen) setOpenAccordion(null);
+          }}
           className="block lg:hidden focus:outline-none cursor-pointer text-black hover:text-[#CBAA4C]"
           aria-label="Toggle navigation menu"
         >
@@ -199,70 +203,93 @@ export default function Navbar() {
 
         {/* Mobile Slide-Down Overlay */}
         {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full shadow-2xl flex flex-col p-6 gap-6 lg:hidden animate-[fadeIn_0.2s_ease-out] bg-white border-b border-black/10">
-            <nav className="flex flex-col gap-4">
+          <div className="absolute top-[calc(100%+0.5rem)] left-4 right-4 w-[calc(100%-2rem)] shadow-2xl flex flex-col p-6 lg:hidden animate-[fadeIn_0.2s_ease-out] bg-white rounded-lg border border-black/10 overflow-y-auto max-h-[80vh]">
+            
+            <nav className="flex flex-col gap-2 w-full">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-text-medium font-semibold leading-[1.5] py-1 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/5"
+                  className="text-text-medium font-semibold leading-[1.5] py-3 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/5"
                 >
                   {link.name}
                 </Link>
               ))}
               
-              {/* Mobile Column 1: OUR COMMUNITY */}
-              <div className="flex flex-col gap-2 pt-2">
-                <span className="text-[#0D0B05]/60 text-text-small font-bold tracking-widest uppercase">
+              {/* COMMUNITY ACCORDION */}
+              <div className="flex flex-col border-b border-black/5">
+                <button 
+                  onClick={() => setOpenAccordion(openAccordion === 'community' ? null : 'community')}
+                  className="flex items-center justify-between text-text-medium font-semibold leading-[1.5] py-3 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left"
+                >
                   OUR COMMUNITY
-                </span>
-                <div className="flex flex-col gap-1 pl-4 border-l border-[#CBAA4C]/20">
-                  {communityColumn.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="group p-2 rounded-lg transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
-                    >
-                      <span className="text-[#0D0B05] text-text-regular font-bold tracking-wide uppercase">
-                        {item.name}
-                      </span>
-                      <span className="text-dandelion-darkest text-text-regular leading-relaxed">
-                        {item.desc}
-                      </span>
-                    </Link>
-                  ))}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'community' ? 'rotate-180' : ''}`}>
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'community' ? 'grid-rows-[1fr] opacity-100 pb-2' : 'grid-rows-[0fr] opacity-0'}`}>
+                  <div className="overflow-hidden flex flex-col gap-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2 mt-1">
+                    {communityColumn.map((item, index) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="group p-3 rounded-[4px] transition-all duration-300 flex flex-col gap-1 hover:bg-[#FEF6DF]"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-[#CBAA4C] text-text-small font-bold italic opacity-80">0{index + 1}</span>
+                          <span className="text-[#0D0B05] text-text-regular font-bold tracking-wide uppercase">
+                            {item.name}
+                          </span>
+                        </div>
+                        <span className="text-[#0D0B05]/60 text-text-small leading-relaxed pl-[1.625rem]">
+                          {item.desc}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Mobile Column 2: ABOUT US */}
-              <div className="flex flex-col gap-2 pt-2">
-                <span className="text-[#0D0B05]/60 text-text-small font-bold tracking-widest uppercase">
+              {/* ABOUT US ACCORDION */}
+              <div className="flex flex-col border-b border-black/5">
+                <button 
+                  onClick={() => setOpenAccordion(openAccordion === 'about' ? null : 'about')}
+                  className="flex items-center justify-between text-text-medium font-semibold leading-[1.5] py-3 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left"
+                >
                   ABOUT US
-                </span>
-                <div className="flex flex-col gap-1 pl-4 border-l border-[#CBAA4C]/20">
-                  {aboutColumn.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="group p-2 rounded-lg transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
-                    >
-                      <span className="text-[#0D0B05] text-text-regular font-bold tracking-wide uppercase">
-                        {item.name}
-                      </span>
-                      <span className="text-dandelion-darkest text-text-regular leading-relaxed">
-                        {item.desc}
-                      </span>
-                    </Link>
-                  ))}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'about' ? 'rotate-180' : ''}`}>
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'about' ? 'grid-rows-[1fr] opacity-100 pb-2' : 'grid-rows-[0fr] opacity-0'}`}>
+                  <div className="overflow-hidden flex flex-col gap-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2 mt-1">
+                    {aboutColumn.map((item, index) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="group p-3 rounded-[4px] transition-all duration-300 flex flex-col gap-1 hover:bg-[#FEF6DF]"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-[#CBAA4C] text-text-small font-bold italic opacity-80">0{index + 1}</span>
+                          <span className="text-[#0D0B05] text-text-regular font-bold tracking-wide uppercase">
+                            {item.name}
+                          </span>
+                        </div>
+                        <span className="text-[#0D0B05]/60 text-text-small leading-relaxed pl-[1.625rem]">
+                          {item.desc}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
+
             </nav>
 
-            {/* Mobile Action Button */}
-            <div className="w-full flex justify-center pt-2">
+            <div className="w-full flex justify-center pt-6 pb-2">
               <Button
                 variant="special"
                 theme="light"
@@ -272,6 +299,7 @@ export default function Navbar() {
                 BOOK YOUR FIRST CLASS
               </Button>
             </div>
+            
           </div>
         )}
       </div>

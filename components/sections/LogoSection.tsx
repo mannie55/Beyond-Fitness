@@ -26,7 +26,8 @@ export default function LogoSection() {
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                className="object-contain w-auto h-auto"
+                className="object-contain"
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
           </div>
