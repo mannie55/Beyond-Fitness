@@ -30,8 +30,8 @@ export default function Navbar() {
 
   return (
     <header className="w-full max-w-[100rem] mx-auto px-3 sm:px-4 md:px-[2rem] h-[3.75rem] md:h-[4.5rem] flex items-center relative z-50 font-sans text-[#0D0B05]">
-      {/* Rounded Navbar Body Card */}
-      <div className="w-full h-full px-3 sm:px-4 md:px-6 bg-white border border-black/10 rounded-lg flex justify-between items-center relative shadow-xs">
+      {/* Sharp Navbar Body Card */}
+      <div className="w-full h-full px-3 sm:px-4 md:px-6 bg-white border border-black/10 rounded-none flex justify-between items-center relative shadow-xs z-[110]">
         {/* Brand Logo & Name */}
         <Link href="/" className="flex items-center gap-2 sm:gap-3 select-none group">
           <div className="w-[42px] h-[42px] md:w-[55px] md:h-[55px] relative overflow-hidden flex-shrink-0">
@@ -172,134 +172,132 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* Desktop Action CTA Button */}
-        <div className="hidden lg:block">
-          <Button
-            variant="special"
-            theme="light"
-            href="/schedule"
+        {/* Actions & Mobile Toggle */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Desktop Action CTA Button */}
+          <div className="hidden lg:block">
+            <Button
+              variant="special"
+              theme="light"
+              href="/schedule"
+            >
+              BOOK YOUR FIRST CLASS
+            </Button>
+          </div>
+
+          {/* Mobile Action CTA Button */}
+          <div className="block lg:hidden">
+            <Button
+              variant="special"
+              theme="light"
+              href="/schedule"
+              textWidth="w-auto text-[0.65rem] sm:text-xs"
+              paddingLeft="pl-3"
+            >
+              BOOK
+            </Button>
+          </div>
+
+          {/* Mobile Hamburger Toggle */}
+          <button
+            onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+              if (isMobileMenuOpen) setOpenAccordion(null);
+            }}
+            className="block lg:hidden focus:outline-none cursor-pointer text-black hover:text-[#CBAA4C] relative z-[120]"
+            aria-label="Toggle navigation menu"
           >
-            BOOK YOUR FIRST CLASS
-          </Button>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              {isMobileMenuOpen ? (
+                <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+              ) : (
+                <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+              )}
+            </svg>
+          </button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          onClick={() => {
-            setIsMobileMenuOpen(!isMobileMenuOpen);
-            if (isMobileMenuOpen) setOpenAccordion(null);
-          }}
-          className="block lg:hidden focus:outline-none cursor-pointer text-black hover:text-[#CBAA4C]"
-          aria-label="Toggle navigation menu"
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            {isMobileMenuOpen ? (
-              <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-            ) : (
-              <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-            )}
-          </svg>
-        </button>
-
-        {/* Mobile Slide-Down Overlay */}
+        {/* Mobile Dropdown Extension */}
         {isMobileMenuOpen && (
-          <div className="absolute top-[calc(100%+0.375rem)] left-2 sm:left-4 right-2 sm:right-4 w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] shadow-2xl flex flex-col p-4 sm:p-6 lg:hidden animate-[fadeIn_0.2s_ease-out] bg-white rounded-xl border border-black/10 overflow-y-auto max-h-[82vh] z-50">
-            
-            <nav className="flex flex-col gap-1 w-full">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-text-medium font-semibold leading-[1.4] py-2.5 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/5"
-                >
-                  {link.name}
-                </Link>
-              ))}
-              
-              {/* COMMUNITY ACCORDION */}
-              <div className="flex flex-col border-b border-black/5">
-                <button 
-                  onClick={() => setOpenAccordion(openAccordion === 'community' ? null : 'community')}
-                  className="flex items-center justify-between text-text-medium font-semibold leading-[1.4] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer"
-                >
-                  OUR COMMUNITY
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'community' ? 'rotate-180' : ''}`}>
-                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
-                <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'community' ? 'grid-rows-[1fr] opacity-100 pb-2' : 'grid-rows-[0fr] opacity-0'}`}>
-                  <div className="overflow-hidden flex flex-col gap-1 pl-1.5 border-l-2 border-[#CBAA4C]/20 ml-1.5 mt-1">
-                    {communityColumn.map((item, index) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="group p-2 rounded-[4px] transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="text-[#CBAA4C] text-[0.7rem] font-bold italic opacity-80">0{index + 1}</span>
-                          <span className="text-[#0D0B05] text-xs sm:text-text-regular font-bold tracking-wide uppercase">
-                            {item.name}
-                          </span>
-                        </div>
-                        <span className="text-[#0D0B05]/60 text-[0.75rem] sm:text-text-small leading-relaxed pl-4">
-                          {item.desc}
-                        </span>
-                      </Link>
-                    ))}
+          <div className="absolute top-[calc(100%+0.5rem)] left-[-1px] right-[-1px] bg-white border border-black/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] z-[100] flex flex-col p-5 sm:p-6 lg:hidden animate-[fadeIn_0.2s_ease-out] overflow-y-auto max-h-[calc(100dvh-6rem)]">
+            <div className="flex flex-col gap-4 w-full">
+              <nav className="flex flex-col gap-1 w-full">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-lg tracking-tight font-bold leading-[1.2] py-2.5 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/10 uppercase"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+                
+                {/* COMMUNITY ACCORDION */}
+                <div className="flex flex-col border-b border-black/10">
+                  <button 
+                    onClick={() => setOpenAccordion(openAccordion === 'community' ? null : 'community')}
+                    className="flex items-center justify-between text-lg tracking-tight font-bold leading-[1.2] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer uppercase"
+                  >
+                    COMMUNITY
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'community' ? 'rotate-180' : ''}`}>
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                  <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'community' ? 'grid-rows-[1fr] opacity-100 pb-3' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className="overflow-hidden flex flex-col gap-2 pt-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2">
+                      {communityColumn.map((item, index) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="group transition-all duration-300 flex flex-col py-1"
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="text-[#CBAA4C] text-xs font-bold italic opacity-80">0{index + 1}</span>
+                            <span className="text-[#0D0B05] text-sm font-bold tracking-wide uppercase group-hover:text-[#CBAA4C] transition-colors">
+                              {item.name}
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* ABOUT US ACCORDION */}
-              <div className="flex flex-col border-b border-black/5">
-                <button 
-                  onClick={() => setOpenAccordion(openAccordion === 'about' ? null : 'about')}
-                  className="flex items-center justify-between text-text-medium font-semibold leading-[1.4] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer"
-                >
-                  ABOUT US
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'about' ? 'rotate-180' : ''}`}>
-                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
-                <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'about' ? 'grid-rows-[1fr] opacity-100 pb-2' : 'grid-rows-[0fr] opacity-0'}`}>
-                  <div className="overflow-hidden flex flex-col gap-1 pl-1.5 border-l-2 border-[#CBAA4C]/20 ml-1.5 mt-1">
-                    {aboutColumn.map((item, index) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="group p-2 rounded-[4px] transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="text-[#CBAA4C] text-[0.7rem] font-bold italic opacity-80">0{index + 1}</span>
-                          <span className="text-[#0D0B05] text-xs sm:text-text-regular font-bold tracking-wide uppercase">
-                            {item.name}
-                          </span>
-                        </div>
-                        <span className="text-[#0D0B05]/60 text-[0.75rem] sm:text-text-small leading-relaxed pl-4">
-                          {item.desc}
-                        </span>
-                      </Link>
-                    ))}
+                {/* ABOUT US ACCORDION */}
+                <div className="flex flex-col border-b border-black/10">
+                  <button 
+                    onClick={() => setOpenAccordion(openAccordion === 'about' ? null : 'about')}
+                    className="flex items-center justify-between text-lg tracking-tight font-bold leading-[1.2] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer uppercase"
+                  >
+                    ABOUT US
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'about' ? 'rotate-180' : ''}`}>
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                  <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'about' ? 'grid-rows-[1fr] opacity-100 pb-3' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className="overflow-hidden flex flex-col gap-2 pt-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2">
+                      {aboutColumn.map((item, index) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="group transition-all duration-300 flex flex-col py-1"
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className="text-[#CBAA4C] text-xs font-bold italic opacity-80">0{index + 1}</span>
+                            <span className="text-[#0D0B05] text-sm font-bold tracking-wide uppercase group-hover:text-[#CBAA4C] transition-colors">
+                              {item.name}
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-            </nav>
-
-            <div className="w-full flex justify-center pt-4 pb-1">
-              <Button
-                variant="special"
-                theme="light"
-                href="/schedule"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                BOOK YOUR FIRST CLASS
-              </Button>
+              </nav>
             </div>
-            
           </div>
         )}
       </div>
