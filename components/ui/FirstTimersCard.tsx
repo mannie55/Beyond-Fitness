@@ -1,81 +1,108 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
 
 export default function FirstTimersCard() {
+  const [activeTab, setActiveTab] = useState<"firstTimer" | "dropIn">("firstTimer");
+
+  const pricingData = {
+    firstTimer: {
+      price: "₦40,000",
+      details: "2 classes | ₦20,000/class | valid 2 weeks",
+      features: [
+        "First-time visitors only",
+        "Full studio access",
+        "Upgrade: 2wk Unlimited, ₦80,000",
+      ],
+    },
+    dropIn: {
+      price: "₦25,000",
+      details: "Single class pass | valid 1 month",
+      features: [
+        "Single class session",
+        "Full studio & shower access",
+        "All class formats included",
+      ],
+    },
+  };
+
+  const current = pricingData[activeTab];
+
   return (
-    <div className="w-full md:max-w-[26rem] md:mx-auto flex flex-col justify-start items-stretch p-[var(--component-pricing-padding)] gap-[var(--component-pricing-gap)] bg-white rounded-[0.5rem] shadow-[0px_4px_10px_0px_rgba(0,0,0,0.05)] font-sans">
+    <div className="w-full flex flex-col justify-between items-stretch p-5 sm:p-6 md:p-8 gap-5 sm:gap-6 md:gap-8 bg-white rounded-none shadow-[0px_4px_16px_0px_rgba(0,0,0,0.06)] border border-black/5 font-sans h-full transition-all hover:shadow-[0px_8px_24px_0px_rgba(0,0,0,0.09)]">
       
-      {/* Header Container */}
-      <div className="flex flex-col items-stretch gap-[0.25rem]">
-        <h2 className="text-[length:var(--component-pricing-title-size)] font-[550] leading-[var(--component-pricing-title-line-height)] tracking-[-0.01em] text-black">
-          FIRST TIMERS
-        </h2>
-        <p className="text-[length:var(--component-pricing-subtitle-size)] font-normal leading-[1.5] text-[var(--color-neutral-dark,#555450)]">
-          The perfect introduction to the community
-        </p>
-      </div>
+      {/* Top Details */}
+      <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
+        
+        {/* Header Container */}
+        <div className="flex flex-col items-start gap-1">
+          <h3 className="text-xl sm:text-[length:var(--text-heading-4)] font-bold tracking-tight text-[#0D0B05]">
+            FIRST TIMERS
+          </h3>
+          <p className="text-xs sm:text-[length:var(--text-text-regular)] font-normal leading-[1.5] text-[var(--color-neutral-dark,#555450)]">
+            The perfect introduction to the community
+          </p>
+        </div>
 
-      {/* Toggle Buttons */}
-      <div className="flex flex-row items-stretch gap-[0.75rem] w-full">
-        <div className="flex-1 flex justify-center items-center h-[2.3125rem] bg-black rounded-[0.25rem] cursor-pointer">
-          <span className="text-white text-[length:var(--component-pricing-subtitle-size)] font-[550] leading-[1.5]">
+        {/* Toggle Buttons */}
+        <div className="flex flex-row items-center gap-1.5 p-1 bg-black/5 rounded-lg w-full">
+          <button
+            type="button"
+            onClick={() => setActiveTab("firstTimer")}
+            className={`flex-1 py-1.5 sm:py-2 rounded-md font-semibold text-xs sm:text-sm transition-all text-center ${
+              activeTab === "firstTimer"
+                ? "bg-black text-white shadow-sm"
+                : "text-black/60 hover:text-black"
+            }`}
+          >
             First Timer
-          </span>
-        </div>
-        <div className="flex-1 flex justify-center items-center h-[2.3125rem] bg-[#0D0B05]/10 rounded-[0.25rem] cursor-pointer">
-          <span className="text-[#0D0B05]/60 text-[length:var(--component-pricing-subtitle-size)] font-normal leading-[1.5]">
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab("dropIn")}
+            className={`flex-1 py-1.5 sm:py-2 rounded-md font-semibold text-xs sm:text-sm transition-all text-center ${
+              activeTab === "dropIn"
+                ? "bg-black text-white shadow-sm"
+                : "text-black/60 hover:text-black"
+            }`}
+          >
             Drop-In
+          </button>
+        </div>
+
+        {/* Price Container */}
+        <div className="flex flex-col items-start gap-1">
+          <span className="text-[1.875rem] sm:text-[2.25rem] md:text-[length:var(--text-heading-2)] font-bold leading-[1.1] tracking-tight text-[#0D0B05]">
+            {current.price}
+          </span>
+          <span className="text-xs sm:text-[length:var(--text-text-small)] font-normal text-[var(--color-neutral-dark,#555450)]">
+            {current.details}
           </span>
         </div>
-      </div>
 
-      {/* Price Container */}
-      <div className="flex flex-col items-stretch gap-[0.25rem]">
-        <h3 className="text-[length:var(--component-pricing-price-size)] font-bold leading-[var(--component-pricing-price-line-height)] tracking-[-0.01em] text-black">
-          ₦40,000
-        </h3>
-        <p className="text-[length:var(--component-pricing-subtitle-size)] font-normal leading-[1.5] text-[var(--color-neutral-dark,#555450)]">
-          2 classes | ₦20,000/class | valid 2 weeks
-        </p>
-      </div>
+        {/* Action Button */}
+        <Button variant="secondary" theme="light" width="w-full">
+          GET STARTED
+        </Button>
 
-      {/* Button Component */}
-      <Button variant="secondary" theme="light" width="w-full">
-        GET STARTED
-      </Button>
+        <hr className="w-full border-t border-black/10 my-0" />
 
-      {/* Divider */}
-      <hr className="w-full border-t border-black/10 m-0" />
-
-      {/* Checklist */}
-      <div className="flex flex-col gap-[1rem] py-[0.5rem]">
-        {/* Item 1 */}
-        <div className="flex flex-row items-start gap-[1rem]">
-          <div className="relative w-[1.5rem] h-[1.5rem] flex-shrink-0">
-            <Image src="/icons/check-icon.svg" alt="Check" fill className="object-contain" />
-          </div>
-          <span className="text-[length:var(--component-pricing-feature-size)] font-normal leading-[1.5] text-[#0D0B05]/60">
-            First-time visitors only
-          </span>
+        {/* Checklist */}
+        <div className="flex flex-col gap-2.5 sm:gap-3.5 py-1">
+          {current.features.map((feature, idx) => (
+            <div key={idx} className="flex flex-row items-center gap-2.5 sm:gap-3">
+              <div className="relative w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0">
+                <Image src="/icons/check-icon.svg" alt="Check" fill className="object-contain" />
+              </div>
+              <span className="text-xs sm:text-[length:var(--text-text-medium)] font-normal text-[#0D0B05]/75">
+                {feature}
+              </span>
+            </div>
+          ))}
         </div>
-        {/* Item 2 */}
-        <div className="flex flex-row items-start gap-[1rem]">
-          <div className="relative w-[1.5rem] h-[1.5rem] flex-shrink-0">
-            <Image src="/icons/check-icon.svg" alt="Check" fill className="object-contain" />
-          </div>
-          <span className="text-[length:var(--component-pricing-feature-size)] font-normal leading-[1.5] text-[#0D0B05]/60">
-            Full studio access
-          </span>
-        </div>
-        {/* Item 3 */}
-        <div className="flex flex-row items-start gap-[1rem]">
-          <div className="relative w-[1.5rem] h-[1.5rem] flex-shrink-0">
-            <Image src="/icons/check-icon.svg" alt="Check" fill className="object-contain" />
-          </div>
-          <span className="text-[length:var(--component-pricing-feature-size)] font-normal leading-[1.5] text-[#0D0B05]/60">
-            Upgrade: 2wk Unlimited, ₦80,000
-          </span>
-        </div>
+
       </div>
 
     </div>

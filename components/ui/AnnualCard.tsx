@@ -1,85 +1,81 @@
+"use client";
+
 import Image from "next/image";
 import Button from "./Button";
 
 export default function AnnualCard() {
+  const features = [
+    "Everything in Membership",
+    "Unlimited classes no cap",
+    "2 non-consecutive freeze months",
+    "Free Beyond merchandise welcome pack",
+    "Priority booking for special guest coaches",
+  ];
+
   return (
-    <div className="relative w-full md:max-w-[26rem] md:mx-auto flex flex-col justify-start items-stretch p-[var(--component-pricing-padding)] gap-[var(--component-pricing-gap)] bg-[#25231E] border border-[#FEF6DF] rounded-[0.5rem] font-sans">
+    <div className="relative w-full flex flex-col justify-between items-stretch p-5 sm:p-6 md:p-8 gap-5 sm:gap-6 md:gap-8 bg-[#1A1815] border border-[var(--color-dandelion-dark,#CBAA4C)]/40 rounded-none shadow-[0px_8px_30px_0px_rgba(0,0,0,0.35)] font-sans h-full transition-all hover:border-[var(--color-dandelion)]">
       
-      {/* Header Container */}
-      <div className="flex flex-row items-start justify-between gap-[0.75rem] w-full">
-        <div className="flex flex-col items-stretch gap-[0.25rem] flex-1">
-          <h2 className="text-[length:var(--component-pricing-title-size)] font-[550] leading-[var(--component-pricing-title-line-height)] tracking-[-0.01em] text-[#FEFAEF]">
-            ANNUAL
-          </h2>
-          <p className="text-[length:var(--component-pricing-subtitle-size)] font-normal leading-[1.5] text-[#FEFAEF]/70 max-w-[14.25rem]">
-            Our best value for members who know this is part of their lifestyle.
-          </p>
-        </div>
+      {/* Top Details */}
+      <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
         
-        {/* BEST VALUE Badge */}
-        <div className="pt-[0.25rem] flex-shrink-0">
-          <div className="flex justify-center items-center px-[0.75rem] py-[0.1875rem] bg-[#FED55F] rounded-full">
-            <span className="text-[#655526] text-[length:var(--component-pricing-feature-size)] font-semibold leading-[1.3125rem]">
-              BEST VALUE
+        {/* Header Container with Badge */}
+        <div className="flex flex-row items-start justify-between gap-3 w-full">
+          <div className="flex flex-col items-start gap-1">
+            <h3 className="text-xl sm:text-[length:var(--text-heading-4)] font-bold tracking-tight text-[#FEFAEF]">
+              ANNUAL
+            </h3>
+            <p className="text-xs sm:text-[length:var(--text-text-regular)] font-normal leading-[1.5] text-[#FEFAEF]/70">
+              Our best value for members who make fitness their lifestyle.
+            </p>
+          </div>
+
+          <div className="flex-shrink-0">
+            <div className="flex items-center px-2.5 py-0.5 sm:px-3 sm:py-1 bg-[var(--color-dandelion)] rounded-full">
+              <span className="text-[#655526] text-[0.65rem] sm:text-xs font-bold uppercase tracking-wider">
+                BEST VALUE
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Price Container */}
+        <div className="flex flex-col items-start gap-1">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <span className="text-[1.875rem] sm:text-[2.25rem] md:text-[length:var(--text-heading-2)] font-bold leading-[1.1] tracking-tight text-[#FEFAEF]">
+              ₦3,360,000
             </span>
+            <div className="flex items-center px-2 py-0.5 bg-[var(--color-dandelion)] rounded-full">
+              <span className="text-[#655526] text-[0.65rem] sm:text-xs font-bold">
+                -63%
+              </span>
+            </div>
           </div>
-        </div>
-      </div>
-
-      {/* Divider */}
-      <hr className="w-full border-t border-white/20 m-0" />
-
-      {/* Price Container */}
-      <div className="flex flex-col items-stretch gap-[0.25rem]">
-        <div className="flex flex-row items-start gap-[0.5rem]">
-          <h3 className="text-[length:var(--component-pricing-price-size)] font-bold leading-[1.1] tracking-[-0.01em] text-[#FEFAEF]">
-            ₦3,360,000
-          </h3>
-          <div className="flex justify-center items-center px-[0.75rem] py-[0.1875rem] bg-[#FED55F] rounded-full relative -top-1">
-            <span className="text-[#655526] text-[length:var(--component-pricing-feature-size)] font-semibold leading-[1.3125rem]">
-              -63%
-            </span>
-          </div>
-        </div>
-        <p className="text-[length:var(--component-pricing-subtitle-size)] font-normal leading-[1.5] text-white">
-          unlimited ₦9,333/class billed annually
-        </p>
-      </div>
-
-      {/* Button Component */}
-      <Button variant="special" theme="dark" width="w-full">
-        JOIN ANNUAL
-      </Button>
-
-      {/* Divider */}
-      <hr className="w-full border-t border-white/20 m-0" />
-
-      {/* Checklist */}
-      <div className="flex flex-col gap-[1rem] py-[0.5rem]">
-        <div className="flex flex-row items-start gap-[1rem]">
-          <div className="relative w-[1.5rem] h-[1.5rem] flex-shrink-0">
-            <Image src="/icons/check-icon-white.svg" alt="Check" fill className="object-contain" />
-          </div>
-          <span className="text-[length:var(--component-pricing-feature-size)] font-normal leading-[1.5] text-white">
-            Everything in Membership
+          <span className="text-xs sm:text-[length:var(--text-text-small)] font-normal text-white/70">
+            unlimited ₦9,333/class billed annually
           </span>
         </div>
-        <div className="flex flex-row items-start gap-[1rem]">
-          <div className="relative w-[1.5rem] h-[1.5rem] flex-shrink-0">
-            <Image src="/icons/check-icon-white.svg" alt="Check" fill className="object-contain" />
-          </div>
-          <span className="text-[length:var(--component-pricing-feature-size)] font-normal leading-[1.5] text-white">
-            Unlimited classes no cap
-          </span>
+
+        {/* Action Button */}
+        <Button variant="special" theme="dark" width="w-full">
+          JOIN ANNUAL
+        </Button>
+
+        <hr className="w-full border-t border-white/15 my-0" />
+
+        {/* Checklist */}
+        <div className="flex flex-col gap-2.5 sm:gap-3.5 py-1">
+          {features.map((feature, idx) => (
+            <div key={idx} className="flex flex-row items-center gap-2.5 sm:gap-3">
+              <div className="relative w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0">
+                <Image src="/icons/check-icon-white.svg" alt="Check" fill className="object-contain" />
+              </div>
+              <span className="text-xs sm:text-[length:var(--text-text-medium)] font-normal text-white/90">
+                {feature}
+              </span>
+            </div>
+          ))}
         </div>
-        <div className="flex flex-row items-start gap-[1rem]">
-          <div className="relative w-[1.5rem] h-[1.5rem] flex-shrink-0">
-            <Image src="/icons/check-icon-white.svg" alt="Check" fill className="object-contain" />
-          </div>
-          <span className="text-[length:var(--component-pricing-feature-size)] font-normal leading-[1.5] text-white">
-            2 non-consecutive freeze months
-          </span>
-        </div>
+
       </div>
 
     </div>

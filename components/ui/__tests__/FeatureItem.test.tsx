@@ -12,12 +12,12 @@ describe("FeatureItem Component", () => {
     );
 
     expect(screen.getByText("BOUTIQUE PREMIUM EXPERIENCE")).toBeDefined();
-    // Description container should have max-h-0 (collapsed)
-    const descWrapper = container.querySelector(".max-h-0");
+    // Description container should be collapsed via grid-rows-[0fr]
+    const descWrapper = container.querySelector(".grid-rows-\\[0fr\\]");
     expect(descWrapper).not.toBeNull();
   });
 
-  it("reveals description and applies hover background on mouseEnter", () => {
+  it("reveals description on click", () => {
     const { container } = render(
       <FeatureItem
         title="HIGH-PERFORMING COMMUNITY"
@@ -26,16 +26,14 @@ describe("FeatureItem Component", () => {
     );
 
     const card = container.firstChild as HTMLElement;
-    fireEvent.mouseEnter(card);
+    fireEvent.click(card);
 
-    expect(card.className).toContain("bg-[#FEF6DF]");
-    expect(card.className).toContain("p-[0.5rem]");
-    // Description should now be visible (max-h-[12.5rem])
-    const expandedWrapper = container.querySelector(".max-h-\\[12\\.5rem\\]");
+    // Description should now be visible (grid-rows-[1fr])
+    const expandedWrapper = container.querySelector(".grid-rows-\\[1fr\\]");
     expect(expandedWrapper).not.toBeNull();
   });
 
-  it("collapses description on mouseLeave", () => {
+  it("collapses description on second click", () => {
     const { container } = render(
       <FeatureItem
         title="TEST FEATURE"
@@ -44,11 +42,13 @@ describe("FeatureItem Component", () => {
     );
 
     const card = container.firstChild as HTMLElement;
-    fireEvent.mouseEnter(card);
-    fireEvent.mouseLeave(card);
-
-    expect(card.className).toContain("bg-transparent");
-    const collapsedWrapper = container.querySelector(".max-h-0");
-    expect(collapsedWrapper).not.toBeNull();
+    
+    // Open
+    fireEvent.click(card);
+    expect(container.querySelector(".grid-rows-\\[1fr\\]")).not.toBeNull();
+    
+    // Close
+    fireEvent.click(card);
+    expect(container.querySelector(".grid-rows-\\[0fr\\]")).not.toBeNull();
   });
 });

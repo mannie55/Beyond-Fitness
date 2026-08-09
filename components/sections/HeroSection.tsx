@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-[100dvh] min-h-[600px] flex flex-col justify-between pt-[16px] overflow-hidden bg-black text-white">
+    <section className="relative w-full h-[100dvh] min-h-[560px] md:min-h-[600px] flex flex-col justify-between pt-2 sm:pt-3 md:pt-[16px] pb-3 md:pb-0 overflow-hidden bg-black text-white">
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
         {/* Placeholder image, replace with video or actual Figma asset */}
@@ -24,19 +24,19 @@ export default function HeroSection() {
         <Navbar />
       </div>
 
-      {/* Bottom Massive Text (Top on Mobile, Bottom Absolute on Desktop) */}
-      <div className="relative md:absolute z-20 md:bottom-[2vh] md:left-1/2 md:-translate-x-1/2 w-full max-w-[100vw] flex justify-center items-center px-padding-global md:pointer-events-none mt-auto md:mt-0">
-        <h1 className="text-white font-[800] text-[clamp(2.5rem,14vw,20rem)] leading-[1] text-center mix-blend-difference uppercase tracking-[clamp(0rem,1vw,2.5rem)] whitespace-nowrap w-full select-none">
+      {/* Massive Brand Headline (Top-center on Mobile, Bottom Absolute on Desktop) */}
+      <div className="relative md:absolute z-20 md:bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-[100vw] flex justify-center items-end px-3 sm:px-padding-global md:pointer-events-none mt-auto md:mt-0 overflow-visible">
+        <h1 className="text-white font-[800] text-[clamp(2.5rem,14.5vw,20rem)] leading-none text-center uppercase tracking-[clamp(0.05rem,1.2vw,2.5rem)] whitespace-nowrap w-full select-none translate-y-[12%] md:translate-y-[14%]">
           GO BEYOND
         </h1>
       </div>
 
       {/* Hero Middle Content (Bottom on Mobile, Middle on Desktop) */}
-      <div className="relative z-20 w-full max-w-[100rem] mx-auto flex flex-col justify-center items-center md:justify-start md:items-start gap-6 md:gap-8 px-padding-global text-center md:text-left mt-8 mb-auto md:mt-0 md:mb-0">
-        <p className="text-white text-[1rem] md:text-[1.5rem] font-[400] leading-[1.5em] max-w-[500px]">
-          Train with expert coaches, push your limits, and build a healthier life that keeps up with you.
+      <div className="relative z-20 w-full max-w-[100rem] mx-auto flex flex-col justify-center items-center md:justify-start md:items-start gap-4 sm:gap-6 md:gap-8 px-4 sm:px-padding-global text-center md:text-left mt-4 sm:mt-6 mb-auto md:mt-0 md:mb-0">
+        <p className="text-white text-[0.9375rem] sm:text-[1rem] md:text-[1.5rem] font-[400] leading-[1.5] max-w-[540px]">
+          Where rhythm meets high performance. Immersive boutique classes, master coaching, and an electric community built for the driven.
         </p>
-        <Button variant="secondary" theme="dark">
+        <Button variant="secondary" theme="dark" href="/schedule">
           VIEW SCHEDULE
         </Button>
       </div>

@@ -29,13 +29,13 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full max-w-[100rem] mx-auto px-4 md:px-[2rem] h-[4.5rem] flex items-center relative z-50 font-sans text-[#0D0B05]">
+    <header className="w-full max-w-[100rem] mx-auto px-3 sm:px-4 md:px-[2rem] h-[3.75rem] md:h-[4.5rem] flex items-center relative z-50 font-sans text-[#0D0B05]">
       {/* Rounded Navbar Body Card */}
-      <div className="w-full h-full px-4 md:px-6 bg-white border border-black/10 rounded-lg flex justify-between items-center relative">
+      <div className="w-full h-full px-3 sm:px-4 md:px-6 bg-white border border-black/10 rounded-lg flex justify-between items-center relative shadow-xs">
         {/* Brand Logo & Name */}
-        <Link href="/" className="flex items-center gap-3 select-none group">
-          <div className="w-[55px] h-[55px] relative overflow-hidden flex-shrink-0">
-            <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 select-none group">
+          <div className="w-[42px] h-[42px] md:w-[55px] md:h-[55px] relative overflow-hidden flex-shrink-0">
+            <svg viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
               <g clipPath="url(#clip_nav_logo)">
                 {/* Outer circular and structural paths */}
                 <path 
@@ -67,10 +67,10 @@ export default function Navbar() {
             </svg>
           </div>
           <div className="flex flex-col justify-start items-start font-sans">
-            <span className="text-black text-heading-4 font-bold leading-[1.4]">
+            <span className="text-black text-sm sm:text-base md:text-heading-4 font-bold leading-[1.2]">
               BEYOND
             </span>
-            <span className="text-black text-text-regular font-normal leading-[1.5] tracking-wide">
+            <span className="text-black text-[0.65rem] sm:text-xs md:text-text-regular font-normal leading-[1.3] tracking-wide">
               FITNESS
             </span>
           </div>
@@ -203,15 +203,15 @@ export default function Navbar() {
 
         {/* Mobile Slide-Down Overlay */}
         {isMobileMenuOpen && (
-          <div className="absolute top-[calc(100%+0.5rem)] left-4 right-4 w-[calc(100%-2rem)] shadow-2xl flex flex-col p-6 lg:hidden animate-[fadeIn_0.2s_ease-out] bg-white rounded-lg border border-black/10 overflow-y-auto max-h-[80vh]">
+          <div className="absolute top-[calc(100%+0.375rem)] left-2 sm:left-4 right-2 sm:right-4 w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] shadow-2xl flex flex-col p-4 sm:p-6 lg:hidden animate-[fadeIn_0.2s_ease-out] bg-white rounded-xl border border-black/10 overflow-y-auto max-h-[82vh] z-50">
             
-            <nav className="flex flex-col gap-2 w-full">
+            <nav className="flex flex-col gap-1 w-full">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-text-medium font-semibold leading-[1.5] py-3 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/5"
+                  className="text-text-medium font-semibold leading-[1.4] py-2.5 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/5"
                 >
                   {link.name}
                 </Link>
@@ -221,29 +221,29 @@ export default function Navbar() {
               <div className="flex flex-col border-b border-black/5">
                 <button 
                   onClick={() => setOpenAccordion(openAccordion === 'community' ? null : 'community')}
-                  className="flex items-center justify-between text-text-medium font-semibold leading-[1.5] py-3 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left"
+                  className="flex items-center justify-between text-text-medium font-semibold leading-[1.4] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer"
                 >
                   OUR COMMUNITY
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'community' ? 'rotate-180' : ''}`}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'community' ? 'rotate-180' : ''}`}>
                     <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
                 <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'community' ? 'grid-rows-[1fr] opacity-100 pb-2' : 'grid-rows-[0fr] opacity-0'}`}>
-                  <div className="overflow-hidden flex flex-col gap-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2 mt-1">
+                  <div className="overflow-hidden flex flex-col gap-1 pl-1.5 border-l-2 border-[#CBAA4C]/20 ml-1.5 mt-1">
                     {communityColumn.map((item, index) => (
                       <Link
                         key={item.name}
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="group p-3 rounded-[4px] transition-all duration-300 flex flex-col gap-1 hover:bg-[#FEF6DF]"
+                        className="group p-2 rounded-[4px] transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
                       >
-                        <div className="flex items-center gap-3">
-                          <span className="text-[#CBAA4C] text-text-small font-bold italic opacity-80">0{index + 1}</span>
-                          <span className="text-[#0D0B05] text-text-regular font-bold tracking-wide uppercase">
+                        <div className="flex items-center gap-2">
+                          <span className="text-[#CBAA4C] text-[0.7rem] font-bold italic opacity-80">0{index + 1}</span>
+                          <span className="text-[#0D0B05] text-xs sm:text-text-regular font-bold tracking-wide uppercase">
                             {item.name}
                           </span>
                         </div>
-                        <span className="text-[#0D0B05]/60 text-text-small leading-relaxed pl-[1.625rem]">
+                        <span className="text-[#0D0B05]/60 text-[0.75rem] sm:text-text-small leading-relaxed pl-4">
                           {item.desc}
                         </span>
                       </Link>
@@ -256,29 +256,29 @@ export default function Navbar() {
               <div className="flex flex-col border-b border-black/5">
                 <button 
                   onClick={() => setOpenAccordion(openAccordion === 'about' ? null : 'about')}
-                  className="flex items-center justify-between text-text-medium font-semibold leading-[1.5] py-3 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left"
+                  className="flex items-center justify-between text-text-medium font-semibold leading-[1.4] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer"
                 >
                   ABOUT US
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'about' ? 'rotate-180' : ''}`}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'about' ? 'rotate-180' : ''}`}>
                     <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
                 <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'about' ? 'grid-rows-[1fr] opacity-100 pb-2' : 'grid-rows-[0fr] opacity-0'}`}>
-                  <div className="overflow-hidden flex flex-col gap-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2 mt-1">
+                  <div className="overflow-hidden flex flex-col gap-1 pl-1.5 border-l-2 border-[#CBAA4C]/20 ml-1.5 mt-1">
                     {aboutColumn.map((item, index) => (
                       <Link
                         key={item.name}
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="group p-3 rounded-[4px] transition-all duration-300 flex flex-col gap-1 hover:bg-[#FEF6DF]"
+                        className="group p-2 rounded-[4px] transition-all duration-300 flex flex-col gap-0.5 hover:bg-[#FEF6DF]"
                       >
-                        <div className="flex items-center gap-3">
-                          <span className="text-[#CBAA4C] text-text-small font-bold italic opacity-80">0{index + 1}</span>
-                          <span className="text-[#0D0B05] text-text-regular font-bold tracking-wide uppercase">
+                        <div className="flex items-center gap-2">
+                          <span className="text-[#CBAA4C] text-[0.7rem] font-bold italic opacity-80">0{index + 1}</span>
+                          <span className="text-[#0D0B05] text-xs sm:text-text-regular font-bold tracking-wide uppercase">
                             {item.name}
                           </span>
                         </div>
-                        <span className="text-[#0D0B05]/60 text-text-small leading-relaxed pl-[1.625rem]">
+                        <span className="text-[#0D0B05]/60 text-[0.75rem] sm:text-text-small leading-relaxed pl-4">
                           {item.desc}
                         </span>
                       </Link>
@@ -289,7 +289,7 @@ export default function Navbar() {
 
             </nav>
 
-            <div className="w-full flex justify-center pt-6 pb-2">
+            <div className="w-full flex justify-center pt-4 pb-1">
               <Button
                 variant="special"
                 theme="light"

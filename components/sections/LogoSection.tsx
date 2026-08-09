@@ -12,22 +12,20 @@ export default function LogoSection() {
 
   return (
     <section className="w-full flex flex-col justify-between items-stretch">
-      {/* Content wrapper: 8px top/bottom padding (0.5rem) */}
-      <div className="w-full flex flex-row flex-wrap lg:flex-nowrap justify-center lg:justify-between items-center py-[0.5rem] gap-[1rem]">
+      {/* Content wrapper: 3x2 balanced grid on mobile, flex-between on desktop */}
+      <div className="w-full grid grid-cols-3 md:flex md:flex-row md:flex-nowrap justify-center md:justify-between items-center py-1 sm:py-2 md:py-[0.5rem] gap-2 sm:gap-4 md:gap-[1rem]">
         {logos.map((logo, index) => (
           <div
             key={index}
-            // 133px width (8.3125rem), padding 16px (1rem) vertical, 19px (1.1875rem) horizontal
-            className="w-[8.3125rem] flex flex-col justify-center items-center gap-[0.625rem] px-[1.1875rem] py-[1rem]"
+            className="w-full md:w-[8.3125rem] flex flex-col justify-center items-center px-2 py-2 sm:px-3 sm:py-2.5 md:px-[1.1875rem] md:py-[1rem]"
           >
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center h-8 sm:h-9 md:h-auto">
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                className="object-contain"
-                style={{ width: "auto", height: "auto" }}
+                className="object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300 max-h-[24px] sm:max-h-[30px] md:max-h-none w-auto"
               />
             </div>
           </div>

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import ClassCard from "@/components/ui/ClassCard";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import InstagramEmbedCard from "@/components/ui/InstagramEmbedCard";
+
 import StatsBar from "@/components/ui/StatsBar";
 import FeatureItem from "@/components/ui/FeatureItem";
 import LogoSection from "@/components/sections/LogoSection";
@@ -14,7 +15,10 @@ import CommunitySection from "@/components/sections/CommunitySection";
 import AnnualCard from "@/components/ui/AnnualCard";
 import StudioIntroSection from "@/components/sections/StudioIntroSection";
 import CtaSection from "@/components/sections/CtaSection";
-
+import TestimonialSection from "@/components/sections/TestimonialSection";
+import CoachSection from "@/components/sections/CoachSection";
+import PricingSection from "@/components/sections/PricingSection";
+import EventSection from "@/components/sections/EventSection";
 import ImageSlider from "@/components/ui/ImageSlider";
 
 export default function DesignSystemPage() {
@@ -497,6 +501,66 @@ export default function DesignSystemPage() {
 
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 15. Full Testimonial Stories Section Showcase */}
+      <section className="w-full mt-12 border-t border-white/10 pt-12">
+        <div className="px-padding-global max-w-container-large mx-auto mb-6">
+          <h2 className="text-heading-4 font-bold text-white uppercase tracking-wider">
+            Testimonial Stories Section (Figma Spec)
+          </h2>
+          <span className="text-text-small text-white/50">
+            Interactive horizontal snap-rail with Instagram embeds, progress bar, and arrow controls
+          </span>
+        </div>
+        <div className="w-full">
+          <TestimonialSection />
+        </div>
+      </section>
+
+      {/* 16. Coaches Section Showcase */}
+      <section className="w-full mt-12 border-t border-white/10 pt-12">
+        <div className="px-padding-global max-w-container-large mx-auto mb-6">
+          <h2 className="text-heading-4 font-bold text-white uppercase tracking-wider">
+            Coaches Section (Figma Spec)
+          </h2>
+          <span className="text-text-small text-white/50">
+            Interactive horizontal snap-rail with ClassCard coaches presentation, progress bar, and arrow controls
+          </span>
+        </div>
+        <div className="w-full">
+          <CoachSection />
+        </div>
+      </section>
+
+      {/* 17. Pricing & Membership Section Showcase */}
+      <section className="w-full mt-12 border-t border-white/10 pt-12">
+        <div className="px-padding-global max-w-container-large mx-auto mb-6">
+          <h2 className="text-heading-4 font-bold text-white uppercase tracking-wider">
+            Pricing Section (Figma Spec)
+          </h2>
+          <span className="text-text-small text-white/50">
+            Full responsive pricing grid with interactive toggle cards and flexible membership banner
+          </span>
+        </div>
+        <div className="w-full">
+          <PricingSection />
+        </div>
+      </section>
+
+      {/* 18. Event Section Showcase */}
+      <section className="w-full mt-12 border-t border-white/10 pt-12">
+        <div className="px-padding-global max-w-container-large mx-auto mb-6">
+          <h2 className="text-heading-4 font-bold text-white uppercase tracking-wider">
+            Event Section (Figma Spec)
+          </h2>
+          <span className="text-text-small text-white/50">
+            Interactive tab switcher (On Tour / Pink Walk) with photo mosaic layout and responsive typography
+          </span>
+        </div>
+        <div className="w-full">
+          <EventSection />
         </div>
       </section>
 

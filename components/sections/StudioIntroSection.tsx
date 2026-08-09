@@ -1,16 +1,18 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import StudioIntroCenterpiece from "./StudioIntroCenterpiece";
+import Button from "@/components/ui/Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function StudioIntroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   useGSAP(() => {
     let mm = gsap.matchMedia();
@@ -21,15 +23,21 @@ export default function StudioIntroSection() {
     }, (context) => {
       let { isDesktop } = context.conditions as { isDesktop: boolean };
 
-      // Create the pinned scroll animation timeline
+      if (!isDesktop) return; // Disable GSAP scroll animation completely on mobile
+
+      // Create the pinned scroll animation timeline ONLY for desktop
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "center center", // Pin when the section reaches the middle of the viewport
-          end: "+=200%", // Keep pinned for 2x the viewport height
+          start: "center center", 
+          end: "+=200%", 
           pin: true,
-          scrub: 1, // Smooth scrubbing
+          scrub: 1, 
           anticipatePin: 1,
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
+          preventOverlaps: true,
+          pinType: "fixed"
         }
       });
 
@@ -42,16 +50,15 @@ export default function StudioIntroSection() {
       }, 0);
 
       // 2. Scale the video container to fill the viewport
-      // On desktop: fill entire screen (100vh). On mobile: maintain 16:9 aspect ratio (56.25vw).
       tl.to('[data-animate="video-wrapper"]', {
         width: "100vw",
-        height: isDesktop ? "100vh" : "56.25vw",
+        height: "100vh",
         borderRadius: "0px",
         duration: 1.5,
         ease: "power3.inOut"
       }, 0.2); // Start scaling slightly after the text begins fading
 
-      // 3. Shrink the text wrappers height on mobile (desktop is unaffected as they are absolute)
+      // 3. (Not needed for desktop since text wrappers are absolute, but keeping for consistency)
       tl.to('[data-animate="text-left-wrapper"], [data-animate="text-right-wrapper"]', {
         height: 0,
         duration: 1.5,
@@ -77,54 +84,133 @@ export default function StudioIntroSection() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full h-[100vh] bg-black overflow-hidden flex justify-center items-center"
+      className="relative w-full min-h-[100vh] md:min-h-0 md:h-[100vh] bg-black overflow-hidden flex flex-col justify-center items-center"
     >
-      {/* Background with 69% dark overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image 
-          src="/images/studio-background.jpg"
-          alt="Studio Background"
-          fill
-          className="object-cover opacity-60" 
-        />
-        <div className="absolute inset-0 bg-black/70"></div>
+      {/* Background Layer */}
+      <div className="absolute inset-0 bg-black">
+        {/* Desktop Static Background */}
+        <div className="hidden md:block w-full h-full relative">
+          <Image 
+            src="/images/studio-background.jpg"
+            alt="Studio Background"
+            fill
+            className="object-cover opacity-60" 
+          />
+          <div className="absolute inset-0 bg-black/70"></div>
+        </div>
+        {/* Mobile Full-Screen Video Background */}
+        <div className="block md:hidden w-full h-full relative">
+          <video
+            src="/videos/showcase-video.mp4"
+            autoPlay
+            muted={isMuted}
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+          {/* Subtle gradient overlay at the bottom for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+        </div>
       </div>
 
-      {/* Scattered background images - Collage style (Vivid & above overlay) */}
-      <div className="absolute inset-0 z-10 w-full h-full overflow-hidden pointer-events-none">
+      {/* Scattered background images - Collage style (Visible on Desktop for GSAP timeline) */}
+      <div className="absolute inset-0 z-10 w-full h-full overflow-hidden pointer-events-none hidden md:block">
         <div className="relative w-full h-full">
-          {/* TOP ROW (4 images, horizontally distributed, slightly staggered vertically) */}
-          <div className="absolute top-[3%] left-[2%] w-[17vw]">
+          {/* TOP ROW */}
+          <div className="absolute md:top-[3%] md:left-[2%] md:w-[17vw]">
             <img src="/images/studio-image-1.jpg" alt="Studio 1" className="w-full h-auto shadow-2xl" />
           </div>
-          <div className="absolute top-[6%] left-[22%] w-[20vw]">
+          <div className="absolute md:top-[6%] md:left-[22%] md:w-[20vw] md:z-auto">
             <img src="/images/studio-image-2.jpg" alt="Studio 2" className="w-full h-auto shadow-2xl" />
           </div>
-          <div className="absolute top-[2%] left-[52%] w-[20vw]">
+          <div className="absolute md:top-[2%] md:left-[52%] md:right-auto md:w-[20vw]">
             <img src="/images/studio-image-3.jpg" alt="Studio 3" className="w-full h-auto shadow-2xl" />
           </div>
-          <div className="absolute top-[4%] left-[78%] w-[17vw]">
+          <div className="absolute md:top-[4%] md:left-[78%] md:right-auto md:w-[17vw] md:z-auto">
             <img src="/images/studio-image-4.jpg" alt="Studio 4" className="w-full h-auto shadow-2xl" />
           </div>
 
-          {/* BOTTOM ROW (4 images, horizontally distributed, slightly staggered vertically) */}
-          <div className="absolute bottom-[2%] left-[-2%] w-[23vw]">
+          {/* BOTTOM ROW */}
+          <div className="absolute md:bottom-[2%] md:left-[-2%] md:w-[23vw]">
             <img src="/images/studio-image-5.jpg" alt="Studio 5" className="w-full h-auto shadow-2xl" />
           </div>
-          <div className="absolute bottom-[-6%] left-[30%] w-[19vw]">
+          <div className="absolute md:bottom-[-6%] md:left-[30%] md:w-[19vw] md:z-auto">
             <img src="/images/studio-image-6.jpg" alt="Studio 6" className="w-full h-auto shadow-2xl" />
           </div>
-          <div className="absolute bottom-[8%] left-[55%] w-[17vw]">
+          <div className="absolute md:bottom-[8%] md:left-[55%] md:right-auto md:w-[17vw]">
             <img src="/images/studio-image-7.jpg" alt="Studio 7" className="w-full h-auto shadow-2xl" />
           </div>
-          <div className="absolute bottom-[5%] left-[80%] w-[17vw]">
+          <div className="absolute md:bottom-[5%] md:left-[80%] md:right-auto md:w-[17vw] md:z-auto">
             <img src="/images/studio-image-8.jpg" alt="Studio 8" className="w-full h-auto shadow-2xl" />
           </div>
         </div>
       </div>
 
-      {/* The Reusable Centerpiece Component */}
-      <div className="relative z-10 flex justify-center items-center w-full h-full">
+      {/* Mobile Filmstrips + Centerpiece Layout */}
+      <div className="flex flex-col justify-between items-center w-full flex-1 md:hidden">
+        {/* Top Moodboard Ticker */}
+        <div className="w-full overflow-hidden select-none opacity-80 mt-0">
+          <div className="flex gap-2.5 animate-[marquee_25s_linear_infinite] whitespace-nowrap w-max">
+            {["/images/studio-image-1.jpg", "/images/studio-image-2.jpg", "/images/studio-image-3.jpg", "/images/studio-image-4.jpg", "/images/studio-image-1.jpg", "/images/studio-image-2.jpg", "/images/studio-image-3.jpg", "/images/studio-image-4.jpg"].map((src, idx) => (
+              <div key={`top-${idx}`} className="w-[8.5rem] h-[5.3rem] overflow-hidden flex-shrink-0 border border-white/15 shadow-md">
+                <img src={src} alt="Studio atmosphere" className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Editorial Text & Mute Toggle (Bottom Left) */}
+        <div className="w-full px-4 sm:px-6 pb-6 pt-16 flex flex-col justify-end items-start flex-1 relative pointer-events-auto">
+          <div className="flex flex-col gap-2 relative">
+            <h2 className="text-white mix-blend-difference text-[2.5rem] font-bold leading-[1.1] uppercase">
+              THIS IS
+            </h2>
+            <div className="mt-3">
+              <Button variant="primary" theme="dark" href="/classes" className="mix-blend-difference">
+                DISCOVER THE STUDIO
+              </Button>
+            </div>
+
+            {/* Massive Decorative Typography (Cloned from Footer) */}
+            <div className="w-full flex justify-center overflow-visible mt-6 sm:mt-8">
+              <div className="select-none text-center text-white mix-blend-difference font-bold text-[20vw] text-[clamp(4.5rem,18vw,20rem)] leading-[0.8] tracking-[0.08em] tracking-[clamp(0.4rem,3vw,5.34rem)] indent-[0.08em] lg:indent-[5.34rem] whitespace-nowrap">
+                BEYOND
+              </div>
+            </div>
+          </div>
+          
+          {/* Mute Toggle Button */}
+          <button 
+            onClick={() => setIsMuted(!isMuted)}
+            className="absolute top-6 right-4 sm:right-6 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/20 flex justify-center items-center text-white cursor-pointer hover:bg-white/30 transition-colors z-30"
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+          >
+            {isMuted ? (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Bottom Moodboard Ticker (Reverse) */}
+        <div className="w-full overflow-hidden select-none opacity-80">
+          <div className="flex gap-2.5 animate-[marquee-reverse_25s_linear_infinite] whitespace-nowrap w-max">
+            {["/images/studio-image-5.jpg", "/images/studio-image-6.jpg", "/images/studio-image-7.jpg", "/images/studio-image-8.jpg", "/images/studio-image-5.jpg", "/images/studio-image-6.jpg", "/images/studio-image-7.jpg", "/images/studio-image-8.jpg"].map((src, idx) => (
+              <div key={`bot-${idx}`} className="w-[8.5rem] h-[5.3rem] overflow-hidden flex-shrink-0 border border-white/15 shadow-md">
+                <img src={src} alt="Studio atmosphere" className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Centered Container */}
+      <div className="relative z-10 hidden md:flex justify-center items-center w-full h-full">
         <StudioIntroCenterpiece />
       </div>
     </section>
