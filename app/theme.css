@@ -60,9 +60,9 @@
   --border-width-divider-width: 1px;
 
   /* Component Sizing - Mobile Default */
-  --component-button-height: 2.375rem;
-  --component-button-icon-size: 1.875rem;
-  --component-button-svg-size: 1.125rem;
+  --component-button-height: 2rem;
+  --component-button-icon-size: 1.5rem;
+  --component-button-svg-size: 1rem;
   --component-button-padding-left: 1.125rem;
   --component-button-gap: 0.5rem;
   --component-button-text-size: clamp(0.625rem, 2.5vw, 0.875rem);
@@ -128,9 +128,9 @@
     --spacing-padding-section-small: 3rem;
 
     /* Component Sizing overrides */
-    --component-button-height: 3.25rem;
-    --component-button-icon-size: 2.75rem;
-    --component-button-svg-size: 1.5rem;
+    --component-button-height: 2.75rem;
+    --component-button-icon-size: 2.25rem;
+    --component-button-svg-size: 1.25rem;
     --component-button-padding-left: 1.5rem;
     --component-button-gap: 1rem;
     --component-classcard-width: 25rem;

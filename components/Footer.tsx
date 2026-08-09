@@ -48,11 +48,11 @@ export default function Footer() {
                 type="email"
                 placeholder="Your email"
                 required
-                className="flex-1 min-w-0 h-[2.5rem] sm:h-[2.875rem] rounded-[1.875rem] border border-white/30 bg-white/5 px-3 py-1.5 text-xs sm:text-[length:var(--text-text-medium)] leading-[1.5] text-white/60 placeholder-white/60 focus:border-white focus:outline-none transition-colors"
+                className="flex-1 min-w-0 h-[2rem] sm:h-[2.75rem] rounded-none border border-white/30 bg-white/5 px-3 py-1.5 text-xs sm:text-[length:var(--text-text-medium)] leading-[1.5] text-white/60 placeholder-white/60 focus:border-white focus:outline-none transition-colors"
               />
               <button
                 type="submit"
-                className="w-[5.5rem] sm:w-[6.5625rem] h-[2.5rem] sm:h-[2.875rem] rounded-full bg-white text-black font-bold text-xs sm:text-[length:var(--text-text-regular)] leading-[1.5] flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer flex-shrink-0"
+                className="w-[5.5rem] sm:w-[6.5625rem] h-[2rem] sm:h-[2.75rem] rounded-none bg-white text-black font-bold text-xs sm:text-[length:var(--text-text-regular)] leading-[1.5] flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer flex-shrink-0"
               >
                 JOIN
               </button>
