@@ -1,13 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Button from "./ui/Button";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCommunityDropdownOpen, setIsCommunityDropdownOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  
+  const navContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    let ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
+
+      // Only animate on desktop
+      mm.add("(min-width: 1024px)", () => {
+        gsap.to(navContainerRef.current, {
+          width: "75%",
+          scrollTrigger: {
+            start: 0,
+            end: 400,
+            scrub: true,
+          }
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const navLinks = [
     { name: "CLASSES", href: "/classes" },
@@ -29,10 +55,18 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full max-w-[100rem] mx-auto px-3 sm:px-4 md:px-[2rem] h-[3.75rem] md:h-[4.5rem] flex items-center relative z-50 font-sans text-[#0D0B05]">
-      {/* Sharp Navbar Body Card */}
-      <div className="w-full h-full px-3 sm:px-4 md:px-6 bg-white border border-black/10 rounded-none flex justify-between items-center relative shadow-xs z-[110]">
-        {/* Brand Logo & Name */}
+    <>
+      {/* Spacer to preserve document flow since the header is now fixed */}
+      <div className="w-full h-[3.75rem] md:h-[4.5rem] pointer-events-none" />
+
+      {/* Fixed Sticky Header */}
+      <header className="fixed top-0 left-0 right-0 w-full pt-2 sm:pt-3 md:pt-[16px] px-3 sm:px-4 md:px-[2rem] h-auto flex flex-col z-[100] pointer-events-none font-sans text-[#0D0B05]">
+        {/* Sharp Navbar Body Card */}
+        <div 
+          ref={navContainerRef}
+          className="w-full max-w-[100rem] mx-auto h-[3.75rem] md:h-[4.5rem] px-3 sm:px-4 md:px-6 bg-white border border-black/10 rounded-none flex justify-between items-center relative shadow-[0_4px_20px_rgba(0,0,0,0.05)] z-[110] pointer-events-auto"
+        >
+          {/* Brand Logo & Name */}
         <Link href="/" className="flex items-center gap-2 sm:gap-3 select-none group">
           <div className="w-[42px] h-[42px] md:w-[55px] md:h-[55px] relative overflow-hidden flex-shrink-0">
             <svg viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -302,5 +336,6 @@ export default function Navbar() {
         )}
       </div>
     </header>
+    </>
   );
 }
