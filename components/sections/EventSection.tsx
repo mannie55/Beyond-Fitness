@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 
 type EventTab = "on-tour" | "pink-walk";
 
@@ -195,23 +196,25 @@ export default function EventSection() {
               <div className="col-span-7 flex flex-col gap-3 sm:gap-4 md:gap-5 h-full">
                 {/* Top Image (183px height ratio) */}
                 <div className="relative flex-[2] overflow-hidden group rounded-none">
-                  <Image
+                  <ParallaxImage
                     src={current.images[0].src}
                     alt={current.images[0].alt}
-                    fill
+                    className="w-full h-full"
+                    imageClassName="transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 40vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    parallaxOffset={10}
                   />
                   <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
                 </div>
                 {/* Bottom Image (274px height ratio) */}
                 <div className="relative flex-[3] overflow-hidden group rounded-none">
-                  <Image
+                  <ParallaxImage
                     src={current.images[1].src}
                     alt={current.images[1].alt}
-                    fill
+                    className="w-full h-full"
+                    imageClassName="transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 40vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    parallaxOffset={10}
                   />
                   <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
                 </div>
@@ -220,12 +223,13 @@ export default function EventSection() {
               {/* Tall Right Portrait Image (5 Cols) */}
               <div className="col-span-5 h-full">
                 <div className="relative w-full h-full overflow-hidden group rounded-none">
-                  <Image
+                  <ParallaxImage
                     src={current.images[2].src}
                     alt={current.images[2].alt}
-                    fill
+                    className="w-full h-full"
+                    imageClassName="transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 30vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    parallaxOffset={12}
                   />
                   <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
                 </div>
