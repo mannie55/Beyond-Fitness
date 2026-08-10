@@ -22,13 +22,12 @@ export default function Navbar() {
       // Only animate on desktop
       mm.add("(min-width: 1024px)", () => {
         gsap.to(navContainerRef.current, {
-          width: "75%",
+          width: "65vw",
           ease: "none",
           scrollTrigger: {
-            trigger: document.documentElement,
-            start: "top top",
-            end: "+=400",
-            scrub: true,
+            start: 0,
+            end: 500,
+            scrub: 1.5, // Adds a very natural, smooth 1.5s lag to the scrub so it doesn't snap to wheel ticks
           }
         });
       });
