@@ -178,7 +178,7 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <Button
               variant="primary"
-              theme="dark"
+              theme="light"
               href="/schedule"
             >
               VIEW SCHEDULE
@@ -189,7 +189,7 @@ export default function Navbar() {
           <div className="block lg:hidden">
             <Button
               variant="primary"
-              theme="dark"
+              theme="light"
               href="/schedule"
               textWidth="w-auto text-[0.65rem] sm:text-xs"
               paddingLeft="pl-3"
