@@ -64,6 +64,16 @@ export default function StudioIntroSection() {
         duration: 1,
         ease: "power2.out",
       }, 1.0); // Start fading in as the video is finishing its shrink
+
+      // 4. Travel the CTA from bottom-left to the center of the Studio section
+      tl.to('[data-animate="desktop-cta-container"]', {
+        bottom: "20vh",
+        left: "50vw",
+        xPercent: -50,
+        duration: 1.5,
+        ease: "power3.inOut"
+      }, 0.2); // Sync with video shrink
+
     });
 
   }, { scope: sectionRef });
@@ -210,12 +220,18 @@ export default function StudioIntroSection() {
             </div>
             
             <div className="flex flex-col gap-6 w-full relative z-20 pb-8 lg:pb-12">
-              <div className="pointer-events-auto mt-4 self-start">
-                <Button variant="primary" theme="dark" href="/classes">
-                  DISCOVER THE STUDIO
-                </Button>
-              </div>
+              {/* CTA moved to independent absolute container for travel animation */}
             </div>
+        </div>
+        
+        {/* Independently traveling CTA */}
+        <div 
+          data-animate="desktop-cta-container" 
+          className="absolute z-50 pointer-events-auto mix-blend-difference hidden md:block bottom-12 left-12 lg:bottom-[4rem] lg:left-[4rem]"
+        >
+          <Button variant="primary" theme="dark" href="/classes">
+            DISCOVER THE STUDIO
+          </Button>
         </div>
       </div>
     </section>
