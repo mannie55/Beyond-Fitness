@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
+import ParallaxImage from "./ParallaxImage";
 
 interface ImageSliderProps {
   images: string[];
@@ -178,19 +179,19 @@ export default function ImageSlider({
         {slides.map((img, i) => (
           <div
             key={i}
-            className="flex-shrink-0 w-full h-full relative bg-neutral-900"
+            className="flex-shrink-0 w-full h-full relative bg-neutral-900 overflow-hidden"
             role="group"
             aria-roledescription="slide"
             aria-label={`Slide ${i} of ${slides.length}`}
           >
-            <Image
+            <ParallaxImage
               src={img}
               alt={`Slide ${i + 1} - Beyond Fitness Studio`}
-              fill
+              className="w-full h-full"
+              imageClassName="object-cover object-[center_25%]"
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-[center_25%]"
               priority={i === 1}
-              loading={i === 1 ? undefined : "lazy"}
+              parallaxOffset={12}
             />
           </div>
         ))}

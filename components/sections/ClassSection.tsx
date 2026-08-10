@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import TextReveal from "@/components/ui/TextReveal";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 
 export interface ClassProgram {
   id: string;
@@ -308,13 +309,14 @@ export default function ClassSection({
 
                       {/* Right: High-Res Image (5 Cols) */}
                       <div className="col-span-5 relative w-full h-[320px] xl:h-[380px] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
-                        <Image
+                        <ParallaxImage
                           src={program.imageSrc}
                           alt={`${program.name} class session`}
-                          fill
+                          className="w-full h-full"
+                          imageClassName="transition-transform duration-700 hover:scale-105"
                           sizes="(max-width: 1280px) 40vw, 480px"
                           priority={index === 0}
-                          className="object-cover object-center transition-transform duration-700 hover:scale-105"
+                          parallaxOffset={10}
                         />
                       </div>
 
@@ -379,12 +381,12 @@ export default function ClassSection({
                   >
                     {/* Image */}
                     <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
-                      <Image
+                      <ParallaxImage
                         src={program.imageSrc}
                         alt={`${program.name} class`}
-                        fill
+                        className="w-full h-full"
                         sizes="100vw"
-                        className="object-cover object-center"
+                        parallaxOffset={8}
                       />
                     </div>
 
