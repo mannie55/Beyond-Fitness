@@ -1,4 +1,5 @@
 import LogoSection from "@/components/sections/LogoSection";
+import TextReveal from "@/components/ui/TextReveal";
 
 export default function TrustSection() {
   return (
@@ -6,9 +7,11 @@ export default function TrustSection() {
       
       {/* Title */}
       <div className="w-full max-w-[90rem] mx-auto flex flex-col justify-start items-center px-2 sm:px-0">
-        <h2 className="text-white/80 text-[0.9375rem] sm:text-[1.125rem] md:text-[length:var(--text-heading-5)] font-medium text-center max-w-2xl leading-[1.45] tracking-normal sm:tracking-tight">
-          Shaping modern fitness culture across Africa, trusted by leading brands, athletes, and industry pioneers.
-        </h2>
+        <TextReveal
+          as="h2"
+          text="Shaping modern fitness culture across Africa, trusted by leading brands, athletes, and industry pioneers."
+          className="text-white/80 text-[0.9375rem] sm:text-[1.125rem] md:text-[length:var(--text-heading-5)] font-medium text-center max-w-2xl leading-[1.45] tracking-normal sm:tracking-tight"
+        />
       </div>
 
       {/* Logos */}
