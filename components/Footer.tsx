@@ -151,6 +151,7 @@ export default function Footer() {
               as="div"
               text="BEYOND"
               className="select-none text-center text-white font-bold text-[20vw] text-[clamp(4.5rem,18vw,20rem)] leading-[0.8] tracking-[0.08em] tracking-[clamp(0.4rem,3vw,5.34rem)] indent-[0.08em] lg:indent-[5.34rem] whitespace-nowrap"
+              triggerSelector="#footer-ghost"
             />
           </div>
 

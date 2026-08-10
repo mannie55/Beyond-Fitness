@@ -46,6 +46,7 @@ export default function FooterReveal({ children }: FooterRevealProps) {
     <>
       {/* 1. Ghost Spacer: Renders invisibly in normal document flow to create exact scrollable height */}
       <div 
+        id="footer-ghost"
         ref={containerRef} 
         className="relative w-full opacity-0 pointer-events-none select-none"
         aria-hidden="true"

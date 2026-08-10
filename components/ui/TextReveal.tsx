@@ -12,9 +12,10 @@ interface TextRevealProps {
   as?: React.ElementType;
   className?: string;
   delay?: number;
+  triggerSelector?: string;
 }
 
-export default function TextReveal({ text, as: Component = "div", className = "", delay = 0 }: TextRevealProps) {
+export default function TextReveal({ text, as: Component = "div", className = "", delay = 0, triggerSelector }: TextRevealProps) {
   const textRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -47,8 +48,8 @@ export default function TextReveal({ text, as: Component = "div", className = ""
         ease: "power4.out",
         delay: delay,
         scrollTrigger: {
-          trigger: textRef.current,
-          start: "top 85%",
+          trigger: triggerSelector ? triggerSelector : textRef.current,
+          start: triggerSelector ? "top bottom" : "top 85%",
           toggleActions: "play none none reverse", // Rewinds if scrolled back up past it!
         },
       });
