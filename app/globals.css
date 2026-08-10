@@ -48,7 +48,7 @@
   }
 }
 
-body {
-  background: var(--color-background);
+html, body {
+  background: var(--color-black);
   color: var(--color-text);
 }
