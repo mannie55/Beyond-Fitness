@@ -2,6 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ClassCardProps {
   title: string;
@@ -20,20 +25,54 @@ export default function ClassCard({
   href,
   className = "",
 }: ClassCardProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imageWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !imageWrapperRef.current) return;
+
+    // Only apply parallax if user doesn't prefer reduced motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        imageWrapperRef.current,
+        { yPercent: -10 }, // Start slightly higher
+        {
+          yPercent: 10, // End slightly lower
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const cardContent = (
     <div className={`inline-flex flex-col justify-start items-start gap-3 sm:gap-4 bg-transparent group cursor-pointer font-sans text-left w-[16.5rem] sm:w-[19rem] md:w-[var(--component-classcard-width,25rem)] snap-start flex-shrink-0 ${className}`}>
       {/* Image wrapper */}
       <div className="self-stretch flex justify-start items-center gap-2.5 w-full">
         {/* Image container — explicit aspect-square ensures a perfect 1:1 ratio */}
-        <div className="w-full aspect-square relative overflow-hidden bg-neutral-100 rounded-none">
-          <Image
-            src={imageSrc}
-            alt={title}
-            fill
-            priority
-            sizes="(max-width: 768px) 80vw, 400px"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
+        <div ref={containerRef} className="w-full aspect-square relative overflow-hidden bg-neutral-100 rounded-none">
+          
+          {/* GSAP Parallax Wrapper (Taller than container to allow scrolling without clipping) */}
+          <div ref={imageWrapperRef} className="absolute w-full h-[125%] top-[-12.5%] left-0 will-change-transform">
+            <Image
+              src={imageSrc}
+              alt={title}
+              fill
+              priority
+              sizes="(max-width: 768px) 80vw, 400px"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          </div>
           {/* Dynamic hover overlay */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700 pointer-events-none" />
 
