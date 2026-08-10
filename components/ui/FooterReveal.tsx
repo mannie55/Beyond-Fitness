@@ -54,7 +54,7 @@ export default function FooterReveal({ children }: FooterRevealProps) {
       </div>
       
       {/* 2. Fixed Footer: Stays pinned to the bottom, behind the rest of the page */}
-      <div className="fixed bottom-0 left-0 w-full h-auto z-[-1] overflow-hidden bg-[var(--color-neutral-lightest)]">
+      <div className="fixed bottom-0 left-0 w-full h-auto z-[-1] overflow-hidden bg-black">
         <div ref={footerRef} className="w-full h-full will-change-transform">
           {children}
         </div>
