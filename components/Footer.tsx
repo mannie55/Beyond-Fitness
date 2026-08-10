@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import TextReveal from "@/components/ui/TextReveal";
 
 export default function Footer() {
   const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
@@ -146,9 +147,11 @@ export default function Footer() {
           
           {/* Massive Decorative Typography */}
           <div className="w-full flex justify-center overflow-visible relative z-10">
-            <div className="select-none text-center text-white font-bold text-[20vw] text-[clamp(4.5rem,18vw,20rem)] leading-[0.8] tracking-[0.08em] tracking-[clamp(0.4rem,3vw,5.34rem)] indent-[0.08em] lg:indent-[5.34rem] whitespace-nowrap">
-              BEYOND
-            </div>
+            <TextReveal 
+              as="div"
+              text="BEYOND"
+              className="select-none text-center text-white font-bold text-[20vw] text-[clamp(4.5rem,18vw,20rem)] leading-[0.8] tracking-[0.08em] tracking-[clamp(0.4rem,3vw,5.34rem)] indent-[0.08em] lg:indent-[5.34rem] whitespace-nowrap"
+            />
           </div>
 
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 border-t border-white/15 pt-4 sm:pt-6 md:pt-8 mt-1 md:mt-2">
