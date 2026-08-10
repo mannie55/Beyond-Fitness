@@ -177,24 +177,24 @@ export default function Navbar() {
           {/* Desktop Action CTA Button */}
           <div className="hidden lg:block">
             <Button
-              variant="special"
-              theme="light"
+              variant="primary"
+              theme="dark"
               href="/schedule"
             >
-              BOOK YOUR FIRST CLASS
+              VIEW SCHEDULE
             </Button>
           </div>
 
           {/* Mobile Action CTA Button */}
           <div className="block lg:hidden">
             <Button
-              variant="special"
-              theme="light"
+              variant="primary"
+              theme="dark"
               href="/schedule"
               textWidth="w-auto text-[0.65rem] sm:text-xs"
               paddingLeft="pl-3"
             >
-              BOOK
+              VIEW SCHEDULE
             </Button>
           </div>
 
@@ -296,8 +296,7 @@ export default function Navbar() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </nav>
+              </nav>
             </div>
           </div>
         )}

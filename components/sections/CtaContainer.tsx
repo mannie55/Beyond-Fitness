@@ -54,15 +54,6 @@ export default function CtaContainer() {
         >
           BOOK YOUR FIRST CLASS
         </Button>
-
-        <Button
-          variant="secondary"
-          theme="dark"
-          href="/classes"
-          className="w-full sm:w-auto"
-        >
-          EXPLORE SCHEDULE
-        </Button>
       </div>
     </div>
   );

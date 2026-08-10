@@ -1,0 +1,121 @@
+/* button.module.css */
+/* root is inert: hosts may set transition/transform on it (reveal staggers) */
+.disc-swallow-button {
+  --duration: 600ms;
+  /* source: one spring {duration .6, bounce .2} — 1.5% overshoot at 349ms,
+     the soft elastic settle */
+  --ease: linear(0, 0.0418 3.5%, 0.1411 7%, 0.2674 10.5%, 0.4003 14%,
+    0.5269 17.5%, 0.64 21%, 0.7361 24.5%, 0.8145 28%, 0.8763 31.5%,
+    0.9231 35%, 0.9574 38.5%, 0.9814 42%, 0.9973 45.5%, 1.0071 49%,
+    1.0125 52.5%, 1.0148 56%, 1.0151 59.5%, 1.0141 63%, 1.0123 66.5%,
+    1.0104 70%, 1.0076 75%, 1.0051 80%, 1.0032 85%, 1.0018 90%, 1.0009 95%,
+    1.0003);
+
+  display: inline-block;
+  text-decoration: none;
+  font: inherit;
+  width: var(--button-width, fit-content);
+}
+
+/* the ghost row fixes the rest layout width; the visible surface animates
+   its own width independently so the pill can contract without JS */
+.disc-swallow-button__frame {
+  position: relative;
+  display: block;
+  height: var(--component-button-height, 52px);
+}
+
+.disc-swallow-button__ghost {
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  padding-left: 16px;
+  /* gap 16 + disc 39 + right pad 6 = 61px */
+  padding-right: 61px;
+  font-size: var(--component-button-text-size, 16px);
+  height: 100%;
+  white-space: nowrap;
+}
+
+.disc-swallow-button__surface {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0px; /* Brutalist override */
+  background: var(--pill-color);
+  border: var(--pill-border, none);
+  overflow: hidden;
+  transition: width var(--duration) var(--ease), background var(--duration) var(--ease);
+}
+
+.disc-swallow-button__label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translate(0, -50%);
+  color: var(--label-color);
+  font-size: var(--component-button-text-size, 16px);
+  white-space: nowrap;
+  transition: transform var(--duration) var(--ease);
+}
+
+/* disc hugs the right edge at rest (39px wide); as the surface contracts it
+   floods everything but a uniform margin */
+.disc-swallow-button__disc {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  left: calc(100% - var(--component-button-height, 52px) + 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px; /* Brutalist override */
+  background: var(--disc-color);
+  color: var(--arrow-color);
+  border: var(--disc-border, none);
+  transition: left var(--duration) var(--ease), background var(--duration) var(--ease), color var(--duration) var(--ease);
+}
+
+.disc-swallow-button__arrow {
+  width: 24px;
+  height: 24px;
+  transform: rotate(0deg);
+  transition:
+    width var(--duration) var(--ease),
+    height var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
+}
+
+/* hover: the surface stays full width, the label exits left through the
+   clip, the disc fills to the uniform inset, the arrow turns up-right */
+.disc-swallow-button:hover .disc-swallow-button__surface,
+.disc-swallow-button:focus-visible .disc-swallow-button__surface {
+  width: 100%;
+}
+
+.disc-swallow-button:hover .disc-swallow-button__label,
+.disc-swallow-button:focus-visible .disc-swallow-button__label {
+  transform: translate(calc(-100% - 32px), -50%);
+}
+
+.disc-swallow-button:hover .disc-swallow-button__disc,
+.disc-swallow-button:focus-visible .disc-swallow-button__disc {
+  left: 4px;
+}
+
+.disc-swallow-button:hover .disc-swallow-button__arrow,
+.disc-swallow-button:focus-visible .disc-swallow-button__arrow {
+  transform: rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disc-swallow-button__surface,
+  .disc-swallow-button__label,
+  .disc-swallow-button__disc,
+  .disc-swallow-button__arrow {
+    transition-duration: 0.01ms;
+  }
+}
