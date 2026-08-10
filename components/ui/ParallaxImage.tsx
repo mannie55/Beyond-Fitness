@@ -35,13 +35,14 @@ export default function ParallaxImage({
     if (prefersReducedMotion) return;
 
     let ctx = gsap.context(() => {
-      // The image container is taller than the viewport by 2 * parallaxOffset percent.
-      // We animate yPercent from -parallaxOffset to +parallaxOffset.
+      // Calculate exact yPercent based on element's scaled height to prevent background exposure
+      const yPercentValue = (parallaxOffset / (100 + parallaxOffset * 2)) * 100;
+
       gsap.fromTo(
         imageRef.current,
-        { yPercent: -parallaxOffset },
+        { yPercent: -yPercentValue },
         {
-          yPercent: parallaxOffset,
+          yPercent: yPercentValue,
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,

@@ -1,25 +1,5 @@
 import Button from "@/components/ui/Button";
 
-function NaturalUnderline() {
-  return (
-    <svg
-      viewBox="0 0 300 6"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-[0.25rem] md:h-[0.375rem] text-[var(--color-dandelion)] -mt-1 sm:-mt-2 overflow-visible select-none pointer-events-none"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M 2 3 L 298 3"
-        stroke="currentColor"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 export default function CtaContainer() {
   return (
     <div className="w-full max-w-[48rem] flex flex-col items-start gap-6 sm:gap-8">
@@ -31,10 +11,7 @@ export default function CtaContainer() {
           <br />
           <span className="inline-flex flex-wrap items-baseline gap-x-2 sm:gap-x-3">
             <span>A RETURN TO</span>
-            <span className="relative inline-flex flex-col justify-center text-white">
-              <span className="whitespace-nowrap relative z-10">WHO YOU ARE</span>
-              <NaturalUnderline />
-            </span>
+            <span>WHO YOU ARE</span>
           </span>
         </h2>
 
