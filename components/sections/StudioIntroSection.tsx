@@ -41,48 +41,35 @@ export default function StudioIntroSection() {
         }
       });
 
-      // 1. Fade out the text and button almost immediately
-      tl.to('[data-animate="text-left"], [data-animate="text-right"], [data-animate="button"]', {
+      // 1. Fade out the editorial overlay almost immediately
+      tl.to('[data-animate="desktop-post-zoom"]', {
         opacity: 0,
-        scale: 0.95,
         duration: 0.5,
-        ease: "power2.out",
+        ease: "power2.out"
       }, 0);
 
-      // 2. Scale the video container to fill the viewport
+      // 2. Shrink the video container to its final "pill" state
       tl.to('[data-animate="video-wrapper"]', {
-        width: "100vw",
-        height: "100vh",
-        borderRadius: "0px",
-        duration: 1.5,
-        ease: "power3.inOut"
-      }, 0.2); // Start scaling slightly after the text begins fading
-
-      // 3. (Not needed for desktop since text wrappers are absolute, but keeping for consistency)
-      tl.to('[data-animate="text-left-wrapper"], [data-animate="text-right-wrapper"]', {
-        height: 0,
+        width: "clamp(8rem,15vw,18rem)",
+        height: "clamp(4rem,7vw,9rem)",
+        borderRadius: "0.5rem", // 8px (rounded-lg)
         duration: 1.5,
         ease: "power3.inOut"
       }, 0.2);
 
-      // 4. Shrink the button's height to 0 and the parent gap to 0 so the video fills vertically
-      tl.to('[data-animate="button-wrapper"]', {
-        height: 0,
-        duration: 1.5,
-        ease: "power3.inOut"
-      }, 0.2);
-
-      tl.to('[data-animate="centerpiece-root"], [data-animate="inner-row"]', {
-        gap: 0,
-        duration: 1.5,
-        ease: "power3.inOut"
-      }, 0.2);
+      // 3. Fade in the "THIS IS" and "BEYOND" centerpiece text
+      tl.to('[data-animate="text-left"], [data-animate="text-right"]', {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out",
+      }, 1.0); // Start fading in as the video is finishing its shrink
     });
 
   }, { scope: sectionRef });
 
   return (
-    <section 
+    <section id="studio" 
       ref={sectionRef} 
       className="relative w-full min-h-[100vh] md:min-h-0 md:h-[100vh] bg-black overflow-hidden flex flex-col justify-center items-center"
     >
@@ -108,8 +95,6 @@ export default function StudioIntroSection() {
             playsInline
             className="w-full h-full object-cover"
           />
-          {/* Subtle gradient overlay at the bottom for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
         </div>
       </div>
 
@@ -161,7 +146,7 @@ export default function StudioIntroSection() {
 
         {/* Mobile Editorial Text & Mute Toggle (Bottom Left) */}
         <div className="w-full px-4 sm:px-6 pb-6 pt-16 flex flex-col justify-end items-start flex-1 relative pointer-events-auto">
-          <div className="flex flex-col gap-2 relative">
+          <div className="flex flex-col gap-2">
             <h2 className="text-white mix-blend-difference text-[2.5rem] font-bold leading-[1.1] uppercase">
               THIS IS
             </h2>
@@ -212,6 +197,26 @@ export default function StudioIntroSection() {
       {/* Desktop Centered Container */}
       <div className="relative z-10 hidden md:flex justify-center items-center w-full h-full">
         <StudioIntroCenterpiece />
+        
+        {/* Desktop Post-Zoom Overlay */}
+        <div 
+          data-animate="desktop-post-zoom" 
+          className="absolute inset-0 z-50 pointer-events-none flex flex-col justify-between p-12 lg:p-[4rem] items-start mix-blend-difference"
+        >
+            <div className="w-full flex justify-end items-start pt-8 lg:pt-12">
+               <h2 className="text-white text-[3.5vw] lg:text-[2.5rem] font-bold leading-[1.1] uppercase max-w-[40vw] text-right">
+                 Where rhythm meets high performance.
+               </h2>
+            </div>
+            
+            <div className="flex flex-col gap-6 w-full relative z-20 pb-8 lg:pb-12">
+              <div className="pointer-events-auto mt-4 self-start">
+                <Button variant="primary" theme="dark" href="/classes">
+                  DISCOVER THE STUDIO
+                </Button>
+              </div>
+            </div>
+        </div>
       </div>
     </section>
   );

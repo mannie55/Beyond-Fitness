@@ -34,13 +34,13 @@ export default function PricingSection({
 
         {/* Pricing Cards Grid */}
         <div className="w-full flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8 items-stretch">
-          <div className="flex flex-1 min-w-[18rem] basis-[20rem] max-w-[28rem] xl:max-w-none h-auto">
+          <div className="flex flex-1 min-w-[18rem] basis-[24rem] xl:basis-[20rem] max-w-[28rem] xl:max-w-none h-auto">
             <FirstTimersCard />
           </div>
-          <div className="flex flex-1 min-w-[18rem] basis-[20rem] max-w-[28rem] xl:max-w-none h-auto">
+          <div className="flex flex-1 min-w-[18rem] basis-[24rem] xl:basis-[20rem] max-w-[28rem] xl:max-w-none h-auto">
             <MembershipCard />
           </div>
-          <div className="flex flex-1 min-w-[18rem] basis-[20rem] max-w-[28rem] xl:max-w-none h-auto">
+          <div className="flex flex-1 min-w-[18rem] basis-[24rem] xl:basis-[20rem] max-w-[28rem] xl:max-w-none h-auto">
             <AnnualCard />
           </div>
         </div>

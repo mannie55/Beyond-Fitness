@@ -81,7 +81,7 @@ export default function CoachSection({
   };
 
   return (
-    <section className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-10 sm:py-14 md:py-24 overflow-hidden relative font-sans">
+    <section id="coaches" className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-10 sm:py-14 md:py-24 overflow-hidden relative font-sans">
       <div className="w-full max-w-[100rem] flex flex-col items-start gap-6 sm:gap-8 md:gap-[3.5rem]">
         
         {/* Section Header */}
@@ -130,7 +130,7 @@ export default function CoachSection({
           <div className="w-full flex justify-between items-center">
             
             {/* Progress Indicator */}
-            <div className="w-[7.5rem] sm:w-[10rem] h-[0.375rem] bg-black/10 relative rounded-full overflow-hidden">
+            <div className="w-[7.5rem] sm:w-[10rem] h-[2px] bg-black/10 relative rounded-full overflow-hidden">
               <div
                 className="absolute top-0 h-full bg-black rounded-full transition-all duration-150"
                 style={{

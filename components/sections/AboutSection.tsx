@@ -26,7 +26,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="w-full lg:min-h-screen bg-[var(--color-neutral-lightest)] overflow-hidden flex flex-col lg:flex-row items-stretch">
+    <section id="about" className="w-full lg:min-h-screen bg-[var(--color-neutral-lightest)] overflow-hidden flex flex-col lg:flex-row items-stretch">
       {/* Left Content Area */}
       <div className="flex-1 flex justify-center lg:justify-start items-center py-10 sm:py-12 lg:py-[6rem] px-padding-global lg:pr-[4rem]">
         <div className="w-full max-w-[38rem] flex flex-col items-start gap-4 sm:gap-5 md:gap-[1.5rem]">

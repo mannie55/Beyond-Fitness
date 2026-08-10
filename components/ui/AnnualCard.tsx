@@ -30,7 +30,7 @@ export default function AnnualCard() {
           </div>
 
           <div className="flex-shrink-0">
-            <div className="flex items-center px-2.5 py-0.5 sm:px-3 sm:py-1 bg-[var(--color-dandelion)] rounded-full">
+            <div className="flex items-center px-2.5 py-0.5 sm:px-3 sm:py-1 bg-[var(--color-dandelion)] border border-black">
               <span className="text-[#655526] text-[0.65rem] sm:text-xs font-bold uppercase tracking-wider">
                 BEST VALUE
               </span>
@@ -41,10 +41,10 @@ export default function AnnualCard() {
         {/* Price Container */}
         <div className="flex flex-col items-start gap-1">
           <div className="flex items-center gap-2.5 sm:gap-3">
-            <span className="text-[1.875rem] sm:text-[2.25rem] md:text-[length:var(--text-heading-2)] font-bold leading-[1.1] tracking-tight text-[#FEFAEF]">
+            <span className="text-[clamp(1.875rem,5vw,2.75rem)] xl:text-[3.125rem] font-bold leading-[1.1] tracking-tight text-[#FEFAEF] whitespace-nowrap">
               ₦3,360,000
             </span>
-            <div className="flex items-center px-2 py-0.5 bg-[var(--color-dandelion)] rounded-full">
+            <div className="flex items-center px-2 py-0.5 bg-[var(--color-dandelion)] border border-black">
               <span className="text-[#655526] text-[0.65rem] sm:text-xs font-bold">
                 -63%
               </span>

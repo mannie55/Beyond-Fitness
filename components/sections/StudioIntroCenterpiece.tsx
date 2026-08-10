@@ -9,7 +9,7 @@ export default function StudioIntroCenterpiece() {
         <div data-animate="text-left-wrapper" className="relative md:absolute md:right-[50%] md:mr-[clamp(6.5rem,calc(7.5vw+2.5rem),11.5rem)] flex justify-center overflow-hidden">
           <h2 
             data-animate="text-left"
-            className="text-white text-[clamp(2.75rem,8vw,9.5rem)] font-bold leading-tight md:leading-[1.2] uppercase whitespace-nowrap md:mt-[1.5rem]"
+            className="text-white text-[clamp(2.75rem,8vw,9.5rem)] font-bold leading-tight md:leading-[1.2] uppercase whitespace-nowrap md:mt-[1.5rem] md:opacity-0 md:scale-95"
           >
             THIS IS
           </h2>
@@ -18,7 +18,7 @@ export default function StudioIntroCenterpiece() {
         {/* Video Wrapper */}
         <div 
           data-animate="video-wrapper"
-          className="relative z-20 w-full max-w-[20rem] sm:max-w-[24rem] aspect-[16/10] sm:aspect-video rounded-lg md:w-[clamp(8rem,15vw,18rem)] md:h-[clamp(4rem,7vw,9rem)] md:aspect-auto md:max-w-none md:rounded-lg overflow-hidden flex justify-center items-center bg-black/20 flex-shrink-0 shadow-xl"
+          className="relative z-20 w-full max-w-[20rem] sm:max-w-[24rem] aspect-[16/10] sm:aspect-video rounded-lg md:w-[100vw] md:h-[100vh] md:aspect-auto md:max-w-none md:rounded-none overflow-hidden flex justify-center items-center bg-black/20 flex-shrink-0 shadow-xl"
         >
           <video
             src="/videos/showcase-video.mp4"
@@ -37,21 +37,12 @@ export default function StudioIntroCenterpiece() {
         <div data-animate="text-right-wrapper" className="relative md:absolute md:left-[50%] md:ml-[clamp(6.5rem,calc(7.5vw+2.5rem),11.5rem)] flex justify-center overflow-hidden">
           <h2 
             data-animate="text-right"
-            className="text-white text-[clamp(2.75rem,8vw,9.5rem)] font-bold leading-tight md:leading-[1.2] uppercase whitespace-nowrap md:mt-[1.5rem]"
+            className="text-white text-[clamp(2.75rem,8vw,9.5rem)] font-bold leading-tight md:leading-[1.2] uppercase whitespace-nowrap md:mt-[1.5rem] md:opacity-0 md:scale-95"
           >
             BEYOND
           </h2>
         </div>
 
-      </div>
-
-      {/* Button */}
-      <div data-animate="button-wrapper" className="overflow-hidden mt-2 sm:mt-3 md:mt-0">
-        <div data-animate="button">
-          <Button variant="primary" theme="dark" href="/classes">
-            DISCOVER THE STUDIO
-          </Button>
-        </div>
       </div>
 
     </div>

@@ -46,26 +46,27 @@ export default function FirstTimersCard() {
           </p>
         </div>
 
-        {/* Toggle Buttons */}
-        <div className="flex flex-row items-center gap-1.5 p-1 bg-black/5 rounded-lg w-full">
+        {/* Toggle Buttons (Brutalist Editorial) */}
+        <div className="flex flex-row items-center w-full border border-black">
           <button
             type="button"
             onClick={() => setActiveTab("firstTimer")}
-            className={`flex-1 py-1.5 sm:py-2 rounded-md font-semibold text-xs sm:text-sm transition-all text-center ${
+            className={`flex-1 py-1.5 sm:py-2 font-bold text-xs sm:text-sm transition-all text-center uppercase tracking-wider ${
               activeTab === "firstTimer"
-                ? "bg-black text-white shadow-sm"
-                : "text-black/60 hover:text-black"
+                ? "bg-black text-white"
+                : "bg-transparent text-black hover:bg-black/5"
             }`}
           >
             First Timer
           </button>
+          <div className="w-[1px] h-full bg-black self-stretch" />
           <button
             type="button"
             onClick={() => setActiveTab("dropIn")}
-            className={`flex-1 py-1.5 sm:py-2 rounded-md font-semibold text-xs sm:text-sm transition-all text-center ${
+            className={`flex-1 py-1.5 sm:py-2 font-bold text-xs sm:text-sm transition-all text-center uppercase tracking-wider ${
               activeTab === "dropIn"
-                ? "bg-black text-white shadow-sm"
-                : "text-black/60 hover:text-black"
+                ? "bg-black text-white"
+                : "bg-transparent text-black hover:bg-black/5"
             }`}
           >
             Drop-In
@@ -74,7 +75,7 @@ export default function FirstTimersCard() {
 
         {/* Price Container */}
         <div className="flex flex-col items-start gap-1">
-          <span className="text-[1.875rem] sm:text-[2.25rem] md:text-[length:var(--text-heading-2)] font-bold leading-[1.1] tracking-tight text-[#0D0B05]">
+          <span className="text-[clamp(1.875rem,5vw,2.75rem)] xl:text-[3.125rem] font-bold leading-[1.1] tracking-tight text-[#0D0B05] whitespace-nowrap">
             {current.price}
           </span>
           <span className="text-xs sm:text-[length:var(--text-text-small)] font-normal text-[var(--color-neutral-dark,#555450)]">

@@ -175,11 +175,11 @@ export default function Navbar() {
         {/* Desktop Action CTA Button */}
         <div className="hidden lg:block">
           <Button
-            variant="special"
+            variant="primary"
             theme="light"
             href="/schedule"
           >
-            BOOK YOUR FIRST CLASS
+            VIEW SCHEDULE
           </Button>
         </div>
 
@@ -291,12 +291,12 @@ export default function Navbar() {
 
             <div className="w-full flex justify-center pt-4 pb-1">
               <Button
-                variant="special"
+                variant="primary"
                 theme="light"
                 href="/schedule"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                BOOK YOUR FIRST CLASS
+                VIEW SCHEDULE
               </Button>
             </div>
             

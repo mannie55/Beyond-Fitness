@@ -1,10 +1,35 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Button from "@/components/ui/Button";
+import gsap from "gsap";
 
 export default function HeroSection() {
+  const textRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      gsap.fromTo(
+        textRef.current,
+        { 
+          yPercent: 125, 
+          rotate: 2.5 
+        },
+        { 
+          yPercent: 0, 
+          rotate: 0, 
+          ease: "power2.inOut", 
+          duration: 1.25,
+          delay: 0.1
+        }
+      );
+    }
+  }, []);
+
   return (
-    <section className="relative w-full h-[100dvh] min-h-[560px] md:min-h-[600px] flex flex-col justify-between pt-2 sm:pt-3 md:pt-[16px] pb-3 md:pb-0 overflow-hidden bg-black text-white">
+    <section id="hero" className="relative w-full h-[100dvh] min-h-[560px] md:min-h-[600px] flex flex-col justify-between pt-2 sm:pt-3 md:pt-[16px] pb-3 md:pb-0 overflow-hidden bg-black text-white">
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
         {/* Placeholder image, replace with video or actual Figma asset */}
@@ -26,9 +51,14 @@ export default function HeroSection() {
 
       {/* Massive Brand Headline (Top-center on Mobile, Bottom Absolute on Desktop) */}
       <div className="relative md:absolute z-20 md:bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-[100vw] flex justify-center items-end px-3 sm:px-padding-global md:pointer-events-none mt-auto md:mt-0 overflow-visible">
-        <h1 className="text-white font-[800] text-[clamp(2.5rem,14.5vw,20rem)] leading-none text-center uppercase tracking-[clamp(0.05rem,1.2vw,2.5rem)] whitespace-nowrap w-full select-none translate-y-[12%] md:translate-y-[14%]">
-          GO BEYOND
-        </h1>
+        <div className="overflow-hidden w-full text-center translate-y-[12%] md:translate-y-[14%] pt-4 pb-4 -mt-4 -mb-4">
+          <h1 
+            ref={textRef} 
+            className="text-white font-[800] text-[clamp(2.5rem,14.5vw,16rem)] leading-none text-center uppercase tracking-[clamp(0.05rem,1.2vw,2.5rem)] whitespace-nowrap w-full select-none origin-bottom-left will-change-transform"
+          >
+            GO BEYOND
+          </h1>
+        </div>
       </div>
 
       {/* Hero Middle Content (Bottom on Mobile, Middle on Desktop) */}
@@ -36,8 +66,8 @@ export default function HeroSection() {
         <p className="text-white text-[0.9375rem] sm:text-[1rem] md:text-[1.5rem] font-[400] leading-[1.5] max-w-[540px]">
           Where rhythm meets high performance. Immersive boutique classes, master coaching, and an electric community built for the driven.
         </p>
-        <Button variant="secondary" theme="dark" href="/schedule">
-          VIEW SCHEDULE
+        <Button variant="primary" theme="dark" href="/schedule">
+          BOOK YOUR FIRST CLASS
         </Button>
       </div>
       

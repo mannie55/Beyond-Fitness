@@ -30,8 +30,8 @@ export const STORIES: MemberStory[] = [
     quote:
       "Beyond didn't just rebuild my physical strength after extreme burnout — it became the sanctuary that keeps me grounded. The collective breath and electric energy in that dark room at 6 AM is unlike anything else in the city.",
     breakthrough: "Rediscovered daily mental clarity & 12kg fat loss",
-    avatarSrc: "/images/coach-3.jpg",
-    reelCoverSrc: "/images/class-rides.jpg",
+    avatarSrc: "/images/smile.jpg",
+    reelCoverSrc: "/images/smile.jpg",
     reelUrl: "https://www.instagram.com/reel/DbQO668M7ou/",
     hook: "“From total burnout to 6 AM rhythm warrior.”",
   },
@@ -288,7 +288,7 @@ export default function TestimonialSection({
             <div className="w-full flex justify-between items-center gap-6 pt-2">
               
               {/* Progress Indicator Track */}
-              <div className="w-[7.5rem] sm:w-[10rem] h-[0.25rem] bg-white/10 relative rounded-full overflow-hidden">
+              <div className="w-[7.5rem] sm:w-[10rem] h-[2px] bg-white/10 relative rounded-full overflow-hidden">
                 <div
                   className="absolute top-0 h-full bg-white/60 rounded-full transition-all duration-150"
                   style={{
