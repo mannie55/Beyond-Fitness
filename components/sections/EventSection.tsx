@@ -84,7 +84,7 @@ export default function EventSection() {
             className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
           />
 
-          <div className="w-[3rem] h-[4px] bg-[var(--color-dandelion)] rounded-full" />
+          <div className="w-[3rem] h-[0.25rem] bg-[var(--color-dandelion)] rounded-full" />
 
           <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-relaxed">
             From multi-city wellness tours to community initiatives, discover how we move together beyond our four walls.
@@ -108,7 +108,7 @@ export default function EventSection() {
                 aria-selected={isActive}
                 aria-controls={`panel-${tabKey}`}
                 onClick={() => setActiveTab(tabKey)}
-                className={`py-2 sm:py-3 px-2 text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider transition-all duration-200 border-b-2 relative -mb-[1px] cursor-pointer ${
+                className={`py-2 sm:py-3 px-2 text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider transition-all duration-200 border-b-2 relative -mb-[0.0625rem] cursor-pointer ${
                   isActive
                     ? tabData.activeTabColor
                     : "border-transparent text-[#0D0B05]/60 hover:text-[#0D0B05]"

@@ -61,7 +61,7 @@ export default function Navbar() {
       <div className="w-full h-[3.75rem] md:h-[4.5rem] pointer-events-none" />
 
       {/* Fixed Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 w-full pt-2 sm:pt-3 md:pt-[16px] px-3 sm:px-4 md:px-[2rem] h-auto flex flex-col z-[100] pointer-events-none font-sans text-[#0D0B05]">
+      <header className="fixed top-0 left-0 right-0 w-full pt-2 sm:pt-3 md:pt-4 px-3 sm:px-4 md:px-[2rem] h-auto flex flex-col z-[100] pointer-events-none font-sans text-[#0D0B05]">
         {/* Sharp Navbar Body Card */}
         <div 
           ref={navContainerRef}
@@ -69,7 +69,7 @@ export default function Navbar() {
         >
           {/* Brand Logo & Name */}
         <Link href="/" className="flex items-center gap-2 sm:gap-3 select-none group">
-          <div className="w-[42px] h-[42px] md:w-[55px] md:h-[55px] relative overflow-hidden flex-shrink-0">
+          <div className="w-[2.625rem] h-[2.625rem] md:w-[3.4375rem] md:h-[3.4375rem] relative overflow-hidden flex-shrink-0">
             <svg viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
               <g clipPath="url(#clip_nav_logo)">
                 {/* Outer circular and structural paths */}
@@ -164,7 +164,7 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-2 rounded-[4px] transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
+                            className="group p-2 rounded-[0.25rem] transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
                           >
                             <span className="text-[#0D0B05] text-text-regular font-[550] leading-[1.5] uppercase">
                               {item.name}
@@ -188,7 +188,7 @@ export default function Navbar() {
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCommunityDropdownOpen(false)}
-                            className="group p-2 rounded-[4px] transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
+                            className="group p-2 rounded-[0.25rem] transition-all duration-300 flex flex-col gap-3 hover:bg-[#FEF6DF]"
                           >
                             <span className="text-[#0D0B05] text-text-regular font-[550] leading-[1.5] uppercase">
                               {item.name}

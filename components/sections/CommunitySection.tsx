@@ -30,7 +30,7 @@ export default function CommunitySection() {
             {/* List Items */}
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 flex-shrink-0 text-[var(--color-dandelion)] mt-[3px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 flex-shrink-0 text-[var(--color-dandelion)] mt-[0.1875rem]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-white/80 text-base leading-relaxed">
@@ -38,7 +38,7 @@ export default function CommunitySection() {
                 </span>
               </div>
               <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 flex-shrink-0 text-[var(--color-dandelion)] mt-[3px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 flex-shrink-0 text-[var(--color-dandelion)] mt-[0.1875rem]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-white/80 text-base leading-relaxed">
@@ -46,7 +46,7 @@ export default function CommunitySection() {
                 </span>
               </div>
               <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 flex-shrink-0 text-[var(--color-dandelion)] mt-[3px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 flex-shrink-0 text-[var(--color-dandelion)] mt-[0.1875rem]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-white/80 text-base leading-relaxed">

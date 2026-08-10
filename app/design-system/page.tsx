@@ -117,7 +117,7 @@ export default function DesignSystemPage() {
           <div className="flex flex-col gap-8 bg-white/5 rounded-xl border border-white/10 p-6">
             {typographyScales.map((type) => (
               <div key={type.name} className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-white/5 pb-4 last:border-0 last:pb-0">
-                <div className="flex flex-col gap-1 md:max-w-[300px] w-full">
+                <div className="flex flex-col gap-1 md:max-w-[18.75rem] w-full">
                   <span className="font-bold text-text-regular text-white">{type.name}</span>
                   <span className="text-text-small text-white/40">{type.desc}</span>
                 </div>
@@ -200,7 +200,7 @@ export default function DesignSystemPage() {
             <span className="text-text-small text-white/40 uppercase tracking-widest block border-b border-white/5 pb-2 mb-6 w-full">
               Slider Demo (50% Desktop Width / Full Height)
             </span>
-            <div className="w-full h-[300px] md:h-[400px] flex justify-center bg-black/50 border border-white/10 rounded-xl overflow-hidden">
+            <div className="w-full h-[18.75rem] md:h-[25rem] flex justify-center bg-black/50 border border-white/10 rounded-xl overflow-hidden">
               <ImageSlider 
                 images={[
                   "/images/slider-image-1.jpg",
@@ -247,7 +247,7 @@ export default function DesignSystemPage() {
                           <span className="text-[#0D0B05] text-[0.875rem] font-bold tracking-wide uppercase">
                             {item.name}
                           </span>
-                          <span className="text-dandelion-darkest text-[14px] leading-relaxed">
+                          <span className="text-dandelion-darkest text-text-regular leading-relaxed">
                             {item.desc}
                           </span>
                         </div>
@@ -269,7 +269,7 @@ export default function DesignSystemPage() {
                           <span className="text-[#0D0B05] text-[0.875rem] font-bold tracking-wide uppercase">
                             {item.name}
                           </span>
-                          <span className="text-dandelion-darkest text-[14px] leading-relaxed">
+                          <span className="text-dandelion-darkest text-text-regular leading-relaxed">
                             {item.desc}
                           </span>
                         </div>

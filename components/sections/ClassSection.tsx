@@ -143,7 +143,7 @@ export default function ClassSection({
             />
 
             {/* Brand Accent Bar */}
-            <div className="w-[3rem] h-[4px] bg-[var(--color-dandelion)] rounded-full" />
+            <div className="w-[3rem] h-[0.25rem] bg-[var(--color-dandelion)] rounded-full" />
 
             <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-relaxed">
               {subtitle}
@@ -164,7 +164,7 @@ export default function ClassSection({
           ref={tabListRef}
           role="tablist"
           aria-label="Class Discipline Selection"
-          className="hidden lg:flex w-full min-h-[580px] xl:min-h-[640px] bg-[#F2F2F2] border border-[#0D0B05]/15 overflow-hidden"
+          className="hidden lg:flex w-full min-h-[36.25rem] xl:min-h-[40rem] bg-[#F2F2F2] border border-[#0D0B05]/15 overflow-hidden"
         >
           {programs.map((program, index) => {
             const isSelected = activeTab === index;
@@ -219,7 +219,7 @@ export default function ClassSection({
 
                   {/* Bottom Indicator Dash */}
                   <div 
-                    className={`w-4 h-[2px] rounded-full transition-colors duration-300 ${
+                    className={`w-4 h-[0.125rem] rounded-full transition-colors duration-300 ${
                       isSelected ? "bg-[#0D0B05]" : "bg-[#0D0B05]/15 group-hover:bg-[#0D0B05]/40"
                     }`}
                   />
@@ -272,7 +272,7 @@ export default function ClassSection({
                             </span>
                           </div>
 
-                          <div className="w-[1px] h-6 bg-[#0D0B05]/15" />
+                          <div className="w-[0.0625rem] h-6 bg-[#0D0B05]/15" />
 
                           <div className="flex flex-col">
                             <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
@@ -283,7 +283,7 @@ export default function ClassSection({
                             </span>
                           </div>
 
-                          <div className="w-[1px] h-6 bg-[#0D0B05]/15" />
+                          <div className="w-[0.0625rem] h-6 bg-[#0D0B05]/15" />
 
                           <div className="flex flex-col">
                             <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
@@ -308,7 +308,7 @@ export default function ClassSection({
                       </div>
 
                       {/* Right: High-Res Image (5 Cols) */}
-                      <div className="col-span-5 relative w-full h-[320px] xl:h-[380px] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
+                      <div className="col-span-5 relative w-full h-[20rem] xl:h-[23.75rem] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
                         <ParallaxImage
                           src={program.imageSrc}
                           alt={`${program.name} class session`}

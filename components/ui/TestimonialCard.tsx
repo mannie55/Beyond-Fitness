@@ -32,7 +32,7 @@ export default function TestimonialCard({
   };
 
   return (
-    <div className="w-full md:max-w-[26rem] mx-auto p-[8px] rounded-none bg-transparent transition-all duration-300 hover:bg-[#FEE18F] hover:shadow-[0px_0px_16px_0px_rgba(0,0,0,0.08)] font-sans group">
+    <div className="w-full md:max-w-[26rem] mx-auto p-2 rounded-none bg-transparent transition-all duration-300 hover:bg-[#FEE18F] hover:shadow-[0px_0px_16px_0px_rgba(0,0,0,0.08)] font-sans group">
       <div className="w-full bg-[#FFFFFF] flex flex-col items-stretch transition-transform duration-300">
         
         {/* Lightbox / Video */}

@@ -93,7 +93,7 @@ export default function CoachSection({
               text={title}
               className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
             />
-            <div className="w-[3rem] h-[4px] bg-[var(--color-dandelion)] rounded-full" />
+            <div className="w-[3rem] h-[0.25rem] bg-[var(--color-dandelion)] rounded-full" />
             <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.5]">
               {subtitle}
             </p>
@@ -124,16 +124,16 @@ export default function CoachSection({
             />
           ))}
           {/* Spacer to preserve right-side padding on scroll */}
-          <div className="w-[1px] flex-shrink-0" aria-hidden="true" />
+          <div className="w-[0.0625rem] flex-shrink-0" aria-hidden="true" />
         </div>
 
         {/* Mobile/Tablet/Desktop Slider Controls */}
         <div className="w-full flex flex-col gap-3 mt-1 sm:mt-0">
-          <div className="w-full h-[1px] bg-black/10" />
+          <div className="w-full h-[0.0625rem] bg-black/10" />
           <div className="w-full flex justify-between items-center">
             
             {/* Progress Indicator */}
-            <div className="w-[7.5rem] sm:w-[10rem] h-[2px] bg-black/10 relative rounded-full overflow-hidden">
+            <div className="w-[7.5rem] sm:w-[10rem] h-[0.125rem] bg-black/10 relative rounded-full overflow-hidden">
               <div
                 className="absolute top-0 h-full bg-black rounded-full transition-all duration-150"
                 style={{

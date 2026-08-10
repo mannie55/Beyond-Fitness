@@ -281,14 +281,14 @@ export default function TestimonialSection({
               })}
 
               {/* Spacer to preserve right-side padding on mobile scroll */}
-              <div className="w-[1px] flex-shrink-0" aria-hidden="true" />
+              <div className="w-[0.0625rem] flex-shrink-0" aria-hidden="true" />
             </div>
 
             {/* Slider Navigation Controls & Progress Track */}
             <div className="w-full flex justify-between items-center gap-6 pt-2">
               
               {/* Progress Indicator Track */}
-              <div className="w-[7.5rem] sm:w-[10rem] h-[2px] bg-white/10 relative rounded-full overflow-hidden">
+              <div className="w-[7.5rem] sm:w-[10rem] h-[0.125rem] bg-white/10 relative rounded-full overflow-hidden">
                 <div
                   className="absolute top-0 h-full bg-white/60 rounded-full transition-all duration-150"
                   style={{

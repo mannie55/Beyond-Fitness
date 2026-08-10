@@ -57,7 +57,7 @@ export default function LogoSection() {
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                className="object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300 max-h-[24px] sm:max-h-[30px] md:max-h-none w-auto"
+                className="object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300 max-h-6 sm:max-h-[1.875rem] md:max-h-none w-auto"
               />
             </div>
           </div>

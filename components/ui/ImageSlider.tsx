@@ -249,7 +249,7 @@ export default function ImageSlider({
                 role="tab"
               >
                 <span
-                  className={`block h-[2px] rounded-full overflow-hidden transition-all duration-300 relative ${
+                  className={`block h-[0.125rem] rounded-full overflow-hidden transition-all duration-300 relative ${
                     isActive ? "bg-white/30 w-8 sm:w-10" : "bg-white/50 hover:bg-white/80 w-4 sm:w-5"
                   }`}
                 >

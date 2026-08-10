@@ -22,7 +22,7 @@ export default function InstagramEmbedCard({
       <div className="w-full overflow-hidden bg-[var(--color-dandelion-lightest)] flex justify-center items-center">
         <iframe 
           src={embedUrl}
-          className="w-full min-h-[480px] sm:min-h-[580px] border-none"
+          className="w-full min-h-[30rem] sm:min-h-[36.25rem] border-none"
           scrolling="no" 
           allow="encrypted-media"
         ></iframe>

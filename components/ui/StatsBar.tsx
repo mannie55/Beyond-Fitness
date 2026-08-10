@@ -134,7 +134,7 @@ export default function StatsBar({
             <span className={`${valueColorClass} text-[1.2rem] sm:text-[1.5rem] md:text-[length:var(--component-stats-value-size)] font-[700] leading-[1.2] md:leading-[var(--component-stats-value-line-height)] font-sans tabular-nums whitespace-nowrap`}>
               {displayValues[i]}
             </span>
-            <span className={`${labelColorClass} text-[0.65rem] sm:text-[0.75rem] md:text-[length:var(--component-stats-label-size)] leading-[1.2] md:leading-[1.5] font-sans text-center max-w-[140px]`}>
+            <span className={`${labelColorClass} text-[0.65rem] sm:text-[0.75rem] md:text-[length:var(--component-stats-label-size)] leading-[1.2] md:leading-[1.5] font-sans text-center max-w-[8.75rem]`}>
               {stat.label}
             </span>
           </div>

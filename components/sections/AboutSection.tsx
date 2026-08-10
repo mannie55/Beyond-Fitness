@@ -73,7 +73,7 @@ export default function AboutSection() {
             className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight whitespace-pre-line"
           />
           
-          <div className="w-[3rem] h-[4px] bg-[var(--color-dandelion)] rounded-full mt-2" />
+          <div className="w-[3rem] h-[0.25rem] bg-[var(--color-dandelion)] rounded-full mt-2" />
 
           <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.6] max-w-[95%]">
             We stripped away everything you dislike about traditional gyms and kept only what elevates you: sound-driven studios, world-class coaching, and an uncompromising atmosphere.

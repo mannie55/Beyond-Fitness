@@ -59,7 +59,7 @@ export default function FirstTimersCard() {
           >
             First Timer
           </button>
-          <div className="w-[1px] h-full bg-black self-stretch" />
+          <div className="w-[0.0625rem] h-full bg-black self-stretch" />
           <button
             type="button"
             onClick={() => setActiveTab("dropIn")}

@@ -8,7 +8,7 @@ export default function CtaSection() {
       className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-center px-padding-global py-12 sm:py-16 md:py-24 xl:py-28 overflow-hidden font-sans"
     >
       {/* Container Card (Figma: Desktop 64px padding, Mobile 32px padding, rgba(0,0,0,0.4) overlay) */}
-      <div className="relative w-full max-w-[100rem] min-h-[380px] sm:min-h-[440px] md:min-h-[500px] mx-auto rounded-none overflow-hidden flex flex-col justify-center items-start p-8 sm:p-10 md:p-14 lg:p-16 border border-[#0D0B05]/15 shadow-[0_20px_50px_-15px_rgba(13,11,5,0.15)]">
+      <div className="relative w-full max-w-[100rem] min-h-[23.75rem] sm:min-h-[27.5rem] md:min-h-[31.25rem] mx-auto rounded-none overflow-hidden flex flex-col justify-center items-start p-8 sm:p-10 md:p-14 lg:p-16 border border-[#0D0B05]/15 shadow-[0_20px_50px_-15px_rgba(13,11,5,0.15)]">
         
         {/* Background Image */}
         <Image 

@@ -6,7 +6,7 @@ function NaturalUnderline() {
       viewBox="0 0 300 6"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-[4px] md:h-[6px] text-[var(--color-dandelion)] -mt-1 sm:-mt-2 overflow-visible select-none pointer-events-none"
+      className="w-full h-[0.25rem] md:h-[0.375rem] text-[var(--color-dandelion)] -mt-1 sm:-mt-2 overflow-visible select-none pointer-events-none"
       preserveAspectRatio="none"
       aria-hidden="true"
     >
@@ -26,7 +26,7 @@ export default function CtaContainer() {
       {/* Content Group (Figma: Gap 24px Desktop, 20px Mobile) */}
       <div className="flex flex-col items-start gap-5 sm:gap-6 w-full">
         {/* Editorial Headline (Figma: 50px Desktop, 700 bold, line-height 1.2, -0.01em letter-spacing) */}
-        <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-[50px] font-bold leading-[1.2] tracking-[-0.01em] uppercase">
+        <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-[3.125rem] font-bold leading-[1.2] tracking-[-0.01em] uppercase">
           <span>NOT JUST AN EXPERIENCE.</span>
           <br />
           <span className="inline-flex flex-wrap items-baseline gap-x-2 sm:gap-x-3">
@@ -39,7 +39,7 @@ export default function CtaContainer() {
         </h2>
 
         {/* Value Proposition Subtext (Figma: 18px Desktop / 14px Mobile, line-height 1.5) */}
-        <p className="text-white/90 text-sm sm:text-base md:text-[18px] font-normal leading-[1.5] max-w-[34rem]">
+        <p className="text-white/90 text-sm sm:text-base md:text-[1.125rem] font-normal leading-[1.5] max-w-[34rem]">
           Come see what Beyond feels like. Your first session is complimentary — no commitment, no contract.
         </p>
       </div>

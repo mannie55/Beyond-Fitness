@@ -8,7 +8,7 @@ import TextReveal from "@/components/ui/TextReveal";
 export default function HeroSection() {
 
   return (
-    <section id="hero" className="relative w-full h-[100dvh] min-h-[560px] md:min-h-[600px] flex flex-col justify-between pt-2 sm:pt-3 md:pt-[16px] pb-3 md:pb-0 overflow-hidden bg-black text-white">
+    <section id="hero" className="relative w-full h-[100dvh] min-h-[35rem] md:min-h-[37.5rem] flex flex-col justify-between pt-2 sm:pt-3 md:pt-4 pb-3 md:pb-0 overflow-hidden bg-black text-white">
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
         {/* Placeholder image, replace with video or actual Figma asset */}
@@ -42,7 +42,7 @@ export default function HeroSection() {
 
       {/* Hero Middle Content (Bottom on Mobile, Middle on Desktop) */}
       <div className="relative z-20 w-full max-w-[100rem] mx-auto flex flex-col justify-center items-center md:justify-start md:items-start gap-4 sm:gap-6 md:gap-8 px-4 sm:px-padding-global text-center md:text-left mt-4 sm:mt-6 mb-auto md:mt-0 md:mb-0">
-        <p className="text-white text-[0.9375rem] sm:text-[1rem] md:text-[1.5rem] font-[400] leading-[1.5] max-w-[540px]">
+        <p className="text-white text-[0.9375rem] sm:text-[1rem] md:text-[1.5rem] font-[400] leading-[1.5] max-w-[33.75rem]">
           Where rhythm meets high performance. Immersive boutique classes, master coaching, and an electric community built for the driven.
         </p>
         <Button variant="primary" theme="dark" href="/schedule">
