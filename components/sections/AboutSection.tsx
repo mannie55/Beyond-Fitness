@@ -1,7 +1,42 @@
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
 import FeatureItem from "@/components/ui/FeatureItem";
 import ImageSlider from "@/components/ui/ImageSlider";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function AboutSection() {
+  const featuresRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!featuresRef.current) return;
+    
+    // We select all feature items
+    const items = gsap.utils.toArray(".feature-item", featuresRef.current);
+    
+    gsap.fromTo(
+      items,
+      { opacity: 0, x: -20 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: featuresRef.current,
+          start: "top 85%", // trigger when the container enters the viewport
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  }, { scope: featuresRef });
+
   const features = [
     {
       title: "IMMERSIVE BOUTIQUE SPACES",
@@ -42,15 +77,16 @@ export default function AboutSection() {
             We stripped away everything you dislike about traditional gyms and kept only what elevates you: sound-driven studios, world-class coaching, and an uncompromising atmosphere.
           </p>
 
-          <div className="w-full pt-2 sm:pt-4 md:pt-[2rem] flex flex-col gap-2 sm:gap-3 md:gap-[1rem]">
+        <div ref={featuresRef} className="w-full pt-2 sm:pt-4 md:pt-[2rem] flex flex-col gap-2 sm:gap-3 md:gap-[1rem]">
             {features.map((feature, index) => (
-              <FeatureItem 
-                key={index}
-                title={feature.title}
-                description={feature.description}
-                initialOpen={feature.initialOpen}
-                className="md:w-full"
-              />
+              <div key={index} className="feature-item opacity-0">
+                <FeatureItem 
+                  title={feature.title}
+                  description={feature.description}
+                  initialOpen={feature.initialOpen}
+                  className="md:w-full"
+                />
+              </div>
             ))}
           </div>
 

@@ -1,6 +1,38 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function LogoSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!containerRef.current) return;
+    const logos = gsap.utils.toArray(".logo-item", containerRef.current);
+
+    gsap.fromTo(
+      logos,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, { scope: containerRef });
+
   const logos = [
     { src: "/images/logos/adidas.svg", alt: "Adidas", width: 70, height: 47 },
     { src: "/images/logos/swan.svg", alt: "Swan", width: 61, height: 43 },
@@ -11,13 +43,13 @@ export default function LogoSection() {
   ];
 
   return (
-    <section className="w-full flex flex-col justify-between items-stretch">
+    <section ref={containerRef} className="w-full flex flex-col justify-between items-stretch">
       {/* Content wrapper: 3x2 balanced grid on mobile, flex-between on desktop */}
       <div className="w-full grid grid-cols-3 md:flex md:flex-row md:flex-nowrap justify-center md:justify-between items-center py-1 sm:py-2 md:py-[0.5rem] gap-2 sm:gap-4 md:gap-[1rem]">
         {logos.map((logo, index) => (
           <div
             key={index}
-            className="w-full md:w-[8.3125rem] flex flex-col justify-center items-center px-2 py-2 sm:px-3 sm:py-2.5 md:px-[1.1875rem] md:py-[1rem]"
+            className="logo-item opacity-0 w-full md:w-[8.3125rem] flex flex-col justify-center items-center px-2 py-2 sm:px-3 sm:py-2.5 md:px-[1.1875rem] md:py-[1rem]"
           >
             <div className="flex justify-center items-center h-8 sm:h-9 md:h-auto">
               <Image
