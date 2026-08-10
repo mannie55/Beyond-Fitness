@@ -67,7 +67,7 @@ export default function StudioIntroSection() {
 
       // 4. Travel the CTA from bottom-left to the center of the Studio section
       tl.to('[data-animate="desktop-cta-container"]', {
-        bottom: "20vh",
+        bottom: "32vh",
         left: "50vw",
         xPercent: -50,
         duration: 1.5,
