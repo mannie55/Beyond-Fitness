@@ -23,9 +23,11 @@ export default function Navbar() {
       mm.add("(min-width: 1024px)", () => {
         gsap.to(navContainerRef.current, {
           width: "75%",
+          ease: "none",
           scrollTrigger: {
-            start: 0,
-            end: 400,
+            trigger: document.documentElement,
+            start: "top top",
+            end: "+=400",
             scrub: true,
           }
         });
