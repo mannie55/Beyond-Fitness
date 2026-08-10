@@ -1,32 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Button from "@/components/ui/Button";
-import gsap from "gsap";
+import TextReveal from "@/components/ui/TextReveal";
 
 export default function HeroSection() {
-  const textRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    if (textRef.current) {
-      gsap.fromTo(
-        textRef.current,
-        { 
-          yPercent: 125, 
-          rotate: 2.5 
-        },
-        { 
-          yPercent: 0, 
-          rotate: 0, 
-          ease: "power2.inOut", 
-          duration: 1.25,
-          delay: 0.1
-        }
-      );
-    }
-  }, []);
 
   return (
     <section id="hero" className="relative w-full h-[100dvh] min-h-[560px] md:min-h-[600px] flex flex-col justify-between pt-2 sm:pt-3 md:pt-[16px] pb-3 md:pb-0 overflow-hidden bg-black text-white">
@@ -52,12 +31,12 @@ export default function HeroSection() {
       {/* Massive Brand Headline (Top-center on Mobile, Bottom Absolute on Desktop) */}
       <div className="relative md:absolute z-20 md:bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-[100vw] flex justify-center items-end px-3 sm:px-padding-global md:pointer-events-none mt-auto md:mt-0 overflow-visible">
         <div className="overflow-hidden w-full text-center translate-y-[12%] md:translate-y-[14%] pt-4 pb-4 -mt-4 -mb-4">
-          <h1 
-            ref={textRef} 
-            className="text-white font-[800] text-[clamp(2.5rem,14.5vw,16rem)] leading-none text-center uppercase tracking-[clamp(0.05rem,1.2vw,2.5rem)] whitespace-nowrap w-full select-none origin-bottom-left will-change-transform"
-          >
-            GO BEYOND
-          </h1>
+          <TextReveal 
+            as="h1"
+            text="GO BEYOND"
+            className="text-white font-[800] text-[clamp(2.5rem,14.5vw,16rem)] leading-none text-center uppercase tracking-[clamp(0.05rem,1.2vw,2.5rem)] whitespace-nowrap w-full select-none"
+            delay={0.1}
+          />
         </div>
       </div>
 

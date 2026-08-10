@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import ClassCard from "@/components/ui/ClassCard";
 import Button from "@/components/ui/Button";
+import TextReveal from "@/components/ui/TextReveal";
 
 export interface Coach {
   id: string;
@@ -87,9 +88,11 @@ export default function CoachSection({
         {/* Section Header */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-5 sm:gap-6 md:gap-8">
           <div className="flex flex-col items-start text-left gap-3 sm:gap-4 md:gap-[1.5rem] max-w-[42rem]">
-            <h2 className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight">
-              {title}
-            </h2>
+            <TextReveal 
+              as="h2"
+              text={title}
+              className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
+            />
             <div className="w-[3rem] h-[4px] bg-[var(--color-dandelion)] rounded-full" />
             <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.5]">
               {subtitle}

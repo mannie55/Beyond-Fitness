@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import ParallaxImage from "@/components/ui/ParallaxImage";
+import TextReveal from "@/components/ui/TextReveal";
 
 type EventTab = "on-tour" | "pink-walk";
 
@@ -77,9 +78,11 @@ export default function EventSection() {
         {/* Section Header */}
         <div className="w-full flex flex-col items-center text-center gap-3 sm:gap-4 md:gap-5 max-w-[48rem]">
 
-          <h2 className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight">
-            EVENTS THAT BRING US TOGETHER
-          </h2>
+          <TextReveal 
+            as="h2"
+            text="EVENTS THAT BRING US TOGETHER"
+            className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
+          />
 
           <div className="w-[3rem] h-[4px] bg-[var(--color-dandelion)] rounded-full" />
 

@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import TextReveal from "@/components/ui/TextReveal";
 
 export default function CommunitySection() {
   return (
@@ -11,9 +12,11 @@ export default function CommunitySection() {
         {/* Left Column: Heading */}
         <div className="flex flex-col flex-1 gap-4 sm:gap-6 lg:max-w-[45%]">
           {/* Main Heading */}
-          <h2 className="text-white text-[2.5rem] sm:text-[3rem] md:text-[3.125rem] font-bold leading-[1.1] tracking-[-0.01em] uppercase">
-            MORE THAN A STUDIO.<br/>A COMMUNITY.
-          </h2>
+          <TextReveal 
+            as="h2"
+            text={"MORE THAN A STUDIO.\nA COMMUNITY."}
+            className="text-white text-[2.5rem] sm:text-[3rem] md:text-[3.125rem] font-bold leading-[1.1] tracking-[-0.01em] uppercase whitespace-pre-line"
+          />
         </div>
 
         {/* Right Column: Content & Actions */}
