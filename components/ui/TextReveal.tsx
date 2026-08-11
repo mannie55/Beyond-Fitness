@@ -40,6 +40,11 @@ export default function TextReveal({ text, as: Component = "div", className = ""
     }
 
     const ctx = gsap.context(() => {
+      const triggerEl = triggerSelector ? document.querySelector(triggerSelector) : null;
+      // If triggerEl exists and is visible (offsetParent !== null), use it. Else use textRef.current
+      const isTriggerVisible = triggerEl && (triggerEl as HTMLElement).offsetParent !== null;
+      const actualTrigger = isTriggerVisible ? triggerEl : textRef.current;
+
       gsap.from(split.lines, {
         y: "115%",
         rotate: 3,
@@ -48,8 +53,8 @@ export default function TextReveal({ text, as: Component = "div", className = ""
         ease: "power4.out",
         delay: delay,
         scrollTrigger: {
-          trigger: triggerSelector ? triggerSelector : textRef.current,
-          start: triggerSelector ? "top bottom" : "top 85%",
+          trigger: actualTrigger,
+          start: isTriggerVisible ? "top bottom" : "top 85%",
           toggleActions: "play none none reverse", // Rewinds if scrolled back up past it!
         },
       });
