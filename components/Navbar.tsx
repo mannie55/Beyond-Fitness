@@ -108,7 +108,7 @@ export default function Navbar() {
         >
           {/* Brand Logo & Name */}
         <Link href="/" className="flex items-center gap-2 sm:gap-3 select-none group">
-          <div className="w-[2.625rem] h-[2.625rem] md:w-[3.4375rem] md:h-[3.4375rem] relative overflow-hidden flex-shrink-0">
+          <div className="w-[2.625rem] h-[2.625rem] max-[400px]:w-[2.125rem] max-[400px]:h-[2.125rem] md:w-[3.4375rem] md:h-[3.4375rem] relative overflow-hidden flex-shrink-0">
             <svg viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
               <g clipPath="url(#clip_nav_logo)">
                 {/* Outer circular and structural paths */}
@@ -141,10 +141,10 @@ export default function Navbar() {
             </svg>
           </div>
           <div className="flex flex-col justify-start items-start font-sans">
-            <span className="text-black text-sm sm:text-base md:text-heading-4 font-bold leading-[1.2]">
+            <span className="text-black text-sm max-[400px]:text-xs sm:text-base md:text-heading-4 font-bold leading-[1.2]">
               BEYOND
             </span>
-            <span className="text-black text-[0.65rem] sm:text-xs md:text-text-regular font-normal leading-[1.3] tracking-wide">
+            <span className="text-black text-[0.65rem] max-[400px]:text-[0.55rem] sm:text-xs md:text-text-regular font-normal leading-[1.3] tracking-wide">
               FITNESS
             </span>
           </div>
@@ -265,8 +265,8 @@ export default function Navbar() {
               variant="primary"
               theme="light"
               href="/schedule"
-              textWidth="w-auto !text-[0.65rem] sm:!text-xs"
-              paddingLeft="pl-3"
+              textWidth="w-auto !text-[0.65rem] max-[400px]:!text-[0.55rem] sm:!text-xs"
+              className="max-[400px]:[--component-button-height:2.75rem]"
             >
               VIEW SCHEDULE
             </Button>
@@ -281,7 +281,7 @@ export default function Navbar() {
             className="block lg:hidden focus:outline-none cursor-pointer text-black hover:text-[#CBAA4C] relative z-[120]"
             aria-label="Toggle navigation menu"
           >
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7 max-[400px]:w-6 max-[400px]:h-6">
               {isMobileMenuOpen ? (
                 <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
               ) : (
