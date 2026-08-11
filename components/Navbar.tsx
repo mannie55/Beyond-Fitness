@@ -266,7 +266,6 @@ export default function Navbar() {
               theme="light"
               href="/schedule"
               textWidth="w-auto !text-[0.65rem] max-[400px]:!text-[0.55rem] sm:!text-xs"
-              className="max-[400px]:[--component-button-height:2.75rem]"
             >
               VIEW SCHEDULE
             </Button>
