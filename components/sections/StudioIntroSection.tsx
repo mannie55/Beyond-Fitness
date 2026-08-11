@@ -167,8 +167,8 @@ export default function StudioIntroSection() {
             </div>
 
             {/* Massive Decorative Typography (Cloned from Footer) */}
-            <div className="w-full flex justify-center overflow-visible mt-6 sm:mt-8">
-              <div className="select-none text-center text-white mix-blend-difference font-bold text-[20vw] text-[clamp(4.5rem,18vw,20rem)] leading-[0.8] tracking-[0.08em] tracking-[clamp(0.4rem,3vw,5.34rem)] indent-[0.08em] lg:indent-[5.34rem] whitespace-nowrap">
+            <div className="w-full flex justify-start overflow-visible mt-6 sm:mt-8">
+              <div className="select-none text-left text-white mix-blend-difference font-bold text-[20vw] text-[clamp(4.5rem,18vw,20rem)] leading-[0.8] tracking-[0.08em] tracking-[clamp(0.4rem,3vw,5.34rem)] whitespace-nowrap">
                 BEYOND
               </div>
             </div>
