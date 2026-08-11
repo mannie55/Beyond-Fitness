@@ -87,7 +87,7 @@ export default function Button({
 
   const themeWeights = {
     dark: { primary: "font-medium", secondary: "font-semibold", special: "font-bold" },
-    light: { primary: "font-normal", secondary: "font-bold", special: "font-bold" },
+    light: { primary: "font-medium", secondary: "font-bold", special: "font-bold" },
   };
 
   const weightClass = themeWeights[theme][variant];
@@ -100,11 +100,11 @@ export default function Button({
 
   const innerContent = (
     <span className={styles["disc-swallow-button__frame"]}>
-      <span className={`${styles["disc-swallow-button__ghost"]} ${weightClass} uppercase tracking-wider`} aria-hidden="true">
+      <span className={`${styles["disc-swallow-button__ghost"]} ${weightClass} ${textWidth || ""} ${paddingLeft || ""} uppercase tracking-wider`} aria-hidden="true">
         {children}
       </span>
       <span className={styles["disc-swallow-button__surface"]}>
-        <span className={`${styles["disc-swallow-button__label"]} ${weightClass} uppercase tracking-wider`}>
+        <span className={`${styles["disc-swallow-button__label"]} ${weightClass} ${textWidth || ""} ${paddingLeft || ""} uppercase tracking-wider`}>
           {children}
         </span>
         <span className={styles["disc-swallow-button__disc"]} aria-hidden="true">

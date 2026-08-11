@@ -250,7 +250,7 @@ export default function Navbar() {
               variant="primary"
               theme="light"
               href="/schedule"
-              textWidth="w-auto text-[0.65rem] sm:text-xs"
+              textWidth="w-auto !text-[0.65rem] sm:!text-xs"
               paddingLeft="pl-3"
             >
               VIEW SCHEDULE
