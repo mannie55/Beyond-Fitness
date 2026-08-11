@@ -104,7 +104,7 @@ export default function Navbar() {
         {/* Sharp Navbar Body Card */}
         <div 
           ref={navContainerRef}
-          className="w-full max-w-[100rem] mx-auto h-[3.75rem] md:h-[4.5rem] px-3 sm:px-4 md:px-6 bg-white border border-black/10 rounded-none flex justify-between items-center relative shadow-[0_4px_20px_rgba(0,0,0,0.05)] z-[110] pointer-events-auto"
+          className="w-full max-w-[100rem] mx-auto h-[3.75rem] md:h-[4.5rem] px-3 sm:px-4 md:px-6 bg-white border border-black/10 rounded-none flex justify-between items-center gap-4 lg:gap-8 lg:min-w-max relative shadow-[0_4px_20px_rgba(0,0,0,0.05)] z-[110] pointer-events-auto"
         >
           {/* Brand Logo & Name */}
         <Link href="/" className="flex items-center gap-2 sm:gap-3 select-none group">
