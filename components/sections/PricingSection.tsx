@@ -18,12 +18,12 @@ export default function PricingSection({
   return (
     <section 
       id="pricing" 
-      className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-10 sm:py-14 md:py-24 overflow-hidden relative font-sans"
+      className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans"
     >
-      <div className="w-full max-w-[100rem] flex flex-col items-start gap-6 sm:gap-8 md:gap-[3.5rem]">
+      <div className="w-full max-w-[100rem] flex flex-col items-start gap-8 sm:gap-10 md:gap-[3.5rem]">
         
         {/* Section Header */}
-        <div className="w-full flex flex-col items-start text-left gap-3 sm:gap-4 md:gap-[1.5rem] max-w-[48rem]">
+        <div className="w-full flex flex-col items-start text-left gap-5 sm:gap-6 md:gap-[1.5rem] max-w-[48rem]">
           <TextReveal 
             as="h2"
             text={title}

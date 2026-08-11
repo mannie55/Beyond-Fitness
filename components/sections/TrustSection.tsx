@@ -3,7 +3,7 @@ import TextReveal from "@/components/ui/TextReveal";
 
 export default function TrustSection() {
   return (
-    <section id="numbers" className="w-full bg-[#000000] border-t border-white/10 px-padding-global py-8 sm:py-10 md:py-16 flex flex-col justify-start items-center gap-5 sm:gap-6 lg:gap-10 overflow-hidden">
+    <section id="numbers" className="w-full bg-[#000000] border-t border-white/10 px-padding-global py-padding-section-small flex flex-col justify-start items-center gap-8 sm:gap-10 lg:gap-10 overflow-hidden">
       
       {/* Title */}
       <div className="w-full max-w-[90rem] mx-auto flex flex-col justify-start items-center px-2 sm:px-0">

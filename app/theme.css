@@ -100,9 +100,9 @@
 
   /* Spacing & Sizing - Responsive Padding (Mobile default) */
   --spacing-padding-global: 1.25rem;
-  --spacing-padding-section-large: 4rem;
-  --spacing-padding-section-medium: 3rem;
-  --spacing-padding-section-small: 2rem;
+  --spacing-padding-section-large: 5.5rem;
+  --spacing-padding-section-medium: 4rem;
+  --spacing-padding-section-small: 3rem;
 
   /* Typography - Font Sizes (Mobile default) */
   --text-heading-1: 2.5rem;

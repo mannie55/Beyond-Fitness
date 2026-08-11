@@ -71,12 +71,12 @@ export default function EventSection() {
   return (
     <section 
       id="events" 
-      className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-10 sm:py-14 md:py-24 overflow-hidden relative font-sans"
+      className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans"
     >
-      <div className="w-full max-w-[100rem] flex flex-col items-center gap-6 sm:gap-10 md:gap-14">
+      <div className="w-full max-w-[100rem] flex flex-col items-center gap-10 sm:gap-14 md:gap-14">
         
         {/* Section Header */}
-        <div className="w-full flex flex-col items-center text-center gap-3 sm:gap-4 md:gap-5 max-w-[48rem]">
+        <div className="w-full flex flex-col items-center text-center gap-5 sm:gap-6 md:gap-5 max-w-[48rem]">
 
           <TextReveal 
             as="h2"
@@ -128,7 +128,7 @@ export default function EventSection() {
           className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-center transition-opacity duration-300"
         >
           {/* Left Column: Text & CTA */}
-          <div className="lg:col-span-5 flex flex-col items-start gap-4 sm:gap-6 md:gap-8">
+          <div className="lg:col-span-5 flex flex-col items-start gap-6 sm:gap-8 md:gap-8">
             
             {/* Brand Pill / Eyebrow */}
             <div className="flex items-center gap-2.5 sm:gap-3">

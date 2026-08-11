@@ -129,13 +129,13 @@ export default function ClassSection({
     <section 
       id="classes"
       aria-label="Fitness Classes and Programs"
-      className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-10 sm:py-14 md:py-24 xl:py-28 overflow-hidden relative font-sans"
+      className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans"
     >
-      <div className="w-full max-w-[100rem] flex flex-col items-start gap-6 sm:gap-8 md:gap-[3.5rem] relative z-10">
+      <div className="w-full max-w-[100rem] flex flex-col items-start gap-8 sm:gap-10 md:gap-[3.5rem] relative z-10">
         
         {/* Section Header */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-5 sm:gap-6 lg:gap-8">
-          <div className="flex flex-col items-start text-left gap-3 sm:gap-4 md:gap-[1.5rem] max-w-[46rem]">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8 lg:gap-8">
+          <div className="flex flex-col items-start text-left gap-5 sm:gap-6 md:gap-[1.5rem] max-w-[46rem]">
             <TextReveal 
               as="h2" 
               text={title} 

@@ -5,12 +5,12 @@ export default function CommunitySection() {
   return (
     <section 
       id="community" 
-      className="w-full bg-[#0B0A06] flex flex-col items-center justify-center px-padding-global py-16 sm:py-20 md:py-28 overflow-hidden font-sans border-t border-b border-white/10"
+      className="w-full bg-[#0B0A06] flex flex-col items-center justify-center px-padding-global py-padding-section-large overflow-hidden font-sans border-t border-b border-white/10"
     >
       <div className="w-full max-w-[100rem] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 xl:gap-[5rem] items-start">
         
         {/* Left Column: Heading */}
-        <div className="flex flex-col flex-1 gap-4 sm:gap-6 lg:max-w-[45%]">
+        <div className="flex flex-col flex-1 gap-6 sm:gap-8 lg:max-w-[45%]">
           {/* Main Heading */}
           <TextReveal 
             as="h2"
@@ -20,9 +20,9 @@ export default function CommunitySection() {
         </div>
 
         {/* Right Column: Content & Actions */}
-        <div className="flex flex-col flex-1 gap-8 sm:gap-10 pt-2 lg:pt-8 w-full">
+        <div className="flex flex-col flex-1 gap-10 sm:gap-12 pt-2 lg:pt-8 w-full">
           
-          <div className="flex flex-col gap-6 sm:gap-8">
+          <div className="flex flex-col gap-8 sm:gap-10">
             <p className="text-white/80 text-base md:text-lg leading-relaxed font-normal max-w-[38rem]">
               From fitness events and wellness experiences to community initiatives and partnerships, we&apos;re building something bigger than workouts: we&apos;re building a movement.
             </p>

@@ -156,7 +156,7 @@ export default function TestimonialSection({
     <section 
       id="testimonials"
       aria-label="Member Stories and Community Voices"
-      className="w-full bg-[#0B0A06] text-white flex flex-col items-center justify-start px-padding-global py-10 sm:py-14 md:py-24 xl:py-28 overflow-hidden relative font-sans border-t border-b border-white/10"
+      className="w-full bg-[#0B0A06] text-white flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans border-t border-b border-white/10"
     >
       <style>{`
         @keyframes fill-progress {
@@ -195,7 +195,7 @@ export default function TestimonialSection({
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch">
           
           {/* LEFT COLUMN: Spotlight Story Card (5 Cols) */}
-          <div className="lg:col-span-5 w-full flex flex-col justify-center py-6 sm:py-8 md:py-10 relative overflow-hidden pr-0 lg:pr-10">
+          <div className="lg:col-span-5 w-full flex flex-col justify-center py-8 sm:py-10 md:py-10 relative overflow-hidden pr-0 lg:pr-10">
             
             <div key={activeStory.id} className="flex flex-col justify-center gap-10 sm:gap-14 animate-[slide-up_0.4s_ease-out_forwards]">
 

@@ -82,12 +82,12 @@ export default function CoachSection({
   };
 
   return (
-    <section id="coaches" className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-10 sm:py-14 md:py-24 overflow-hidden relative font-sans">
-      <div className="w-full max-w-[100rem] flex flex-col items-start gap-6 sm:gap-8 md:gap-[3.5rem]">
+    <section id="coaches" className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans">
+      <div className="w-full max-w-[100rem] flex flex-col items-start gap-8 sm:gap-10 md:gap-[3.5rem]">
         
         {/* Section Header */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-5 sm:gap-6 md:gap-8">
-          <div className="flex flex-col items-start text-left gap-3 sm:gap-4 md:gap-[1.5rem] max-w-[42rem]">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 sm:gap-8 md:gap-8">
+          <div className="flex flex-col items-start text-left gap-5 sm:gap-6 md:gap-[1.5rem] max-w-[42rem]">
             <TextReveal 
               as="h2"
               text={title}
@@ -128,7 +128,7 @@ export default function CoachSection({
         </div>
 
         {/* Mobile/Tablet/Desktop Slider Controls */}
-        <div className="w-full flex flex-col gap-3 mt-1 sm:mt-0">
+        <div className="w-full flex flex-col gap-4 sm:gap-5 mt-2 sm:mt-0">
           <div className="w-full h-[0.0625rem] bg-black/10" />
           <div className="w-full flex justify-between items-center">
             

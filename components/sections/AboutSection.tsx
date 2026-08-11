@@ -64,8 +64,8 @@ export default function AboutSection() {
   return (
     <section id="about" className="w-full lg:min-h-screen bg-[var(--color-neutral-lightest)] overflow-hidden flex flex-col lg:flex-row items-stretch">
       {/* Left Content Area */}
-      <div className="flex-1 flex justify-center lg:justify-start items-center py-10 sm:py-12 lg:py-[6rem] px-padding-global lg:pr-[4rem]">
-        <div className="w-full max-w-[38rem] flex flex-col items-start gap-4 sm:gap-5 md:gap-[1.5rem]">
+      <div className="flex-1 flex justify-center lg:justify-start items-center py-padding-section-large px-padding-global lg:pr-[4rem]">
+        <div className="w-full max-w-[38rem] flex flex-col items-start gap-6 sm:gap-8 md:gap-[1.5rem]">
           
           <TextReveal 
             as="h2"
@@ -79,7 +79,7 @@ export default function AboutSection() {
             We stripped away everything you dislike about traditional gyms and kept only what elevates you: sound-driven studios, world-class coaching, and an uncompromising atmosphere.
           </p>
 
-        <div ref={featuresRef} className="w-full pt-2 sm:pt-4 md:pt-[2rem] flex flex-col gap-2 sm:gap-3 md:gap-[1rem]">
+        <div ref={featuresRef} className="w-full pt-4 sm:pt-6 md:pt-[2rem] flex flex-col gap-4 sm:gap-5 md:gap-[1rem]">
             {features.map((feature, index) => (
               <div key={index} className="feature-item opacity-0">
                 <FeatureItem 

@@ -41,7 +41,7 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Middle Content (Bottom on Mobile, Middle on Desktop) */}
-      <div className="relative z-20 w-full max-w-[100rem] mx-auto flex flex-col justify-center items-center md:justify-start md:items-start gap-4 sm:gap-6 md:gap-8 px-4 sm:px-padding-global text-center md:text-left mt-4 sm:mt-6 mb-auto md:mt-0 md:mb-0">
+      <div className="relative z-20 w-full max-w-[100rem] mx-auto flex flex-col justify-center items-center md:justify-start md:items-start gap-6 sm:gap-8 md:gap-8 px-4 sm:px-padding-global text-center md:text-left mt-4 sm:mt-6 mb-auto md:mt-0 md:mb-0">
         <p className="text-white text-[0.9375rem] sm:text-[1rem] md:text-[1.5rem] font-[400] leading-[1.5] max-w-[33.75rem]">
           Where rhythm meets high performance. Immersive boutique classes, master coaching, and an electric community built for the driven.
         </p>
