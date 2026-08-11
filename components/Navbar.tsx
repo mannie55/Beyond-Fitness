@@ -21,7 +21,7 @@ export default function Navbar() {
       const mm = gsap.matchMedia();
 
       // Only animate on desktop
-      mm.add("(min-width: 1024px)", () => {
+      mm.add("(min-width: 64rem)", () => {
         gsap.to(navContainerRef.current, {
           width: "65vw",
           ease: "none",
@@ -293,7 +293,7 @@ export default function Navbar() {
 
         {/* Mobile Dropdown Extension */}
         {isMobileMenuOpen && (
-          <div className="absolute top-[calc(100%+0.5rem)] left-[-1px] right-[-1px] bg-white border border-black/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] z-[100] flex flex-col p-5 sm:p-6 lg:hidden animate-[fadeIn_0.2s_ease-out] overflow-y-auto max-h-[calc(100dvh-6rem)]">
+          <div className="absolute top-[calc(100%+0.5rem)] left-[-0.0625rem] right-[-0.0625rem] bg-white border border-black/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] z-[100] flex flex-col p-5 sm:p-6 lg:hidden animate-[fadeIn_0.2s_ease-out] overflow-y-auto max-h-[calc(100dvh-6rem)]">
             <div className="flex flex-col gap-4 w-full">
               <nav className="flex flex-col gap-1 w-full">
                 {navLinks.map((link) => (

@@ -22,17 +22,17 @@
 .disc-swallow-button__frame {
   position: relative;
   display: block;
-  height: var(--component-button-height, 52px);
+  height: var(--component-button-height, 3.25rem);
 }
 
 .disc-swallow-button__ghost {
   display: flex;
   align-items: center;
   visibility: hidden;
-  padding-left: 16px;
-  /* gap 16 + disc 39 + right pad 6 = 61px */
-  padding-right: 61px;
-  font-size: var(--component-button-text-size, 16px);
+  padding-left: 1rem;
+  /* gap 16 + disc 39 + right pad 6 = 3.8125rem */
+  padding-right: 3.8125rem;
+  font-size: var(--component-button-text-size, 1rem);
   height: 100%;
   white-space: nowrap;
 }
@@ -43,7 +43,7 @@
   top: 0;
   bottom: 0;
   width: 100%;
-  border-radius: 0px; /* Brutalist override */
+  border-radius: 0rem; /* Brutalist override */
   background: var(--pill-color);
   border: var(--pill-border, none);
   overflow: hidden;
@@ -52,27 +52,27 @@
 
 .disc-swallow-button__label {
   position: absolute;
-  left: 16px;
+  left: 1rem;
   top: 50%;
   transform: translate(0, -50%);
   color: var(--label-color);
-  font-size: var(--component-button-text-size, 16px);
+  font-size: var(--component-button-text-size, 1rem);
   white-space: nowrap;
   transition: transform var(--duration) var(--ease);
 }
 
-/* disc hugs the right edge at rest (39px wide); as the surface contracts it
+/* disc hugs the right edge at rest (2.4375rem wide); as the surface contracts it
    floods everything but a uniform margin */
 .disc-swallow-button__disc {
   position: absolute;
-  top: 4px;
-  right: 4px;
-  bottom: 4px;
-  left: calc(100% - var(--component-button-height, 52px) + 4px);
+  top: 0.25rem;
+  right: 0.25rem;
+  bottom: 0.25rem;
+  left: calc(100% - var(--component-button-height, 3.25rem) + 0.25rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0px; /* Brutalist override */
+  border-radius: 0rem; /* Brutalist override */
   background: var(--disc-color);
   color: var(--arrow-color);
   border: var(--disc-border, none);
@@ -80,8 +80,8 @@
 }
 
 .disc-swallow-button__arrow {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   transform: rotate(0deg);
   transition:
     width var(--duration) var(--ease),
@@ -98,12 +98,12 @@
 
 .disc-swallow-button:hover .disc-swallow-button__label,
 .disc-swallow-button:focus-visible .disc-swallow-button__label {
-  transform: translate(calc(-100% - 32px), -50%);
+  transform: translate(calc(-100% - 2rem), -50%);
 }
 
 .disc-swallow-button:hover .disc-swallow-button__disc,
 .disc-swallow-button:focus-visible .disc-swallow-button__disc {
-  left: 4px;
+  left: 0.25rem;
 }
 
 .disc-swallow-button:hover .disc-swallow-button__arrow,
@@ -121,12 +121,12 @@
 }
 
 /* Mobile fine-tuning for button width and spacing */
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
   .disc-swallow-button__ghost {
-    padding-left: 12px;
-    padding-right: 48px; /* Reduced from 61px to bring the SVG arrow closer to the text */
+    padding-left: 0.75rem;
+    padding-right: 3rem; /* Reduced from 3.8125rem to bring the SVG arrow closer to the text */
   }
   .disc-swallow-button__label {
-    left: 12px;
+    left: 0.75rem;
   }
 }
