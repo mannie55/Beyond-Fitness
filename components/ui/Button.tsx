@@ -26,6 +26,8 @@ export default function Button({
   className = "",
   type = "button",
   width = "w-fit",
+  textWidth = "",
+  paddingLeft = "",
 }: ButtonProps) {
   
   // Map themes and variants to the CSS variables required by the animation
