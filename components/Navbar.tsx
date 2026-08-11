@@ -34,19 +34,25 @@ export default function Navbar() {
       });
 
       // Smart Auto-Hide Navbar (All screens)
+      let isHidden = false;
       ScrollTrigger.create({
         start: 500, // Wait until the desktop shrink animation completes
         onUpdate: (self) => {
           // self.direction: 1 = down, -1 = up
-          if (self.direction === 1) {
+          if (self.direction === 1 && !isHidden) {
+            isHidden = true;
             gsap.to(headerRef.current, { yPercent: -150, duration: 0.4, ease: "power3.inOut", overwrite: "auto" });
-          } else {
+          } else if (self.direction === -1 && isHidden) {
+            isHidden = false;
             gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
           }
         },
         onLeaveBack: () => {
           // Ensure it's always visible when at the top of the page
-          gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
+          if (isHidden) {
+            isHidden = false;
+            gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
+          }
         }
       });
     });
