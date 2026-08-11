@@ -12,6 +12,7 @@ export default function Navbar() {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
   
   const navContainerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -30,6 +31,23 @@ export default function Navbar() {
             scrub: 1.5, // Adds a very natural, smooth 1.5s lag to the scrub so it doesn't snap to wheel ticks
           }
         });
+      });
+
+      // Smart Auto-Hide Navbar (All screens)
+      ScrollTrigger.create({
+        start: 500, // Wait until the desktop shrink animation completes
+        onUpdate: (self) => {
+          // self.direction: 1 = down, -1 = up
+          if (self.direction === 1) {
+            gsap.to(headerRef.current, { yPercent: -150, duration: 0.4, ease: "power3.inOut", overwrite: "auto" });
+          } else {
+            gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
+          }
+        },
+        onLeaveBack: () => {
+          // Ensure it's always visible when at the top of the page
+          gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
+        }
       });
     });
 
@@ -61,7 +79,7 @@ export default function Navbar() {
       <div className="w-full h-[3.75rem] md:h-[4.5rem] pointer-events-none" />
 
       {/* Fixed Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 w-full pt-2 sm:pt-3 md:pt-4 px-3 sm:px-4 md:px-[2rem] h-auto flex flex-col z-[100] pointer-events-none font-sans text-[#0D0B05]">
+      <header ref={headerRef} className="fixed top-0 left-0 right-0 w-full pt-2 sm:pt-3 md:pt-4 px-3 sm:px-4 md:px-[2rem] h-auto flex flex-col z-[100] pointer-events-none font-sans text-[#0D0B05]">
         {/* Sharp Navbar Body Card */}
         <div 
           ref={navContainerRef}
