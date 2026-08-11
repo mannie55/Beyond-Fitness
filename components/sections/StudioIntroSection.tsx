@@ -160,14 +160,14 @@ export default function StudioIntroSection() {
             <h2 className="text-white mix-blend-difference text-[2.25rem] font-bold leading-[1.1] uppercase">
               THIS IS
             </h2>
-            <div className="mt-3">
+            <div className="mt-1">
               <Button variant="primary" theme="dark" href="/classes" className="mix-blend-difference">
                 DISCOVER THE STUDIO
               </Button>
             </div>
 
             {/* Massive Decorative Typography (Cloned from Footer) */}
-            <div className="w-full flex justify-start overflow-visible mt-6 sm:mt-8">
+            <div className="w-full flex justify-start overflow-visible mt-2 sm:mt-4">
               <div className="select-none text-left text-white mix-blend-difference font-bold text-[18vw] text-[clamp(4rem,16vw,18rem)] leading-[0.8] tracking-[0.08em] whitespace-nowrap">
                 BEYOND
               </div>
