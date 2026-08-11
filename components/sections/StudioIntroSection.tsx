@@ -25,6 +25,10 @@ export default function StudioIntroSection() {
 
       if (!isDesktop) return; // Disable GSAP scroll animation completely on mobile
 
+      // Pre-apply hardware acceleration hints to expensive animated elements
+      gsap.set('[data-animate="video-wrapper"]', { willChange: "width, height, transform, border-radius" });
+      gsap.set('[data-animate="desktop-cta-container"]', { willChange: "bottom, left, transform" });
+
       // Create the pinned scroll animation timeline ONLY for desktop
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -32,12 +36,13 @@ export default function StudioIntroSection() {
           start: "center center", 
           end: "+=200%", 
           pin: true,
-          scrub: 1, 
+          // Use true (or very small number like 0.1) instead of 1 to ensure 1:1 physical attachment 
+          // to native smooth scrolling on iPads/Trackpads, eliminating the "lagging behind" feel
+          scrub: true, 
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          fastScrollEnd: true,
-          preventOverlaps: true,
-          pinType: "fixed"
+          // Removed fastScrollEnd to prevent the violent "catching up/snapping" effect on fast scrolls
+          // Removed hardcoded pinType: "fixed" to let GSAP auto-detect the best method for iOS Safari
         }
       });
 
