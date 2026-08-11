@@ -41,7 +41,7 @@ export default function Navbar() {
         start: 0,
         end: "max",
         onUpdate: (self) => {
-          const scrollY = self.scrollY;
+          const scrollY = self.scroll();
           const scrollDiff = scrollY - lastScroll;
           
           // Require at least 250px of scroll before hiding, giving space for the desktop animation
