@@ -157,7 +157,7 @@ export default function StudioIntroSection() {
         {/* Mobile Editorial Text & Mute Toggle (Bottom Left) */}
         <div className="w-full px-4 sm:px-6 pb-6 pt-16 flex flex-col justify-end items-start flex-1 relative pointer-events-auto">
           <div className="flex flex-col gap-2">
-            <h2 className="text-white mix-blend-difference text-[2.5rem] font-bold leading-[1.1] uppercase">
+            <h2 className="text-white mix-blend-difference text-[2.25rem] font-bold leading-[1.1] uppercase">
               THIS IS
             </h2>
             <div className="mt-3">
@@ -168,7 +168,7 @@ export default function StudioIntroSection() {
 
             {/* Massive Decorative Typography (Cloned from Footer) */}
             <div className="w-full flex justify-start overflow-visible mt-6 sm:mt-8">
-              <div className="select-none text-left text-white mix-blend-difference font-bold text-[20vw] text-[clamp(4.5rem,18vw,20rem)] leading-[0.8] tracking-[0.08em] tracking-[clamp(0.4rem,3vw,5.34rem)] whitespace-nowrap">
+              <div className="select-none text-left text-white mix-blend-difference font-bold text-[18vw] text-[clamp(4rem,16vw,18rem)] leading-[0.8] tracking-[0.08em] whitespace-nowrap">
                 BEYOND
               </div>
             </div>
