@@ -35,23 +35,38 @@ export default function Navbar() {
 
       // Smart Auto-Hide Navbar (All screens)
       let isHidden = false;
+      let lastScroll = 0;
+      
       ScrollTrigger.create({
-        start: 500, // Wait until the desktop shrink animation completes
+        start: 0,
+        end: "max",
         onUpdate: (self) => {
-          // self.direction: 1 = down, -1 = up
-          if (self.direction === 1 && !isHidden) {
-            isHidden = true;
-            gsap.to(headerRef.current, { yPercent: -150, duration: 0.4, ease: "power3.inOut", overwrite: "auto" });
-          } else if (self.direction === -1 && isHidden) {
-            isHidden = false;
-            gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
-          }
-        },
-        onLeaveBack: () => {
-          // Ensure it's always visible when at the top of the page
-          if (isHidden) {
-            isHidden = false;
-            gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
+          const scrollY = self.scrollY;
+          const scrollDiff = scrollY - lastScroll;
+          
+          // Require at least 250px of scroll before hiding, giving space for the desktop animation
+          if (scrollY > 250) {
+            if (scrollDiff > 12 && !isHidden) {
+              // Scrolled down past threshold -> hide
+              isHidden = true;
+              gsap.to(headerRef.current, { yPercent: -150, duration: 0.4, ease: "power3.inOut", overwrite: "auto" });
+              lastScroll = scrollY;
+            } else if (scrollDiff < -12 && isHidden) {
+              // Scrolled up past threshold -> show
+              isHidden = false;
+              gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
+              lastScroll = scrollY;
+            } else if ((scrollDiff > 0 && isHidden) || (scrollDiff < 0 && !isHidden)) {
+              // Reset the anchor if moving further into the current state
+              lastScroll = scrollY;
+            }
+          } else {
+            // Always show at the top of the page
+            if (isHidden) {
+              isHidden = false;
+              gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
+            }
+            lastScroll = scrollY;
           }
         }
       });
