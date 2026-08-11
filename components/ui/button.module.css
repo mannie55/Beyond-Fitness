@@ -119,3 +119,14 @@
     transition-duration: 0.01ms;
   }
 }
+
+/* Mobile fine-tuning for button width and spacing */
+@media (max-width: 767px) {
+  .disc-swallow-button__ghost {
+    padding-left: 12px;
+    padding-right: 48px; /* Reduced from 61px to bring the SVG arrow closer to the text */
+  }
+  .disc-swallow-button__label {
+    left: 12px;
+  }
+}

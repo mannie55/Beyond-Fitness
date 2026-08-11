@@ -24,7 +24,7 @@ export default function ParallaxImage({
   imageClassName = "",
   priority = false,
   sizes = "100vw",
-  parallaxOffset = 15,
+  parallaxOffset = 8,
 }: ParallaxImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
