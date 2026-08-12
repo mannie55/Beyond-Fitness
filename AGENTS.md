@@ -16,6 +16,7 @@ Rules enforce strict boundaries on how to build in this codebase. Read the relev
 - **`cms.md`**: Read when integrating headless CMS, schemas, and API data fetching.
 - **`testing.md`**: Read when writing unit tests, evals, and separating deterministic from latent testing.
 - **`git.md`**: Read for commit standards, safety rules, workflow processes, and completion status protocols.
+- **`deep-engineering.md`**: Read when dealing with severe, stubborn bugs, complex architectural changes, or when high-rigor deterministic debugging is required.
 
 ## 2. Skills (`.agents/skills/`)
 Skills are modular capabilities that teach you *how* to execute complex or repetitive workflows. 
