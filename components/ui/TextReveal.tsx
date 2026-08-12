@@ -40,6 +40,9 @@ export default function TextReveal({ text, as: Component = "div", className = ""
     }
 
     const ctx = gsap.context(() => {
+      // Unhide the container right before animating the split lines
+      gsap.set(textRef.current, { opacity: 1 });
+
       const triggerEl = triggerSelector ? document.querySelector(triggerSelector) : null;
       // If triggerEl exists and is visible (offsetParent !== null), use it. Else use textRef.current
       const isTriggerVisible = triggerEl && (triggerEl as HTMLElement).offsetParent !== null;
@@ -64,10 +67,10 @@ export default function TextReveal({ text, as: Component = "div", className = ""
       ctx.revert();
       split.revert();
     };
-  }, [text, delay]);
+  }, [text, delay, triggerSelector]);
 
   return (
-    <Component ref={textRef} className={className}>
+    <Component ref={textRef} className={className} style={{ opacity: 0 }}>
       {text}
     </Component>
   );
