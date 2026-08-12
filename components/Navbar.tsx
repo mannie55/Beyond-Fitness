@@ -369,7 +369,7 @@ export default function Navbar() {
               </nav>
 
               {/* Mobile CTA */}
-              <div className="flex justify-center mt-2 w-full pt-4 border-t border-black/5">
+              <div className="flex justify-center mt-2 w-full pt-4">
                 <Button 
                   variant="primary" 
                   theme="light" 
