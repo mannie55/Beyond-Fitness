@@ -29,7 +29,7 @@ export default function HeroSection() {
       </div>
 
       {/* Massive Brand Headline (Top-center on Mobile, Bottom Absolute on Desktop) */}
-      <div className="relative md:absolute z-20 md:bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-[100vw] flex justify-center items-end px-3 sm:px-padding-global md:pointer-events-none mt-auto md:mt-0 overflow-visible">
+      <div className="relative md:absolute z-20 md:bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-full flex justify-center items-end px-3 sm:px-padding-global md:pointer-events-none mt-auto md:mt-0 overflow-visible">
         <div className="overflow-hidden w-full text-center translate-y-[12%] md:translate-y-[14%] pt-4 pb-4 -mt-4 -mb-4">
           <TextReveal 
             as="h1"

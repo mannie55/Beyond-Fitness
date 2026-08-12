@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${aspira.variable} h-full antialiased`}
+      className={`${aspira.variable} h-full antialiased overflow-x-hidden w-full`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col overflow-x-hidden w-full" suppressHydrationWarning>{children}</body>

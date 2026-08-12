@@ -18,7 +18,7 @@ export default function StudioIntroCenterpiece() {
         {/* Video Wrapper */}
         <div 
           data-animate="video-wrapper"
-          className="relative z-20 w-full max-w-[20rem] sm:max-w-[24rem] aspect-[16/10] sm:aspect-video rounded-lg md:w-[100vw] md:h-[100vh] md:aspect-auto md:max-w-none md:rounded-none overflow-hidden flex justify-center items-center bg-black/20 flex-shrink-0 shadow-xl"
+          className="relative z-20 w-full max-w-[20rem] sm:max-w-[24rem] aspect-[16/10] sm:aspect-video rounded-lg md:w-full md:h-[100vh] md:aspect-auto md:max-w-none md:rounded-none overflow-hidden flex justify-center items-center bg-black/20 flex-shrink-0 shadow-xl"
         >
           <video
             src="/videos/showcase-video.mp4"
