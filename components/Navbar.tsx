@@ -367,6 +367,19 @@ export default function Navbar() {
                   </div>
                 </div>
               </nav>
+
+              {/* Mobile CTA */}
+              <div className="flex justify-center mt-2 w-full pt-4 border-t border-black/5">
+                <Button 
+                  variant="primary" 
+                  theme="light" 
+                  href="/schedule" 
+                  width="w-full"
+                  className="flex justify-center"
+                >
+                  BOOK YOUR FIRST CLASS
+                </Button>
+              </div>
             </div>
           </div>
         )}
