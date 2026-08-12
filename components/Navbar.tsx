@@ -33,42 +33,44 @@ export default function Navbar() {
         });
       });
 
-      // Smart Auto-Hide Navbar (All screens)
-      let isHidden = false;
-      let lastScroll = 0;
-      
-      ScrollTrigger.create({
-        start: 0,
-        end: "max",
-        onUpdate: (self) => {
-          const scrollY = self.scroll();
-          const scrollDiff = scrollY - lastScroll;
-          
-          // Require at least 250px of scroll before hiding, giving space for the desktop animation
-          if (scrollY > 250) {
-            if (scrollDiff > 12 && !isHidden) {
-              // Scrolled down past threshold -> hide
-              isHidden = true;
-              gsap.to(headerRef.current, { yPercent: -150, duration: 0.4, ease: "power3.inOut", overwrite: "auto" });
-              lastScroll = scrollY;
-            } else if (scrollDiff < -12 && isHidden) {
-              // Scrolled up past threshold -> show
-              isHidden = false;
-              gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
-              lastScroll = scrollY;
-            } else if ((scrollDiff > 0 && isHidden) || (scrollDiff < 0 && !isHidden)) {
-              // Reset the anchor if moving further into the current state
+      // Smart Auto-Hide Navbar (Desktop/Tablet only, >= 768px)
+      mm.add("(min-width: 48rem)", () => {
+        let isHidden = false;
+        let lastScroll = 0;
+        
+        ScrollTrigger.create({
+          start: 0,
+          end: "max",
+          onUpdate: (self) => {
+            const scrollY = self.scroll();
+            const scrollDiff = scrollY - lastScroll;
+            
+            // Require at least 250px of scroll before hiding, giving space for the desktop animation
+            if (scrollY > 250) {
+              if (scrollDiff > 12 && !isHidden) {
+                // Scrolled down past threshold -> hide
+                isHidden = true;
+                gsap.to(headerRef.current, { yPercent: -150, duration: 0.4, ease: "power3.inOut", overwrite: "auto" });
+                lastScroll = scrollY;
+              } else if (scrollDiff < -12 && isHidden) {
+                // Scrolled up past threshold -> show
+                isHidden = false;
+                gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
+                lastScroll = scrollY;
+              } else if ((scrollDiff > 0 && isHidden) || (scrollDiff < 0 && !isHidden)) {
+                // Reset the anchor if moving further into the current state
+                lastScroll = scrollY;
+              }
+            } else {
+              // Always show at the top of the page
+              if (isHidden) {
+                isHidden = false;
+                gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
+              }
               lastScroll = scrollY;
             }
-          } else {
-            // Always show at the top of the page
-            if (isHidden) {
-              isHidden = false;
-              gsap.to(headerRef.current, { yPercent: 0, duration: 0.4, ease: "power3.out", overwrite: "auto" });
-            }
-            lastScroll = scrollY;
           }
-        }
+        });
       });
     });
 
