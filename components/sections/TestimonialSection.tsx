@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import StatsBar from "@/components/ui/StatsBar";
 
@@ -94,10 +95,15 @@ export default function TestimonialSection({
   subtitle = "Raw sweat, genuine breakthrough moments, and unfiltered voices from the people who live and breathe Beyond every single week.",
 }: TestimonialSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeVideoModal, setActiveVideoModal] = useState<string | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeVideoModal, setActiveVideoModal] = useState<string | null>(null);
   const [iframeLoaded, setIframeLoaded] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const activeStory = stories[activeIndex] || stories[0];
 
@@ -166,6 +172,10 @@ export default function TestimonialSection({
         @keyframes slide-up {
           from { opacity: 0; transform: translateY(15px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scale-up {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
         }
       `}</style>
       <div className="w-full max-w-[100rem] flex flex-col items-start gap-6 sm:gap-8 md:gap-[3.5rem] relative z-10">
@@ -336,8 +346,8 @@ export default function TestimonialSection({
 
       </div>
 
-      {/* Cinematic Video Lightbox Modal */}
-      {activeVideoModal && (
+      {/* Video Modal (Portaled outside stacking context) */}
+      {mounted && activeVideoModal && createPortal(
         <div 
           role="dialog"
           aria-modal="true"
@@ -409,7 +419,8 @@ export default function TestimonialSection({
               Tap video for audio &bull; Powered by Beyond Community
             </p>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
     </section>
