@@ -342,7 +342,7 @@ export default function TestimonialSection({
           role="dialog"
           aria-modal="true"
           aria-label="Member Story Video Reel Player"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md animate-fade-in overflow-y-auto"
+          className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md animate-fade-in overflow-y-auto"
           onClick={() => {
             setActiveVideoModal(null);
             setIframeLoaded(false);
