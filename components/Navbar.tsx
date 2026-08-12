@@ -279,16 +279,11 @@ export default function Navbar() {
               setIsMobileMenuOpen(!isMobileMenuOpen);
               if (isMobileMenuOpen) setOpenAccordion(null);
             }}
-            className="block lg:hidden focus:outline-none cursor-pointer text-black hover:text-[#CBAA4C] relative z-[120]"
+            className="block lg:hidden focus:outline-none cursor-pointer text-black hover:text-[#CBAA4C] relative z-[120] w-7 h-7 max-[400px]:w-6 max-[400px]:h-6 flex items-center justify-center"
             aria-label="Toggle navigation menu"
           >
-            <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7 max-[400px]:w-6 max-[400px]:h-6">
-              {isMobileMenuOpen ? (
-                <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-              ) : (
-                <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-              )}
-            </svg>
+            <span className={`absolute h-[2px] w-6 max-[400px]:w-5 bg-current transform transition-transform duration-500 ease-in-out rounded-sm ${isMobileMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`} />
+            <span className={`absolute h-[2px] w-6 max-[400px]:w-5 bg-current transform transition-transform duration-500 ease-in-out rounded-sm ${isMobileMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`} />
           </button>
         </div>
 
