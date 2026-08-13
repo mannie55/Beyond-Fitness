@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/ui/Button";
 import TextReveal from "@/components/ui/TextReveal";
 import ParallaxImage from "@/components/ui/ParallaxImage";
@@ -226,14 +227,20 @@ export default function ClassSection({
                 </div>
 
                 {/* Expanded Content Panel */}
-                {isSelected && (
-                  <div
-                    id={`tabpanel-${program.id}`}
-                    role="tabpanel"
-                    aria-labelledby={`tab-${program.id}`}
-                    className="flex-1 p-8 lg:p-10 xl:p-14 flex flex-col justify-between gap-8 animate-fade-in bg-white min-w-0 relative"
-                  >
-                    {/* Subtle Background Watermark Number */}
+                <AnimatePresence mode="wait">
+                  {isSelected && (
+                    <motion.div
+                      key={`tabpanel-${program.id}`}
+                      initial={{ opacity: 0, width: 0 }}
+                      animate={{ opacity: 1, width: "auto" }}
+                      exit={{ opacity: 0, width: 0 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      id={`tabpanel-${program.id}`}
+                      role="tabpanel"
+                      aria-labelledby={`tab-${program.id}`}
+                      className="flex-1 p-8 lg:p-10 xl:p-14 flex flex-col justify-between gap-8 bg-white min-w-0 relative overflow-hidden"
+                    >
+                      {/* Subtle Background Watermark Number */}
                     <span 
                       aria-hidden="true"
                       className="absolute top-4 right-8 text-[6rem] lg:text-[7.5rem] xl:text-[9rem] font-black text-[#0D0B05]/[0.035] tracking-tighter leading-none select-none pointer-events-none font-sans"
@@ -319,10 +326,9 @@ export default function ClassSection({
                           parallaxOffset={10}
                         />
                       </div>
-
-                    </div>
-                  </div>
-                )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}
@@ -374,12 +380,19 @@ export default function ClassSection({
                 </button>
 
                 {/* Expanded Accordion Body */}
-                {isSelected && (
-                  <div 
-                    id={`mobile-pane-${program.id}`}
-                    className="p-5 sm:p-6 flex flex-col gap-5 border-t border-[#0D0B05]/10 bg-white animate-fade-in"
-                  >
-                    {/* Image */}
+                <AnimatePresence initial={false}>
+                  {isSelected && (
+                    <motion.div 
+                      key={`mobile-pane-${program.id}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      id={`mobile-pane-${program.id}`}
+                      className="border-t border-[#0D0B05]/10 bg-white overflow-hidden"
+                    >
+                      <div className="p-5 sm:p-6 flex flex-col gap-5">
+                        {/* Image */}
                     <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
                       <ParallaxImage
                         src={program.imageSrc}
@@ -433,13 +446,15 @@ export default function ClassSection({
                       </div>
                     </div>
 
-                    {/* Button */}
-                    <Button variant="primary" theme="light" href={program.href} className="w-full">
-                      BOOK THIS CLASS
-                    </Button>
-                  </div>
+                      {/* Button */}
+                      <Button variant="primary" theme="light" href={program.href} className="w-full">
+                        BOOK THIS CLASS
+                      </Button>
+                    </div>
+                  </motion.div>
                 )}
-              </div>
+              </AnimatePresence>
+            </div>
             );
           })}
         </div>
