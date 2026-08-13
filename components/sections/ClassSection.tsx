@@ -326,10 +326,11 @@ export default function ClassSection({
                           parallaxOffset={10}
                         />
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             );
           })}
         </div>
