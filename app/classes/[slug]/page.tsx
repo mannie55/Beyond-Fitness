@@ -1,4 +1,4 @@
-export default function ClassDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
+export default function ClassDetailsPage() {
   return (
     <main className="w-full min-h-screen bg-black text-white px-padding-global py-padding-section-large">
       <h1 className="text-heading-2 font-bold mb-6">Class Detail</h1>

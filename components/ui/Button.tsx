@@ -98,7 +98,7 @@ export default function Button({
   const customStyle = {
     ...getThemeVars(),
     "--button-width": buttonWidthVar,
-  } as any;
+  } as React.CSSProperties;
 
   const innerContent = (
     <span className={styles["disc-swallow-button__frame"]}>

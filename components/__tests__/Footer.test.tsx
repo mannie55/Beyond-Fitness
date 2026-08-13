@@ -1,11 +1,12 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Footer from "../Footer";
 
 // Mock next/image since vitest runs in a Node environment where optimized image loading isn't compiled
 vi.mock("next/image", () => ({
-  default: ({ src, alt, width, height, className }: any) => {
+  default: ({ src, alt, width, height, className }: { src: string, alt: string, width: number, height: number, className?: string }) => {
     return (
+      // eslint-disable-next-line @next/next/no-img-element
       <img
         src={src}
         alt={alt}

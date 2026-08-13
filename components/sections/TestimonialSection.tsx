@@ -102,7 +102,8 @@ export default function TestimonialSection({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const activeStory = stories[activeIndex] || stories[0];

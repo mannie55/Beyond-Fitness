@@ -34,7 +34,7 @@ export default function ParallaxImage({
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       // Calculate exact yPercent based on element's scaled height to prevent background exposure
       const yPercentValue = (parallaxOffset / (100 + parallaxOffset * 2)) * 100;
 

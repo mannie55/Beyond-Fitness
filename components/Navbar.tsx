@@ -18,7 +18,7 @@ export default function Navbar() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
       // Only animate on desktop

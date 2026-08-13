@@ -1,5 +1,3 @@
-import Button from "@/components/ui/Button";
-
 export default function StudioIntroCenterpiece() {
   return (
     <div data-animate="centerpiece-root" className="flex flex-col items-center gap-4 sm:gap-6 md:gap-[1rem] w-full">

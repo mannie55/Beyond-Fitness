@@ -17,7 +17,7 @@ export default function FooterReveal({ children }: FooterRevealProps) {
 
     if (!containerRef.current || !footerRef.current) return;
 
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     mm.add("(min-width: 768px)", () => {
       // The footer is fixed in the background (z-index -1) only on desktop.

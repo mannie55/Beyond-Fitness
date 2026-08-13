@@ -31,8 +31,11 @@ export default function ImageSlider({
 
   // Reset index when images array changes
   useEffect(() => {
-    setCurrentIndex(isMultiple ? 1 : 0);
-    setIsTransitioning(false);
+    const timer = setTimeout(() => {
+      setCurrentIndex(isMultiple ? 1 : 0);
+      setIsTransitioning(false);
+    }, 0);
+    return () => clearTimeout(timer);
   }, [images?.length, isMultiple]);
 
   // Forward Navigation
@@ -205,9 +208,11 @@ export default function ImageSlider({
             className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 flex justify-center items-center rounded-full bg-black/40 hover:bg-black/75 text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FED55F] transition-all duration-300 z-20 cursor-pointer"
             aria-label="Previous image"
           >
-            <img
+            <Image
               src="/icons/slider_arrow_left.svg"
               alt="Previous"
+              width={20}
+              height={20}
               className="w-5 h-5 filter invert"
             />
           </button>
@@ -217,9 +222,11 @@ export default function ImageSlider({
             className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 flex justify-center items-center rounded-full bg-black/40 hover:bg-black/75 text-white backdrop-blur-sm opacity-0 group-hover:opacity-100 focus-visible:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FED55F] transition-all duration-300 z-20 cursor-pointer"
             aria-label="Next image"
           >
-            <img
+            <Image
               src="/icons/slider_arrow_right.svg"
               alt="Next"
+              width={20}
+              height={20}
               className="w-5 h-5 filter invert"
             />
           </button>

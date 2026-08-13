@@ -58,9 +58,11 @@ export default function StatsBar({
     if (!node || hasAnimated) return;
 
     if (typeof IntersectionObserver === "undefined") {
-      setHasAnimated(true);
-      setDisplayValues(stats.map((s) => s.value));
-      return;
+      const timer = setTimeout(() => {
+        setHasAnimated(true);
+        setDisplayValues(stats.map((s) => s.value));
+      }, 0);
+      return () => clearTimeout(timer);
     }
 
     const observer = new IntersectionObserver(

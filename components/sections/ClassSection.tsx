@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Image from "next/image";
+
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Button from "@/components/ui/Button";
 import TextReveal from "@/components/ui/TextReveal";

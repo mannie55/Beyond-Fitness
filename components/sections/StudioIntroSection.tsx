@@ -15,13 +15,13 @@ export default function StudioIntroSection() {
   const [isMuted, setIsMuted] = useState(true);
 
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     mm.add({
       isDesktop: "(min-width: 768px)",
       isMobile: "(max-width: 767px)"
     }, (context) => {
-      let { isDesktop } = context.conditions as { isDesktop: boolean };
+      const { isDesktop } = context.conditions as { isDesktop: boolean };
 
       if (!isDesktop) return; // Disable GSAP scroll animation completely on mobile
 
@@ -118,30 +118,30 @@ export default function StudioIntroSection() {
         <div className="relative w-full h-full">
           {/* TOP ROW */}
           <div className="absolute md:top-[3%] md:left-[2%] md:w-[17vw]">
-            <Image src="/images/studio-image-1.jpg" alt="Studio 1" width={300} height={184} className="w-full h-auto shadow-2xl" sizes="(max-width: 768px) 0vw, 20vw" />
+            <Image width={500} height={400} src="/images/studio-image-1.jpg" alt="Studio 1" className="w-full h-auto shadow-2xl" />
           </div>
           <div className="absolute md:top-[6%] md:left-[22%] md:w-[20vw] md:z-auto">
-            <Image src="/images/studio-image-2.jpg" alt="Studio 2" width={594} height={594} className="w-full h-auto shadow-2xl" sizes="(max-width: 768px) 0vw, 25vw" />
+            <Image width={500} height={400} src="/images/studio-image-2.jpg" alt="Studio 2" className="w-full h-auto shadow-2xl" />
           </div>
           <div className="absolute md:top-[2%] md:left-[52%] md:right-auto md:w-[20vw]">
-            <Image src="/images/studio-image-3.jpg" alt="Studio 3" width={700} height={429} className="w-full h-auto shadow-2xl" sizes="(max-width: 768px) 0vw, 25vw" />
+            <Image width={500} height={400} src="/images/studio-image-3.jpg" alt="Studio 3" className="w-full h-auto shadow-2xl" />
           </div>
           <div className="absolute md:top-[4%] md:left-[78%] md:right-auto md:w-[17vw] md:z-auto">
-            <Image src="/images/studio-image-4.jpg" alt="Studio 4" width={824} height={945} className="w-full h-auto shadow-2xl" sizes="(max-width: 768px) 0vw, 20vw" />
+            <Image width={500} height={400} src="/images/studio-image-4.jpg" alt="Studio 4" className="w-full h-auto shadow-2xl" />
           </div>
 
           {/* BOTTOM ROW */}
           <div className="absolute md:bottom-[2%] md:left-[-2%] md:w-[23vw]">
-            <Image src="/images/studio-image-5.jpg" alt="Studio 5" width={594} height={659} className="w-full h-auto shadow-2xl" sizes="(max-width: 768px) 0vw, 25vw" />
+            <Image width={500} height={400} src="/images/studio-image-5.jpg" alt="Studio 5" className="w-full h-auto shadow-2xl" />
           </div>
           <div className="absolute md:bottom-[-6%] md:left-[30%] md:w-[19vw] md:z-auto">
-            <Image src="/images/studio-image-6.jpg" alt="Studio 6" width={600} height={668} className="w-full h-auto shadow-2xl" sizes="(max-width: 768px) 0vw, 20vw" />
+            <Image width={500} height={400} src="/images/studio-image-6.jpg" alt="Studio 6" className="w-full h-auto shadow-2xl" />
           </div>
           <div className="absolute md:bottom-[8%] md:left-[55%] md:right-auto md:w-[17vw]">
-            <Image src="/images/studio-image-7.jpg" alt="Studio 7" width={718} height={504} className="w-full h-auto shadow-2xl" sizes="(max-width: 768px) 0vw, 20vw" />
+            <Image width={500} height={400} src="/images/studio-image-7.jpg" alt="Studio 7" className="w-full h-auto shadow-2xl" />
           </div>
           <div className="absolute md:bottom-[5%] md:left-[80%] md:right-auto md:w-[17vw] md:z-auto">
-            <Image src="/images/studio-image-8.jpg" alt="Studio 8" width={492} height={437} className="w-full h-auto shadow-2xl" sizes="(max-width: 768px) 0vw, 20vw" />
+            <Image width={500} height={400} src="/images/studio-image-8.jpg" alt="Studio 8" className="w-full h-auto shadow-2xl" />
           </div>
         </div>
       </div>
@@ -152,8 +152,8 @@ export default function StudioIntroSection() {
         <div className="w-full overflow-hidden select-none opacity-80 mt-0">
           <div className="flex gap-2.5 animate-[marquee_25s_linear_infinite] whitespace-nowrap w-max">
             {["/images/studio-image-1.jpg", "/images/studio-image-2.jpg", "/images/studio-image-3.jpg", "/images/studio-image-4.jpg", "/images/studio-image-1.jpg", "/images/studio-image-2.jpg", "/images/studio-image-3.jpg", "/images/studio-image-4.jpg"].map((src, idx) => (
-              <div key={`top-${idx}`} className="relative w-[8.5rem] h-[5.3rem] overflow-hidden flex-shrink-0 border border-white/15 shadow-md">
-                <Image src={src} alt="Studio atmosphere" fill sizes="150px" className="object-cover" />
+              <div key={`top-${idx}`} className="w-[8.5rem] h-[5.3rem] overflow-hidden flex-shrink-0 border border-white/15 shadow-md">
+                <Image width={200} height={120} src={src} alt="Studio atmosphere" className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -201,8 +201,8 @@ export default function StudioIntroSection() {
         <div className="w-full overflow-hidden select-none opacity-80">
           <div className="flex gap-2.5 animate-[marquee-reverse_25s_linear_infinite] whitespace-nowrap w-max">
             {["/images/studio-image-5.jpg", "/images/studio-image-6.jpg", "/images/studio-image-7.jpg", "/images/studio-image-8.jpg", "/images/studio-image-5.jpg", "/images/studio-image-6.jpg", "/images/studio-image-7.jpg", "/images/studio-image-8.jpg"].map((src, idx) => (
-              <div key={`bot-${idx}`} className="relative w-[8.5rem] h-[5.3rem] overflow-hidden flex-shrink-0 border border-white/15 shadow-md">
-                <Image src={src} alt="Studio atmosphere" fill sizes="150px" className="object-cover" />
+              <div key={`bot-${idx}`} className="w-[8.5rem] h-[5.3rem] overflow-hidden flex-shrink-0 border border-white/15 shadow-md">
+                <Image width={200} height={120} src={src} alt="Studio atmosphere" className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
