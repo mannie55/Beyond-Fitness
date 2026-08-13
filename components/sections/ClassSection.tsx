@@ -94,6 +94,21 @@ export const CLASS_PROGRAMS: ClassProgram[] = [
   },
 ];
 
+const contentVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.2 }
+  },
+  exit: { opacity: 0, transition: { staggerChildren: 0.04, staggerDirection: -1 } }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.3 } }
+};
+
 interface ClassSectionProps {
   programs?: ClassProgram[];
   title?: string;
@@ -248,28 +263,34 @@ export default function ClassSection({
                       {program.number}
                     </span>
 
-                    <div className="grid grid-cols-12 gap-8 xl:gap-12 items-center h-full relative z-10">
+                    <motion.div 
+                      variants={contentVariants} 
+                      initial="hidden" 
+                      animate="show" 
+                      exit="exit" 
+                      className="grid grid-cols-12 gap-8 xl:gap-12 items-center h-full relative z-10"
+                    >
                       
                       {/* Left: Text, Tags, Specs & CTA (7 Cols) */}
                       <div className="col-span-7 flex flex-col justify-center items-start gap-5 xl:gap-6">
                         
                         {/* Clean Tag without pill container or dot */}
-                        <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#0D0B05]/60">
+                        <motion.span variants={itemVariants} className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#0D0B05]/60">
                           {program.tag}
-                        </span>
+                        </motion.span>
 
                         {/* Program Headline */}
-                        <h3 className="text-[#0D0B05] text-2xl sm:text-3xl xl:text-[2.25rem] font-semibold uppercase leading-[1.2] tracking-tight">
+                        <motion.h3 variants={itemVariants} className="text-[#0D0B05] text-2xl sm:text-3xl xl:text-[2.25rem] font-semibold uppercase leading-[1.2] tracking-tight">
                           {program.headline}
-                        </h3>
+                        </motion.h3>
 
                         {/* Description */}
-                        <p className="text-[var(--color-neutral-dark)] text-sm sm:text-base leading-relaxed max-w-[34rem]">
+                        <motion.p variants={itemVariants} className="text-[var(--color-neutral-dark)] text-sm sm:text-base leading-relaxed max-w-[34rem]">
                           {program.description}
-                        </p>
+                        </motion.p>
 
                         {/* Specs Strip */}
-                        <div className="w-full flex flex-wrap items-center gap-4 sm:gap-6 pt-2 pb-2 border-t border-b border-[#0D0B05]/10">
+                        <motion.div variants={itemVariants} className="w-full flex flex-wrap items-center gap-4 sm:gap-6 pt-2 pb-2 border-t border-b border-[#0D0B05]/10">
                           <div className="flex flex-col">
                             <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
                               Duration
@@ -300,22 +321,22 @@ export default function ClassSection({
                               {program.focus}
                             </span>
                           </div>
-                        </div>
+                        </motion.div>
 
                         {/* Actions */}
-                        <div className="flex items-center gap-4 pt-2">
+                        <motion.div variants={itemVariants} className="flex items-center gap-4 pt-2">
                           <Button variant="primary" theme="light" href={program.href}>
                             BOOK CLASS
                           </Button>
                           <Button variant="secondary" theme="light" href="/classes">
                             EXPLORE DETAILS
                           </Button>
-                        </div>
+                        </motion.div>
 
                       </div>
 
                       {/* Right: High-Res Image (5 Cols) */}
-                      <div className="col-span-5 relative w-full h-[20rem] xl:h-[23.75rem] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
+                      <motion.div variants={itemVariants} className="col-span-5 relative w-full h-[20rem] xl:h-[23.75rem] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
                         <ParallaxImage
                           src={program.imageSrc}
                           alt={`${program.name} class session`}
@@ -325,8 +346,8 @@ export default function ClassSection({
                           priority={index === 0}
                           parallaxOffset={10}
                         />
-                      </div>
-                    </div>
+                      </motion.div>
+                    </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -392,9 +413,15 @@ export default function ClassSection({
                       id={`mobile-pane-${program.id}`}
                       className="border-t border-[#0D0B05]/10 bg-white overflow-hidden"
                     >
-                      <div className="p-5 sm:p-6 flex flex-col gap-5">
+                      <motion.div 
+                        variants={contentVariants}
+                        initial="hidden"
+                        animate="show"
+                        exit="exit"
+                        className="p-5 sm:p-6 flex flex-col gap-5"
+                      >
                         {/* Image */}
-                    <div className="relative w-full aspect-[16/10] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
+                    <motion.div variants={itemVariants} className="relative w-full aspect-[16/10] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
                       <ParallaxImage
                         src={program.imageSrc}
                         alt={`${program.name} class`}
@@ -402,25 +429,25 @@ export default function ClassSection({
                         sizes="100vw"
                         parallaxOffset={8}
                       />
-                    </div>
+                    </motion.div>
 
                     <div className="flex flex-col gap-3">
                       {/* Clean Tag without pill container or dot */}
-                      <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#0D0B05]/60">
+                      <motion.span variants={itemVariants} className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#0D0B05]/60">
                         {program.tag}
-                      </span>
+                      </motion.span>
 
-                      <h3 className="text-[#0D0B05] text-xl sm:text-2xl font-semibold uppercase leading-snug tracking-tight">
+                      <motion.h3 variants={itemVariants} className="text-[#0D0B05] text-xl sm:text-2xl font-semibold uppercase leading-snug tracking-tight">
                         {program.headline}
-                      </h3>
+                      </motion.h3>
 
-                      <p className="text-[var(--color-neutral-dark)] text-xs sm:text-sm leading-relaxed">
+                      <motion.p variants={itemVariants} className="text-[var(--color-neutral-dark)] text-xs sm:text-sm leading-relaxed">
                         {program.description}
-                      </p>
+                      </motion.p>
                     </div>
 
                     {/* Specs */}
-                    <div className="grid grid-cols-3 gap-2 py-3 border-t border-b border-[#0D0B05]/10 text-center">
+                    <motion.div variants={itemVariants} className="grid grid-cols-3 gap-2 py-3 border-t border-b border-[#0D0B05]/10 text-center">
                       <div className="flex flex-col">
                         <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
                           Duration
@@ -445,13 +472,15 @@ export default function ClassSection({
                           {program.focus}
                         </span>
                       </div>
-                    </div>
+                    </motion.div>
 
                       {/* Button */}
-                      <Button variant="primary" theme="light" href={program.href} className="w-full">
-                        BOOK THIS CLASS
-                      </Button>
-                    </div>
+                      <motion.div variants={itemVariants}>
+                        <Button variant="primary" theme="light" href={program.href} className="w-full">
+                          BOOK THIS CLASS
+                        </Button>
+                      </motion.div>
+                    </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
