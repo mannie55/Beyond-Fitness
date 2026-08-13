@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Button from "./ui/Button";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -95,6 +96,31 @@ export default function Navbar() {
     { name: "ABOUT", href: "/about", desc: "The story behind the studio and our mission" },
     { name: "CONTACT", href: "/contact", desc: "Find us in Victoria Island, Lagos" },
   ];
+
+  const menuVariants = {
+    hidden: { opacity: 0, y: -10, scaleY: 0.95, transformOrigin: "top" },
+    show: {
+      opacity: 1, 
+      y: 0,
+      scaleY: 1,
+      transition: { 
+        duration: 0.4, 
+        ease: [0.16, 1, 0.3, 1],
+        staggerChildren: 0.05, 
+        delayChildren: 0.1 
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      y: -5,
+      transition: { duration: 0.2, ease: "easeIn" } 
+    }
+  };
+
+  const menuItemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
+  };
 
   return (
     <>
@@ -288,23 +314,31 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Dropdown Extension */}
-        {isMobileMenuOpen && (
-          <div className="absolute top-[calc(100%+0.5rem)] left-[-0.0625rem] right-[-0.0625rem] bg-white border border-black/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] z-[100] flex flex-col p-5 sm:p-6 lg:hidden animate-[fadeIn_0.2s_ease-out] overflow-y-auto max-h-[calc(100dvh-6rem)]">
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div 
+              variants={menuVariants}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+              className="absolute top-[calc(100%+0.5rem)] left-[-0.0625rem] right-[-0.0625rem] bg-white border border-black/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] z-[100] flex flex-col p-5 sm:p-6 lg:hidden overflow-y-auto max-h-[calc(100dvh-6rem)]"
+            >
             <div className="flex flex-col gap-4 w-full">
               <nav className="flex flex-col gap-1 w-full">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-lg tracking-tight font-bold leading-[1.2] py-2.5 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/10 uppercase"
-                  >
-                    {link.name}
-                  </Link>
+                  <motion.div key={link.name} variants={menuItemVariants}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block text-lg tracking-tight font-bold leading-[1.2] py-2.5 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/10 uppercase"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 ))}
                 
                 {/* COMMUNITY ACCORDION */}
-                <div className="flex flex-col border-b border-black/10">
+                <motion.div variants={menuItemVariants} className="flex flex-col border-b border-black/10">
                   <button 
                     onClick={() => setOpenAccordion(openAccordion === 'community' ? null : 'community')}
                     className="flex items-center justify-between text-lg tracking-tight font-bold leading-[1.2] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer uppercase"
@@ -333,10 +367,10 @@ export default function Navbar() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* ABOUT US ACCORDION */}
-                <div className="flex flex-col border-b border-black/10">
+                <motion.div variants={menuItemVariants} className="flex flex-col border-b border-black/10">
                   <button 
                     onClick={() => setOpenAccordion(openAccordion === 'about' ? null : 'about')}
                     className="flex items-center justify-between text-lg tracking-tight font-bold leading-[1.2] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer uppercase"
@@ -365,11 +399,11 @@ export default function Navbar() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </nav>
 
               {/* Mobile CTA */}
-              <div className="flex justify-center mt-2 w-full pt-4">
+              <motion.div variants={menuItemVariants} className="flex justify-center mt-2 w-full pt-4">
                 <Button 
                   variant="primary" 
                   theme="light" 
@@ -379,10 +413,11 @@ export default function Navbar() {
                 >
                   BOOK YOUR FIRST CLASS
                 </Button>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </div>
     </header>
     </>
