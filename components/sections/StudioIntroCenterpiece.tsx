@@ -2,7 +2,7 @@ import Button from "@/components/ui/Button";
 
 export default function StudioIntroCenterpiece() {
   return (
-    <div data-animate="centerpiece-root" className="flex flex-col items-center gap-4 sm:gap-6 md:gap-[1rem] w-full max-w-[100rem] mx-auto">
+    <div data-animate="centerpiece-root" className="flex flex-col items-center gap-4 sm:gap-6 md:gap-[1rem] w-full">
       {/* Inner Row/Col */}
       <div data-animate="inner-row" className="relative flex flex-col justify-center items-center w-full gap-3 sm:gap-4 md:gap-0">
         
