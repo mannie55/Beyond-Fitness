@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Button from "@/components/ui/Button";
 import TextReveal from "@/components/ui/TextReveal";
 import ParallaxImage from "@/components/ui/ParallaxImage";
@@ -94,7 +94,7 @@ export const CLASS_PROGRAMS: ClassProgram[] = [
   },
 ];
 
-const contentVariants = {
+const contentVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -103,7 +103,7 @@ const contentVariants = {
   exit: { opacity: 0, transition: { staggerChildren: 0.04, staggerDirection: -1 } }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 15 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
   exit: { opacity: 0, y: -10, transition: { duration: 0.3 } }

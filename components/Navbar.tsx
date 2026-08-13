@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Button from "./ui/Button";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -97,7 +97,7 @@ export default function Navbar() {
     { name: "CONTACT", href: "/contact", desc: "Find us in Victoria Island, Lagos" },
   ];
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     hidden: { opacity: 0, y: -10, scaleY: 0.95, transformOrigin: "top" },
     show: {
       opacity: 1, 
@@ -117,7 +117,7 @@ export default function Navbar() {
     }
   };
 
-  const menuItemVariants = {
+  const menuItemVariants: Variants = {
     hidden: { opacity: 0, y: 15 },
     show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
   };
