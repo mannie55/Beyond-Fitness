@@ -6,8 +6,8 @@ interface BannerProps {
 }
 
 export default function Banner({ speed = "medium", pauseOnHover = true }: BannerProps) {
-  // 40 repeated segments to ensure width spans screen on all viewports (including 4K/ultra-wide)
-  const segments = Array(40).fill({ text1: "BEYOND", text2: "GO BEYOND" });
+  // 15 repeated segments are enough to cover ultra-wide 4K displays while drastically reducing DOM clutter
+  const segments = Array(15).fill({ text1: "BEYOND", text2: "GO BEYOND" });
 
   const speedClasses = {
     "very-slow": "animate-[marquee_150s_linear_infinite]",

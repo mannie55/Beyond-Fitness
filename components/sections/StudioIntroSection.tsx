@@ -113,38 +113,7 @@ export default function StudioIntroSection() {
         </div>
       </div>
 
-      {/* Scattered background images - Collage style (Visible on Desktop for GSAP timeline) */}
-      <div className="absolute inset-0 z-10 w-full h-full overflow-hidden pointer-events-none hidden md:block">
-        <div className="relative w-full h-full">
-          {/* TOP ROW */}
-          <div className="absolute md:top-[3%] md:left-[2%] md:w-[17vw]">
-            <img src="/images/studio-image-1.jpg" alt="Studio 1" className="w-full h-auto shadow-2xl" />
-          </div>
-          <div className="absolute md:top-[6%] md:left-[22%] md:w-[20vw] md:z-auto">
-            <img src="/images/studio-image-2.jpg" alt="Studio 2" className="w-full h-auto shadow-2xl" />
-          </div>
-          <div className="absolute md:top-[2%] md:left-[52%] md:right-auto md:w-[20vw]">
-            <img src="/images/studio-image-3.jpg" alt="Studio 3" className="w-full h-auto shadow-2xl" />
-          </div>
-          <div className="absolute md:top-[4%] md:left-[78%] md:right-auto md:w-[17vw] md:z-auto">
-            <img src="/images/studio-image-4.jpg" alt="Studio 4" className="w-full h-auto shadow-2xl" />
-          </div>
 
-          {/* BOTTOM ROW */}
-          <div className="absolute md:bottom-[2%] md:left-[-2%] md:w-[23vw]">
-            <img src="/images/studio-image-5.jpg" alt="Studio 5" className="w-full h-auto shadow-2xl" />
-          </div>
-          <div className="absolute md:bottom-[-6%] md:left-[30%] md:w-[19vw] md:z-auto">
-            <img src="/images/studio-image-6.jpg" alt="Studio 6" className="w-full h-auto shadow-2xl" />
-          </div>
-          <div className="absolute md:bottom-[8%] md:left-[55%] md:right-auto md:w-[17vw]">
-            <img src="/images/studio-image-7.jpg" alt="Studio 7" className="w-full h-auto shadow-2xl" />
-          </div>
-          <div className="absolute md:bottom-[5%] md:left-[80%] md:right-auto md:w-[17vw] md:z-auto">
-            <img src="/images/studio-image-8.jpg" alt="Studio 8" className="w-full h-auto shadow-2xl" />
-          </div>
-        </div>
-      </div>
 
       {/* Mobile Filmstrips + Centerpiece Layout */}
       <div className="flex flex-col justify-between items-center w-full flex-1 md:hidden">
