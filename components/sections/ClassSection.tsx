@@ -98,15 +98,15 @@ const contentVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.2 }
+    transition: { staggerChildren: 0.12, delayChildren: 0.25 }
   },
-  exit: { opacity: 0, transition: { staggerChildren: 0.04, staggerDirection: -1 } }
+  exit: { opacity: 0, transition: { staggerChildren: 0.06, staggerDirection: -1 } }
 };
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 15 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
-  exit: { opacity: 0, y: -10, transition: { duration: 0.3 } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.4 } }
 };
 
 interface ClassSectionProps {
@@ -409,7 +409,7 @@ export default function ClassSection({
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                       id={`mobile-pane-${program.id}`}
                       className="border-t border-[#0D0B05]/10 bg-white overflow-hidden"
                     >

@@ -104,22 +104,22 @@ export default function Navbar() {
       y: 0,
       scaleY: 1,
       transition: { 
-        duration: 0.4, 
+        duration: 0.7, 
         ease: [0.16, 1, 0.3, 1],
-        staggerChildren: 0.05, 
+        staggerChildren: 0.08, 
         delayChildren: 0.1 
       }
     },
     exit: { 
       opacity: 0, 
       y: -5,
-      transition: { duration: 0.2, ease: "easeIn" } 
+      transition: { duration: 0.3, ease: "easeIn" } 
     }
   };
 
   const menuItemVariants: Variants = {
     hidden: { opacity: 0, y: 15 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
   };
 
   return (
