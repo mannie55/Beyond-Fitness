@@ -186,11 +186,19 @@ export default function TestimonialSection({
           
           {/* Eyebrow & Title */}
           <div className="flex flex-col items-start text-left gap-3 sm:gap-4 md:gap-[1.5rem] max-w-[46rem]">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-3 mb-[-0.5rem]">
+              <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
+              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white uppercase">
+                Member Stories
+              </span>
+            </div>
+
             <h2 className="text-white text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight">
               {title}
             </h2>
 
-            <p className="text-white/70 text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.5]">
+            <p className="text-white/70 text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.5] pt-2">
               {subtitle}
             </p>
           </div>

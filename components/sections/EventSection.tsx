@@ -102,6 +102,14 @@ export default function EventSection() {
         
         {/* Section Header */}
         <div className="w-full flex flex-col items-center text-center gap-5 sm:gap-6 md:gap-5 max-w-[48rem]">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-[-0.5rem]">
+            <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
+            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#0D0B05] uppercase">
+              Events
+            </span>
+            <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
+          </div>
 
           <TextReveal 
             as="h2"
@@ -109,9 +117,7 @@ export default function EventSection() {
             className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
           />
 
-          <div className="w-[3rem] h-[0.25rem] bg-[var(--color-dandelion)] rounded-full" />
-
-          <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-relaxed">
+          <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-relaxed pt-2">
             From multi-city wellness tours to community initiatives, discover how we move together beyond our four walls.
           </p>
         </div>

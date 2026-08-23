@@ -11,6 +11,14 @@ export default function CommunitySection() {
         
         {/* Left Column: Heading */}
         <div className="flex flex-col flex-1 gap-6 sm:gap-8 lg:max-w-[45%]">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-[-1rem]">
+            <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
+            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white uppercase">
+              Community
+            </span>
+          </div>
+
           {/* Main Heading */}
           <TextReveal 
             as="h2"

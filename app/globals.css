@@ -49,7 +49,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Lenis handles smooth scrolling; native smooth scroll causes conflicts */
 }
 
 body {

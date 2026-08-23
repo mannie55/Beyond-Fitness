@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
 import Button from "./ui/Button";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -14,11 +13,47 @@ export default function Navbar() {
   
   const navContainerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const mobileMenuContainerRef = useRef<HTMLDivElement>(null);
+  const tl = useRef<gsap.core.Timeline | null>(null);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      tl.current?.play();
+    } else {
+      tl.current?.reverse();
+    }
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     
     const ctx = gsap.context(() => {
+      // Mobile menu animation timeline
+      tl.current = gsap.timeline({ paused: true });
+      tl.current
+        .to(mobileMenuContainerRef.current, {
+          height: "auto",
+          duration: 0.7, // Calmer, slower unfold
+          ease: "power3.inOut",
+          onStart: () => {
+            gsap.set(mobileMenuContainerRef.current, { pointerEvents: "auto", opacity: 1 });
+          },
+          onReverseComplete: () => {
+            gsap.set(mobileMenuContainerRef.current, { pointerEvents: "none", height: 0, opacity: 0 });
+          }
+        })
+        .fromTo(".mobile-menu-item", 
+          { opacity: 0, y: 12 }, // Gentle starting position
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5, // Gentle fade
+            stagger: 0.08, // Clearer sequence spacing
+            ease: "power2.out"
+          },
+          "-=0.15" // Wait until container is almost fully open before items cascade
+        );
+
       const mm = gsap.matchMedia();
 
       // Only animate on desktop
@@ -97,31 +132,6 @@ export default function Navbar() {
     { name: "ABOUT", href: "#about", desc: "The story behind the studio and our mission" },
     { name: "CONTACT", href: "#footer", desc: "Find us in Victoria Island, Lagos" },
   ];
-
-  const menuVariants: Variants = {
-    hidden: { opacity: 0, y: -10, scaleY: 0.95, transformOrigin: "top" },
-    show: {
-      opacity: 1, 
-      y: 0,
-      scaleY: 1,
-      transition: { 
-        duration: 0.7, 
-        ease: [0.16, 1, 0.3, 1],
-        staggerChildren: 0.08, 
-        delayChildren: 0.1 
-      }
-    },
-    exit: { 
-      opacity: 0, 
-      y: -5,
-      transition: { duration: 0.3, ease: "easeIn" } 
-    }
-  };
-
-  const menuItemVariants: Variants = {
-    hidden: { opacity: 0, y: 15 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-  };
 
   return (
     <>
@@ -315,110 +325,107 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Dropdown Extension */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div 
-              variants={menuVariants}
-              initial="hidden"
-              animate="show"
-              exit="exit"
-              className="absolute top-[calc(100%+0.5rem)] left-[-0.0625rem] right-[-0.0625rem] bg-white border border-black/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] z-[100] flex flex-col p-5 sm:p-6 lg:hidden overflow-y-auto max-h-[calc(100dvh-6rem)]"
-            >
-            <div className="flex flex-col gap-4 w-full">
-              <nav className="flex flex-col gap-1 w-full">
-                {navLinks.map((link) => (
-                  <motion.div key={link.name} variants={menuItemVariants}>
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-lg tracking-tight font-bold leading-[1.2] py-2.5 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/10 uppercase"
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
-                
-                {/* COMMUNITY ACCORDION */}
-                <motion.div variants={menuItemVariants} className="flex flex-col border-b border-black/10">
-                  <button 
-                    onClick={() => setOpenAccordion(openAccordion === 'community' ? null : 'community')}
-                    className="flex items-center justify-between text-lg tracking-tight font-bold leading-[1.2] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer uppercase"
+        <div 
+          ref={mobileMenuContainerRef}
+          className="absolute top-[calc(100%+0.5rem)] left-[-0.0625rem] right-[-0.0625rem] bg-white border border-black/10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] z-[100] flex flex-col p-0 lg:hidden overflow-y-auto max-h-[calc(100dvh-6rem)]"
+          style={{ height: 0, opacity: 0, pointerEvents: "none" }}
+        >
+          <div className="flex flex-col gap-4 w-full p-5 sm:p-6 pb-8">
+            <nav className="flex flex-col gap-1 w-full">
+              {navLinks.map((link) => (
+                <div key={link.name} className="mobile-menu-item opacity-0 translate-y-2">
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-lg tracking-tight font-bold leading-[1.2] py-2.5 border-b hover:text-[#CBAA4C] transition-colors duration-300 border-black/10 uppercase"
                   >
-                    COMMUNITY
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'community' ? 'rotate-180' : ''}`}>
-                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </button>
-                  <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'community' ? 'grid-rows-[1fr] opacity-100 pb-3' : 'grid-rows-[0fr] opacity-0'}`}>
-                    <div className="overflow-hidden flex flex-col gap-2 pt-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2">
-                      {communityColumn.map((item, index) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="group transition-all duration-300 flex flex-col py-1"
-                        >
-                          <div className="flex items-center gap-2">
-                            <span className="text-[#CBAA4C] text-xs font-bold italic opacity-80">0{index + 1}</span>
-                            <span className="text-[#0D0B05] text-sm font-bold tracking-wide uppercase group-hover:text-[#CBAA4C] transition-colors">
-                              {item.name}
-                            </span>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* ABOUT US ACCORDION */}
-                <motion.div variants={menuItemVariants} className="flex flex-col border-b border-black/10">
-                  <button 
-                    onClick={() => setOpenAccordion(openAccordion === 'about' ? null : 'about')}
-                    className="flex items-center justify-between text-lg tracking-tight font-bold leading-[1.2] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer uppercase"
-                  >
-                    ABOUT US
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'about' ? 'rotate-180' : ''}`}>
-                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </button>
-                  <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'about' ? 'grid-rows-[1fr] opacity-100 pb-3' : 'grid-rows-[0fr] opacity-0'}`}>
-                    <div className="overflow-hidden flex flex-col gap-2 pt-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2">
-                      {aboutColumn.map((item, index) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="group transition-all duration-300 flex flex-col py-1"
-                        >
-                          <div className="flex items-center gap-2">
-                            <span className="text-[#CBAA4C] text-xs font-bold italic opacity-80">0{index + 1}</span>
-                            <span className="text-[#0D0B05] text-sm font-bold tracking-wide uppercase group-hover:text-[#CBAA4C] transition-colors">
-                              {item.name}
-                            </span>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              </nav>
-
-              {/* Mobile CTA */}
-              <motion.div variants={menuItemVariants} className="flex justify-center mt-2 w-full pt-4">
-                <Button 
-                  variant="primary" 
-                  theme="light" 
-                  href="/schedule" 
-                  width="w-full"
-                  className="flex justify-center"
+                    {link.name}
+                  </Link>
+                </div>
+              ))}
+              
+              {/* COMMUNITY ACCORDION */}
+              <div className="mobile-menu-item opacity-0 translate-y-2 flex flex-col border-b border-black/10">
+                <button 
+                  onClick={() => setOpenAccordion(openAccordion === 'community' ? null : 'community')}
+                  className="flex items-center justify-between text-lg tracking-tight font-bold leading-[1.2] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer uppercase"
                 >
-                  BOOK YOUR FIRST CLASS
-                </Button>
-              </motion.div>
+                  COMMUNITY
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'community' ? 'rotate-180' : ''}`}>
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'community' ? 'grid-rows-[1fr] opacity-100 pb-3' : 'grid-rows-[0fr] opacity-0'}`}>
+                  <div className="overflow-hidden flex flex-col gap-2 pt-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2">
+                    {communityColumn.map((item, index) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`group flex flex-col py-1 transition-all duration-500 ease-out ${openAccordion === 'community' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                        style={{ transitionDelay: openAccordion === 'community' ? `${index * 80 + 100}ms` : '0ms' }}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="text-[#CBAA4C] text-xs font-bold italic opacity-80">0{index + 1}</span>
+                          <span className="text-[#0D0B05] text-sm font-bold tracking-wide uppercase group-hover:text-[#CBAA4C] transition-colors">
+                            {item.name}
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* ABOUT US ACCORDION */}
+              <div className="mobile-menu-item opacity-0 translate-y-2 flex flex-col border-b border-black/10">
+                <button 
+                  onClick={() => setOpenAccordion(openAccordion === 'about' ? null : 'about')}
+                  className="flex items-center justify-between text-lg tracking-tight font-bold leading-[1.2] py-2.5 hover:text-[#CBAA4C] transition-colors duration-300 w-full text-left cursor-pointer uppercase"
+                >
+                  ABOUT US
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${openAccordion === 'about' ? 'rotate-180' : ''}`}>
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                <div className={`grid transition-all duration-300 ease-in-out w-full ${openAccordion === 'about' ? 'grid-rows-[1fr] opacity-100 pb-3' : 'grid-rows-[0fr] opacity-0'}`}>
+                  <div className="overflow-hidden flex flex-col gap-2 pt-1 pl-2 border-l-2 border-[#CBAA4C]/20 ml-2">
+                    {aboutColumn.map((item, index) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`group flex flex-col py-1 transition-all duration-500 ease-out ${openAccordion === 'about' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                        style={{ transitionDelay: openAccordion === 'about' ? `${index * 80 + 100}ms` : '0ms' }}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="text-[#CBAA4C] text-xs font-bold italic opacity-80">0{index + 1}</span>
+                          <span className="text-[#0D0B05] text-sm font-bold tracking-wide uppercase group-hover:text-[#CBAA4C] transition-colors">
+                            {item.name}
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </nav>
+
+            {/* Mobile CTA */}
+            <div className="mobile-menu-item opacity-0 translate-y-2 flex justify-center mt-2 w-full pt-4">
+              <Button 
+                variant="primary" 
+                theme="light" 
+                href="/schedule" 
+                width="w-full"
+                className="flex justify-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                VIEW SCHEDULE
+              </Button>
             </div>
-          </motion.div>
-        )}
-        </AnimatePresence>
+          </div>
+        </div>
       </div>
     </header>
     </>

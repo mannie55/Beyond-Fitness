@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "lenis/dist/lenis.css";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 
 const aspira = localFont({
   src: [
@@ -40,7 +42,11 @@ export default function RootLayout({
       className={`${aspira.variable} h-full antialiased overflow-x-hidden w-full`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col overflow-x-hidden w-full" suppressHydrationWarning>{children}</body>
+      <body className="min-h-full flex flex-col overflow-x-hidden w-full" suppressHydrationWarning>
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
+      </body>
     </html>
   );
 }

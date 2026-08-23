@@ -66,16 +66,21 @@ export default function AboutSection() {
       {/* Left Content Area */}
       <div className="flex-1 flex justify-center lg:justify-start items-center py-padding-section-large px-padding-global lg:pr-[4rem]">
         <div className="w-full max-w-[38rem] flex flex-col items-start gap-6 sm:gap-8 md:gap-[1.5rem]">
-          
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
+            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#0D0B05] uppercase">
+              The Experience
+            </span>
+          </div>
+
           <TextReveal 
             as="h2"
             text={"NOT JUST A WORKOUT. \nA CULTURAL SANCTUARY."}
             className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight whitespace-pre-line"
           />
-          
-          <div className="w-[3rem] h-[0.25rem] bg-[var(--color-dandelion)] rounded-full mt-2" />
 
-          <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.6] max-w-[95%]">
+          <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.6] max-w-[95%] pt-2">
             We stripped away everything you dislike about traditional gyms and kept only what elevates you: sound-driven studios, world-class coaching, and an uncompromising atmosphere.
           </p>
 
