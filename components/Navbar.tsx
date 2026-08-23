@@ -79,22 +79,23 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "CLASSES", href: "/classes" },
-    { name: "SCHEDULE", href: "/schedule" },
-    { name: "PRICING", href: "/pricing" },
+    { name: "ABOUT", href: "#about" },
+    { name: "CLASSES", href: "#classes" },
+    { name: "COACHES", href: "#coaches" },
+    { name: "PRICING", href: "#pricing" },
   ];
 
   const communityColumn = [
-    { name: "STORIES", href: "/community/member-stories", desc: "Real member transformations from the studio floor" },
-    { name: "BEYOND ON TOUR", href: "/community/on-tour", desc: "Our signature event series across the city" },
-    { name: "BEYOND PINK WALK", href: "/community/pink-walk", desc: "Join the movement for breast cancer awareness" },
-    { name: "EVENTS", href: "/community", desc: "All upcoming community gatherings and workshops" },
+    { name: "STORIES", href: "#testimonials", desc: "Real member transformations from the studio floor" },
+    { name: "BEYOND ON TOUR", href: "#events", desc: "Our signature event series across the city" },
+    { name: "BEYOND PINK WALK", href: "#events", desc: "Join the movement for breast cancer awareness" },
+    { name: "EVENTS", href: "#events", desc: "All upcoming community gatherings and workshops" },
   ];
 
   const aboutColumn = [
-    { name: "CORPORATE", href: "/corporate-wellness", desc: "Wellness programs for high-performance teams" },
-    { name: "ABOUT", href: "/about", desc: "The story behind the studio and our mission" },
-    { name: "CONTACT", href: "/contact", desc: "Find us in Victoria Island, Lagos" },
+    { name: "CORPORATE", href: "#pricing", desc: "Wellness programs for high-performance teams" },
+    { name: "ABOUT", href: "#about", desc: "The story behind the studio and our mission" },
+    { name: "CONTACT", href: "#footer", desc: "Find us in Victoria Island, Lagos" },
   ];
 
   const menuVariants: Variants = {

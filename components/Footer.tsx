@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-black text-white px-padding-global py-padding-section-large flex flex-col items-center overflow-hidden font-sans">
+    <footer id="footer" className="w-full bg-black text-white px-padding-global py-padding-section-large flex flex-col items-center overflow-hidden font-sans">
       <div className="w-full max-w-[100rem] flex flex-col items-center gap-12 sm:gap-16 md:gap-[5rem]">
         
         {/* Main Footer Contents */}
