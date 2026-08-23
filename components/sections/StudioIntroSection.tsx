@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import StudioIntroCenterpiece from "./StudioIntroCenterpiece";
+import StudioCursor from "./StudioCursor";
 import Button from "@/components/ui/Button";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -88,6 +89,8 @@ export default function StudioIntroSection() {
       ref={sectionRef} 
       className="relative w-full min-h-[100vh] md:min-h-0 md:h-[100vh] bg-black overflow-hidden flex flex-col justify-center items-center"
     >
+      <StudioCursor containerRef={sectionRef} />
+      
       {/* Background Layer */}
       <div className="absolute inset-0 bg-black">
         {/* Desktop Static Background */}
