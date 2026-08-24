@@ -169,12 +169,12 @@
 }
 
 /* Color Scheme: Color Scheme 1 */
-.color-scheme-1 {
-  --color-text: var(--color-neutral-darkest);
-  --color-foreground: var(--color-neutral-lightest);
-  --color-background: var(--color-white);
-  --color-border: var(--color-neutral-darkest-15);
-  --color-accent: var(--color-black);
+.color-scheme-1, :root {
+  --color-text: var(--color-white);
+  --color-foreground: var(--color-neutral-darker);
+  --color-background: #0D0B05;
+  --color-border: var(--color-white-15);
+  --color-accent: var(--color-white);
 }
 
 /* Color Scheme: Color Scheme 2 */

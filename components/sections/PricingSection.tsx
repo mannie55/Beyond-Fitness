@@ -18,7 +18,7 @@ export default function PricingSection({
   return (
     <section 
       id="pricing" 
-      className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans"
+      className="w-full bg-[#0D0B05] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans"
     >
       <div className="w-full max-w-[100rem] flex flex-col items-start gap-8 sm:gap-10 md:gap-[3.5rem]">
         
@@ -27,7 +27,7 @@ export default function PricingSection({
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-[-0.5rem]">
             <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
-            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#0D0B05] uppercase">
+            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white uppercase">
               Pricing
             </span>
           </div>
@@ -35,10 +35,10 @@ export default function PricingSection({
           <TextReveal 
             as="h2"
             text={title}
-            className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
+            className="text-white text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
           />
           
-          <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.5] pt-2">
+          <p className="text-white/70 text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.5] pt-2">
             {subtitle}
           </p>
         </div>

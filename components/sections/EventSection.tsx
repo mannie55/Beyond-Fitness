@@ -33,7 +33,7 @@ const EVENTS: Record<EventTab, EventData> = {
     badgeLabel: "BEYOND ON TOUR",
     badgeLogo: "/icons/beyond_fitness_logo.svg",
     accentColor: "bg-[var(--color-dandelion)]",
-    activeTabColor: "border-[var(--color-dandelion-dark,#CBAA4C)] text-[var(--color-dandelion-dark,#CBAA4C)]",
+    activeTabColor: "border-white text-white",
     headline: "WELLNESS BEYOND FOUR WALLS",
     description:
       "Beyond On Tour takes the Beyond experience beyond the studio. From weekend hikes to wellness retreats and outdoor pop-ups, we create experiences that bring members together long after class ends.",
@@ -51,7 +51,7 @@ const EVENTS: Record<EventTab, EventData> = {
     badgeLabel: "BEYOND PINK WALK",
     badgeLogo: "/images/logos/beyond-pink-walk-logo.svg",
     accentColor: "bg-[#EE88B0]",
-    activeTabColor: "border-[#D591AD] text-[#D591AD]",
+    activeTabColor: "border-white text-white",
     headline: "WE WALK SO NO ONE WALKS ALONE.",
     description:
       "The Pink Walk is more than an event. It's our community coming together to support breast cancer awareness, honor survivors, and stand beside those still fighting.",
@@ -96,7 +96,7 @@ export default function EventSection() {
   return (
     <section 
       id="events" 
-      className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans"
+      className="w-full bg-[#0D0B05] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans"
     >
       <div className="w-full max-w-[100rem] flex flex-col items-center gap-10 sm:gap-14 md:gap-14">
         
@@ -105,7 +105,7 @@ export default function EventSection() {
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-[-0.5rem]">
             <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
-            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#0D0B05] uppercase">
+            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white uppercase">
               Events
             </span>
             <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
@@ -114,10 +114,10 @@ export default function EventSection() {
           <TextReveal 
             as="h2"
             text="EVENTS THAT BRING US TOGETHER"
-            className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
+            className="text-white text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
           />
 
-          <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-relaxed pt-2">
+          <p className="text-white/70 text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-relaxed pt-2">
             From multi-city wellness tours to community initiatives, discover how we move together beyond our four walls.
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function EventSection() {
         <div 
           role="tablist" 
           aria-label="Event categories" 
-          className="flex items-center justify-center gap-6 sm:gap-8 md:gap-12 border-b border-[var(--color-dandelion-light,#FEE18F)] w-full max-w-[28rem] pb-0"
+          className="flex items-center justify-center gap-6 sm:gap-8 md:gap-12 border-b border-white/20 w-full max-w-[28rem] pb-0"
         >
           {(["on-tour", "pink-walk"] as const).map((tabKey) => {
             const isActive = activeTab === tabKey;
@@ -142,7 +142,7 @@ export default function EventSection() {
                 className={`py-2 sm:py-3 px-2 text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider transition-all duration-200 border-b-2 relative -mb-[0.0625rem] cursor-pointer ${
                   isActive
                     ? tabData.activeTabColor
-                    : "border-transparent text-[#0D0B05]/60 hover:text-[#0D0B05]"
+                    : "border-transparent text-white/60 hover:text-white"
                 }`}
               >
                 {tabData.tabLabel}
@@ -181,7 +181,7 @@ export default function EventSection() {
                         viewBox="0 0 55 55"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 sm:w-6 sm:h-6 text-[#0D0B05]"
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                       >
                         <path
                           fillRule="evenodd"
@@ -206,15 +206,15 @@ export default function EventSection() {
                       />
                     )}
                   </div>
-                  <span className="text-[#0D0B05]/30 font-semibold text-xs sm:text-sm">|</span>
-                  <span className="text-[#0D0B05] font-bold text-xs sm:text-sm tracking-wider uppercase">
+                  <span className="text-white/30 font-semibold text-xs sm:text-sm">|</span>
+                  <span className="text-white font-bold text-xs sm:text-sm tracking-wider uppercase">
                     {current.badgeLabel}
                   </span>
                 </div>
 
                 {/* Title & Accent */}
                 <div className="flex flex-col items-start gap-2.5 sm:gap-3">
-                  <h3 className="text-[#0D0B05] text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-semibold uppercase leading-[1.15] tracking-tight">
+                  <h3 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-semibold uppercase leading-[1.15] tracking-tight">
                     {current.headline}
                   </h3>
                   <div className={`w-12 h-1 ${current.accentColor} rounded-full`} />
@@ -227,7 +227,7 @@ export default function EventSection() {
 
                 {/* CTA Button */}
                 <div className="pt-1 sm:pt-2 w-full sm:w-auto">
-                  <Button variant="primary" theme="light" href={current.buttonHref} className="w-full sm:w-auto pointer-events-auto">
+                  <Button variant="primary" theme="dark" href={current.buttonHref} className="w-full sm:w-auto pointer-events-auto">
                     {current.buttonText}
                   </Button>
                 </div>
@@ -250,7 +250,7 @@ export default function EventSection() {
                         sizes="(max-width: 768px) 100vw, 40vw"
                         parallaxOffset={10}
                       />
-                      <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
+                      <div className="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:opacity-0" />
                     </div>
                     {/* Bottom Image (274px height ratio) */}
                     <div className="relative flex-[3] overflow-hidden group rounded-none">
@@ -262,7 +262,7 @@ export default function EventSection() {
                         sizes="(max-width: 768px) 100vw, 40vw"
                         parallaxOffset={10}
                       />
-                      <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
+                      <div className="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:opacity-0" />
                     </div>
                   </div>
 
@@ -277,7 +277,7 @@ export default function EventSection() {
                         sizes="(max-width: 768px) 100vw, 30vw"
                         parallaxOffset={12}
                       />
-                      <div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
+                      <div className="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:opacity-0" />
                     </div>
                   </div>
 

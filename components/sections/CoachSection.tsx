@@ -82,7 +82,7 @@ export default function CoachSection({
   };
 
   return (
-    <section id="coaches" className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans">
+    <section id="coaches" className="w-full bg-[#0D0B05] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans">
       <div className="w-full max-w-[100rem] flex flex-col items-start gap-8 sm:gap-10 md:gap-[3.5rem]">
         
         {/* Section Header */}
@@ -91,7 +91,7 @@ export default function CoachSection({
             {/* Eyebrow */}
             <div className="flex items-center gap-3 mb-[-0.5rem]">
               <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
-              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#0D0B05] uppercase">
+              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white uppercase">
                 Coaches
               </span>
             </div>
@@ -99,16 +99,16 @@ export default function CoachSection({
             <TextReveal 
               as="h2"
               text={title}
-              className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
+              className="text-white text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
             />
             
-            <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.5] pt-2">
+            <p className="text-white/70 text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-[1.5] pt-2">
               {subtitle}
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-[1rem] w-full sm:w-auto">
-            <Button variant="secondary" theme="light" className="w-full sm:w-auto">
+            <Button variant="secondary" theme="dark" className="w-full sm:w-auto">
               ALL COACHES
             </Button>
           </div>
@@ -137,11 +137,11 @@ export default function CoachSection({
 
         {/* Mobile/Tablet/Desktop Slider Controls */}
         <div className="w-full flex flex-col gap-4 sm:gap-5 mt-2 sm:mt-0">
-          <div className="w-full h-[0.0625rem] bg-black/10" />
+          <div className="w-full h-[0.0625rem] bg-white/10" />
           <div className="w-full flex justify-between items-center">
             
             {/* Progress Indicator */}
-            <div className="w-[7.5rem] sm:w-[10rem] h-[0.125rem] bg-black/10 relative rounded-full overflow-hidden">
+            <div className="w-[7.5rem] sm:w-[10rem] h-[0.125rem] bg-white/10 relative rounded-full overflow-hidden">
               <div
                 className="absolute top-0 h-full bg-black rounded-full transition-all duration-150"
                 style={{
@@ -155,7 +155,7 @@ export default function CoachSection({
             <div className="flex items-center gap-2">
               <button
                 onClick={() => handleArrowClick("left")}
-                className="w-[2.5rem] h-[2.5rem] md:w-[3rem] md:h-[3rem] rounded-full border border-black/10 flex items-center justify-center bg-transparent transition-all hover:bg-black/5 active:scale-95 text-black"
+                className="w-[2.5rem] h-[2.5rem] md:w-[3rem] md:h-[3rem] rounded-full border border-white/10 flex items-center justify-center bg-transparent transition-all hover:bg-white/5 active:scale-95 text-white"
                 aria-label="Previous coach"
               >
                 <Image
@@ -168,7 +168,7 @@ export default function CoachSection({
               </button>
               <button
                 onClick={() => handleArrowClick("right")}
-                className="w-[2.5rem] h-[2.5rem] md:w-[3rem] md:h-[3rem] rounded-full border border-black/10 flex items-center justify-center bg-transparent transition-all hover:bg-black/5 active:scale-95 text-black"
+                className="w-[2.5rem] h-[2.5rem] md:w-[3rem] md:h-[3rem] rounded-full border border-white/10 flex items-center justify-center bg-transparent transition-all hover:bg-white/5 active:scale-95 text-white"
                 aria-label="Next coach"
               >
                 <Image

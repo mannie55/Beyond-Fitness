@@ -106,14 +106,14 @@ export default function StatsBar({
       ? "text-[var(--color-dandelion-darkest)]"
       : theme === "dark"
       ? "text-[#FED55F]"
-      : "text-[color:var(--color-black,#000)]";
+      : "text-white";
 
   const labelColorClass =
     theme === "dandelion"
       ? "text-[var(--color-dandelion-darker)] opacity-80 font-medium"
       : theme === "dark"
       ? "text-white/60 font-medium"
-      : "text-[color:var(--color-neutral-darker,#25231E)]";
+      : "text-white/70";
 
   const dividerClass =
     theme === "dandelion"

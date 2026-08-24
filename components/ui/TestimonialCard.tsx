@@ -32,8 +32,8 @@ export default function TestimonialCard({
   };
 
   return (
-    <div className="w-full md:max-w-[26rem] mx-auto p-2 rounded-none bg-transparent transition-all duration-300 hover:bg-[#FEE18F] hover:shadow-[0px_0px_16px_0px_rgba(0,0,0,0.08)] font-sans group">
-      <div className="w-full bg-[#FFFFFF] flex flex-col items-stretch transition-transform duration-300">
+    <div className="w-full md:max-w-[26rem] mx-auto p-2 rounded-none bg-transparent transition-all duration-300 hover:bg-white/5 hover:shadow-[0px_0px_16px_0px_rgba(0,0,0,0.08)] font-sans group">
+      <div className="w-full bg-[#0D0B05] flex flex-col items-stretch transition-transform duration-300 border border-white/10">
         
         {/* Lightbox / Video */}
         <div 
@@ -52,7 +52,7 @@ export default function TestimonialCard({
           
           {/* Play Button Overlay */}
           {!isPlaying && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors">
+            <div className="absolute inset-0 flex items-center justify-center bg-white/10 transition-colors">
               <Image 
                 src="/icons/play-button.svg"
                 alt="Play"
@@ -79,7 +79,7 @@ export default function TestimonialCard({
           </div>
 
           {/* Beyond Fitness Background Logo */}
-          <div className="absolute top-[5rem] md:top-[6.825rem] right-[-1rem] md:right-[-1.8125rem] pointer-events-none z-0">
+          <div className="absolute top-[5rem] md:top-[6.825rem] right-[-1rem] md:right-[-1.8125rem] pointer-events-none z-0 opacity-10">
             <Image 
               src="/icons/beyond-fitness-background.svg" 
               alt="Background Logo" 
@@ -90,17 +90,17 @@ export default function TestimonialCard({
           </div>
 
           {/* Quote Text */}
-          <p className="text-[length:var(--text-heading-4)] font-semibold leading-[1.4] text-[#0D0B05] tracking-[-0.01em] relative z-10 font-sans">
+          <p className="text-[length:var(--text-heading-4)] font-semibold leading-[1.4] text-white tracking-[-0.01em] relative z-10 font-sans">
             {quote}
           </p>
 
           {/* Avatar Section */}
           <div className="flex flex-row items-center gap-[0.75rem] md:gap-[1rem] relative z-10 mt-1 md:mt-0">
             <div className="flex flex-col items-start font-sans">
-              <span className="text-[length:var(--text-text-regular)] font-semibold text-[#0D0B05] uppercase">
+              <span className="text-[length:var(--text-text-regular)] font-semibold text-white uppercase">
                 {name}
               </span>
-              <span className="text-[length:var(--text-text-regular)] font-normal text-[#0D0B05]/50">
+              <span className="text-[length:var(--text-text-regular)] font-normal text-white/50">
                 {role}
               </span>
             </div>

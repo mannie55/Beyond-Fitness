@@ -145,7 +145,7 @@ export default function ClassSection({
     <section 
       id="classes"
       aria-label="Fitness Classes and Programs"
-      className="w-full bg-[var(--color-neutral-lightest)] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans"
+      className="w-full bg-[#0D0B05] flex flex-col items-center justify-start px-padding-global py-padding-section-large overflow-hidden relative font-sans"
     >
       <div className="w-full max-w-[100rem] flex flex-col items-start gap-8 sm:gap-10 md:gap-[3.5rem] relative z-10">
         
@@ -155,7 +155,7 @@ export default function ClassSection({
             {/* Eyebrow */}
             <div className="flex items-center gap-3 mb-[-0.5rem]">
               <div className="w-8 h-[2px] bg-[var(--color-dandelion)]" />
-              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#0D0B05] uppercase">
+              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white uppercase">
                 Programs
               </span>
             </div>
@@ -163,16 +163,16 @@ export default function ClassSection({
             <TextReveal 
               as="h2" 
               text={title} 
-              className="text-[#0D0B05] text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
+              className="text-white text-[1.65rem] sm:text-[2.1rem] md:text-[2.65rem] lg:text-[2.85rem] font-semibold uppercase leading-[1.2] tracking-tight"
             />
 
-            <p className="text-[var(--color-neutral-dark)] text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-relaxed pt-2">
+            <p className="text-white/70 text-text-regular sm:text-text-medium md:text-[length:var(--text-text-large)] font-normal leading-relaxed pt-2">
               {subtitle}
             </p>
           </div>
 
           <div className="shrink-0 w-full sm:w-auto">
-            <Button variant="secondary" theme="light" href="/classes" className="w-full sm:w-auto">
+            <Button variant="secondary" theme="dark" href="/classes" className="w-full sm:w-auto">
               VIEW SCHEDULE
             </Button>
           </div>
@@ -185,7 +185,7 @@ export default function ClassSection({
           ref={tabListRef}
           role="tablist"
           aria-label="Class Discipline Selection"
-          className="hidden lg:flex w-full min-h-[36.25rem] xl:min-h-[40rem] bg-[#F2F2F2] border border-[#0D0B05]/15 overflow-hidden"
+          className="hidden lg:flex w-full min-h-[36.25rem] xl:min-h-[40rem] bg-[#1A1A1A] border border-white/15 overflow-hidden"
         >
           {programs.map((program, index) => {
             const isSelected = activeTab === index;
@@ -200,18 +200,18 @@ export default function ClassSection({
                 tabIndex={isSelected ? 0 : -1}
                 onClick={() => setActiveTab(index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
-                className={`group transition-all duration-500 ease-in-out flex flex-row overflow-hidden select-none cursor-pointer border-r border-[#0D0B05]/15 last:border-r-0 ${
+                className={`group transition-all duration-500 ease-in-out flex flex-row overflow-hidden select-none cursor-pointer border-r border-white/15 last:border-r-0 ${
                   isSelected
-                    ? "flex-1 bg-white"
-                    : "w-[5.25rem] xl:w-[6.25rem] shrink-0 bg-[#F2F2F2] hover:bg-black/[0.04]"
+                    ? "flex-1 bg-[#0D0B05]"
+                    : "w-[5.25rem] xl:w-[6.25rem] shrink-0 bg-[#1A1A1A] hover:bg-black/[0.04]"
                 }`}
               >
                 {/* Feature Tab Vertical Strip */}
                 <div
                   className={`w-[5.25rem] xl:w-[6.25rem] shrink-0 py-8 px-3 xl:px-4 flex flex-col justify-between items-center transition-colors duration-300 ${
                     isSelected
-                      ? "border-r border-[#0D0B05]/10 bg-white"
-                      : "bg-[#F2F2F2]"
+                      ? "border-r border-white/10 bg-[#0D0B05]"
+                      : "bg-[#1A1A1A]"
                   }`}
                 >
                   {/* Clean Editorial Number */}
@@ -219,8 +219,8 @@ export default function ClassSection({
                     <span
                       className={`text-3xl lg:text-[2.1rem] xl:text-[2.65rem] font-black tracking-tighter leading-none transition-all duration-300 font-sans tabular-nums ${
                         isSelected 
-                          ? "text-[#0D0B05] scale-105" 
-                          : "text-[#0D0B05]/30 group-hover:text-[#0D0B05]/75 group-hover:scale-105"
+                          ? "text-white scale-105" 
+                          : "text-white/30 group-hover:text-white/75 group-hover:scale-105"
                       }`}
                     >
                       {program.number}
@@ -231,8 +231,8 @@ export default function ClassSection({
                   <span
                     className={`[writing-mode:vertical-rl] rotate-180 text-xs sm:text-sm xl:text-base font-bold tracking-[0.22em] uppercase transition-colors whitespace-nowrap py-6 ${
                       isSelected 
-                        ? "text-[#0D0B05]" 
-                        : "text-[#0D0B05]/50 group-hover:text-[#0D0B05]/90"
+                        ? "text-white" 
+                        : "text-white/50 group-hover:text-white/90"
                     }`}
                   >
                     {program.name}
@@ -258,12 +258,12 @@ export default function ClassSection({
                       id={`tabpanel-${program.id}`}
                       role="tabpanel"
                       aria-labelledby={`tab-${program.id}`}
-                      className="flex-1 p-8 lg:p-10 xl:p-14 flex flex-col justify-between gap-8 bg-white min-w-0 relative overflow-hidden"
+                      className="flex-1 p-8 lg:p-10 xl:p-14 flex flex-col justify-between gap-8 bg-[#0D0B05] min-w-0 relative overflow-hidden"
                     >
                       {/* Subtle Background Watermark Number */}
                     <span 
                       aria-hidden="true"
-                      className="absolute top-4 right-8 text-[6rem] lg:text-[7.5rem] xl:text-[9rem] font-black text-[#0D0B05]/[0.035] tracking-tighter leading-none select-none pointer-events-none font-sans"
+                      className="absolute top-4 right-8 text-[6rem] lg:text-[7.5rem] xl:text-[9rem] font-black text-[var(--color-dandelion)] opacity-10 tracking-tighter leading-none select-none pointer-events-none font-sans"
                     >
                       {program.number}
                     </span>
@@ -280,27 +280,27 @@ export default function ClassSection({
                       <div className="col-span-7 flex flex-col justify-center items-start gap-5 xl:gap-6">
                         
                         {/* Clean Tag without pill container or dot */}
-                        <motion.span variants={itemVariants} className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#0D0B05]/60">
+                        <motion.span variants={itemVariants} className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-white/60">
                           {program.tag}
                         </motion.span>
 
                         {/* Program Headline */}
-                        <motion.h3 variants={itemVariants} className="text-[#0D0B05] text-2xl sm:text-3xl xl:text-[2.25rem] font-semibold uppercase leading-[1.2] tracking-tight">
+                        <motion.h3 variants={itemVariants} className="text-white text-2xl sm:text-3xl xl:text-[2.25rem] font-semibold uppercase leading-[1.2] tracking-tight">
                           {program.headline}
                         </motion.h3>
 
                         {/* Description */}
-                        <motion.p variants={itemVariants} className="text-[var(--color-neutral-dark)] text-sm sm:text-base leading-relaxed max-w-[34rem]">
+                        <motion.p variants={itemVariants} className="text-white/70 text-sm sm:text-base leading-relaxed max-w-[34rem]">
                           {program.description}
                         </motion.p>
 
                         {/* Specs Strip */}
-                        <motion.div variants={itemVariants} className="w-full flex flex-wrap items-center gap-4 sm:gap-6 pt-2 pb-2 border-t border-b border-[#0D0B05]/10">
+                        <motion.div variants={itemVariants} className="w-full flex flex-wrap items-center gap-4 sm:gap-6 pt-2 pb-2 border-t border-b border-white/10">
                           <div className="flex flex-col">
-                            <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
+                            <span className="text-[0.65rem] uppercase tracking-wider text-white/50 font-semibold">
                               Duration
                             </span>
-                            <span className="text-xs sm:text-sm font-bold text-[#0D0B05]">
+                            <span className="text-xs sm:text-sm font-bold text-white">
                               {program.duration}
                             </span>
                           </div>
@@ -308,10 +308,10 @@ export default function ClassSection({
                           <div className="w-[0.0625rem] h-6 bg-[#0D0B05]/15" />
 
                           <div className="flex flex-col">
-                            <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
+                            <span className="text-[0.65rem] uppercase tracking-wider text-white/50 font-semibold">
                               Intensity
                             </span>
-                            <span className="text-xs sm:text-sm font-bold text-[#0D0B05]">
+                            <span className="text-xs sm:text-sm font-bold text-white">
                               {program.intensity}
                             </span>
                           </div>
@@ -319,10 +319,10 @@ export default function ClassSection({
                           <div className="w-[0.0625rem] h-6 bg-[#0D0B05]/15" />
 
                           <div className="flex flex-col">
-                            <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
+                            <span className="text-[0.65rem] uppercase tracking-wider text-white/50 font-semibold">
                               Focus
                             </span>
-                            <span className="text-xs sm:text-sm font-bold text-[#0D0B05]">
+                            <span className="text-xs sm:text-sm font-bold text-white">
                               {program.focus}
                             </span>
                           </div>
@@ -330,10 +330,10 @@ export default function ClassSection({
 
                         {/* Actions */}
                         <motion.div variants={itemVariants} className="flex items-center gap-4 pt-2">
-                          <Button variant="primary" theme="light" href={program.href}>
+                          <Button variant="primary" theme="dark" href={program.href}>
                             BOOK CLASS
                           </Button>
-                          <Button variant="secondary" theme="light" href="/classes">
+                          <Button variant="secondary" theme="dark" href="/classes">
                             EXPLORE DETAILS
                           </Button>
                         </motion.div>
@@ -341,7 +341,7 @@ export default function ClassSection({
                       </div>
 
                       {/* Right: High-Res Image (5 Cols) */}
-                      <motion.div variants={itemVariants} className="col-span-5 relative w-full h-[20rem] xl:h-[23.75rem] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
+                      <motion.div variants={itemVariants} className="col-span-5 relative w-full h-[20rem] xl:h-[23.75rem] overflow-hidden bg-white/5 border border-white/10">
                         <ParallaxImage
                           src={program.imageSrc}
                           alt={`${program.name} class session`}
@@ -364,12 +364,12 @@ export default function ClassSection({
         {/* ========================================================================= */}
         {/* MOBILE & TABLET ACCORDION (< lg)                                          */}
         {/* ========================================================================= */}
-        <div className="flex lg:hidden flex-col w-full bg-[#F2F2F2] border border-[#0D0B05]/15 divide-y divide-[#0D0B05]/15">
+        <div className="flex lg:hidden flex-col w-full bg-[#1A1A1A] border border-white/15 divide-y divide-[#0D0B05]/15">
           {programs.map((program, index) => {
             const isSelected = activeTab === index;
 
             return (
-              <div key={program.id} className="flex flex-col bg-white">
+              <div key={program.id} className="flex flex-col bg-[#0D0B05]">
                 
                 {/* Accordion Row Header */}
                 <button
@@ -377,29 +377,29 @@ export default function ClassSection({
                   aria-expanded={isSelected}
                   aria-controls={`mobile-pane-${program.id}`}
                   className={`w-full flex items-center justify-between p-4 sm:p-5 transition-colors text-left cursor-pointer ${
-                    isSelected ? "bg-white" : "bg-[#F2F2F2] hover:bg-black/[0.03]"
+                    isSelected ? "bg-[#0D0B05]" : "bg-[#1A1A1A] hover:bg-black/[0.03]"
                   }`}
                 >
                   <div className="flex items-center gap-3.5 sm:gap-4">
                     {/* Clean Mobile Number */}
                     <span className={`text-xl sm:text-2xl font-black font-sans tracking-tight tabular-nums transition-colors ${
-                      isSelected ? "text-[#0D0B05]" : "text-[#0D0B05]/40"
+                      isSelected ? "text-white" : "text-white/40"
                     }`}>
                       {program.number}
                     </span>
-                    <span className="text-sm sm:text-base font-bold text-[#0D0B05] uppercase tracking-wider">
+                    <span className="text-sm sm:text-base font-bold text-white uppercase tracking-wider">
                       {program.name}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="hidden sm:inline-block text-xs font-semibold text-[#0D0B05]/60 uppercase tracking-wider">
+                    <span className="hidden sm:inline-block text-xs font-semibold text-white/60 uppercase tracking-wider">
                       {program.tag}
                     </span>
                     <span className={`w-7 h-7 rounded-full border flex items-center justify-center font-bold text-sm transition-colors ${
                       isSelected 
-                        ? "border-[#0D0B05] bg-[#0D0B05] text-white" 
-                        : "border-[#0D0B05]/20 bg-transparent text-[#0D0B05]"
+                        ? "border-white bg-[#0D0B05] text-white" 
+                        : "border-white/20 bg-transparent text-white"
                     }`}>
                       {isSelected ? "−" : "+"}
                     </span>
@@ -416,17 +416,17 @@ export default function ClassSection({
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                       id={`mobile-pane-${program.id}`}
-                      className="border-t border-[#0D0B05]/10 bg-white overflow-hidden"
+                      className="border-t border-white/10 bg-[#0D0B05] overflow-hidden"
                     >
                       <motion.div 
                         variants={contentVariants}
                         initial="hidden"
                         animate="show"
                         exit="exit"
-                        className="p-5 sm:p-6 flex flex-col gap-5"
+                        className="p-4 flex flex-col gap-4"
                       >
                         {/* Image */}
-                    <motion.div variants={itemVariants} className="relative w-full aspect-[16/10] overflow-hidden bg-black/5 border border-[#0D0B05]/10">
+                    <motion.div variants={itemVariants} className="relative w-full aspect-[21/9] sm:aspect-[16/9] overflow-hidden bg-white/5 border border-white/10">
                       <ParallaxImage
                         src={program.imageSrc}
                         alt={`${program.name} class`}
@@ -436,44 +436,44 @@ export default function ClassSection({
                       />
                     </motion.div>
 
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-2">
                       {/* Clean Tag without pill container or dot */}
-                      <motion.span variants={itemVariants} className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#0D0B05]/60">
+                      <motion.span variants={itemVariants} className="text-[0.65rem] sm:text-xs font-semibold tracking-wider uppercase text-[var(--color-dandelion)]">
                         {program.tag}
                       </motion.span>
 
-                      <motion.h3 variants={itemVariants} className="text-[#0D0B05] text-xl sm:text-2xl font-semibold uppercase leading-snug tracking-tight">
+                      <motion.h3 variants={itemVariants} className="text-white text-lg sm:text-xl font-semibold uppercase leading-tight tracking-tight">
                         {program.headline}
                       </motion.h3>
 
-                      <motion.p variants={itemVariants} className="text-[var(--color-neutral-dark)] text-xs sm:text-sm leading-relaxed">
+                      <motion.p variants={itemVariants} className="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-2">
                         {program.description}
                       </motion.p>
                     </div>
 
                     {/* Specs */}
-                    <motion.div variants={itemVariants} className="grid grid-cols-3 gap-2 py-3 border-t border-b border-[#0D0B05]/10 text-center">
+                    <motion.div variants={itemVariants} className="grid grid-cols-3 gap-2 py-2.5 border-t border-b border-white/10 text-center">
                       <div className="flex flex-col">
-                        <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
+                        <span className="text-[0.6rem] uppercase tracking-wider text-white/50 font-semibold">
                           Duration
                         </span>
-                        <span className="text-xs font-bold text-[#0D0B05]">
+                        <span className="text-xs font-bold text-white">
                           {program.duration}
                         </span>
                       </div>
-                      <div className="flex flex-col border-l border-r border-[#0D0B05]/10">
-                        <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
+                      <div className="flex flex-col border-l border-r border-white/10">
+                        <span className="text-[0.6rem] uppercase tracking-wider text-white/50 font-semibold">
                           Intensity
                         </span>
-                        <span className="text-xs font-bold text-[#0D0B05]">
+                        <span className="text-xs font-bold text-white">
                           {program.intensity}
                         </span>
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-[0.65rem] uppercase tracking-wider text-[#0D0B05]/50 font-semibold">
+                        <span className="text-[0.6rem] uppercase tracking-wider text-white/50 font-semibold">
                           Focus
                         </span>
-                        <span className="text-xs font-bold text-[#0D0B05]">
+                        <span className="text-xs font-bold text-white">
                           {program.focus}
                         </span>
                       </div>
@@ -481,7 +481,7 @@ export default function ClassSection({
 
                       {/* Button */}
                       <motion.div variants={itemVariants}>
-                        <Button variant="primary" theme="light" href={program.href} className="w-full">
+                        <Button variant="primary" theme="dark" href={program.href} className="w-full">
                           BOOK THIS CLASS
                         </Button>
                       </motion.div>
