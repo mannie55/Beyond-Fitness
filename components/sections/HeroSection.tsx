@@ -30,14 +30,9 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Header / Navbar */}
-      <motion.div 
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-50 w-full mx-auto"
-      >
+      <div className="relative z-50 w-full mx-auto">
         <Navbar />
-      </motion.div>
+      </div>
 
       {/* Massive Brand Headline (Top-center on Mobile, Bottom Absolute on Desktop) */}
       <div className="relative md:absolute z-20 md:bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-full flex justify-center items-end px-3 sm:px-padding-global md:pointer-events-none mt-auto md:mt-0 overflow-visible">

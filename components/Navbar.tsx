@@ -28,6 +28,16 @@ export default function Navbar() {
     gsap.registerPlugin(ScrollTrigger);
     
     const ctx = gsap.context(() => {
+      // Initial Entry Animation
+      gsap.from(headerRef.current, {
+        y: -20,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.5,
+        ease: "power3.out",
+        clearProps: "transform,opacity" // Essential to prevent fixed layout breaking!
+      });
+
       // Mobile menu animation timeline
       tl.current = gsap.timeline({ paused: true });
       tl.current
