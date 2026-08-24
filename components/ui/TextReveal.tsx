@@ -50,7 +50,7 @@ export default function TextReveal({ text, as: Component = "div", className = ""
 
       gsap.from(split.lines, {
         y: "115%",
-        rotate: 3,
+        rotate: 0,
         duration: 1.2,
         stagger: 0.1,
         ease: "power4.out",
