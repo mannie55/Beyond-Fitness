@@ -143,7 +143,7 @@ export default function CoachSection({
             {/* Progress Indicator */}
             <div className="w-[7.5rem] sm:w-[10rem] h-[0.125rem] bg-white/10 relative rounded-full overflow-hidden">
               <div
-                className="absolute top-0 h-full bg-black rounded-full transition-all duration-150"
+                className="absolute top-0 h-full bg-white/60 rounded-full transition-all duration-150"
                 style={{
                   width: "35%",
                   left: `${scrollProgress * 65}%`,
@@ -155,7 +155,7 @@ export default function CoachSection({
             <div className="flex items-center gap-2">
               <button
                 onClick={() => handleArrowClick("left")}
-                className="w-[2.5rem] h-[2.5rem] md:w-[3rem] md:h-[3rem] rounded-full border border-white/10 flex items-center justify-center bg-transparent transition-all hover:bg-white/5 active:scale-95 text-white"
+                className="w-[2.5rem] h-[2.5rem] md:w-[3rem] md:h-[3rem] rounded-full border border-white/20 flex items-center justify-center bg-transparent transition-all hover:bg-white/10 active:scale-95 text-white cursor-pointer"
                 aria-label="Previous coach"
               >
                 <Image
@@ -163,12 +163,12 @@ export default function CoachSection({
                   alt="Previous"
                   width={20}
                   height={20}
-                  className="opacity-80"
+                  className="opacity-80 brightness-0 invert"
                 />
               </button>
               <button
                 onClick={() => handleArrowClick("right")}
-                className="w-[2.5rem] h-[2.5rem] md:w-[3rem] md:h-[3rem] rounded-full border border-white/10 flex items-center justify-center bg-transparent transition-all hover:bg-white/5 active:scale-95 text-white"
+                className="w-[2.5rem] h-[2.5rem] md:w-[3rem] md:h-[3rem] rounded-full border border-white/20 flex items-center justify-center bg-transparent transition-all hover:bg-white/10 active:scale-95 text-white cursor-pointer"
                 aria-label="Next coach"
               >
                 <Image
@@ -176,7 +176,7 @@ export default function CoachSection({
                   alt="Next"
                   width={20}
                   height={20}
-                  className="opacity-80"
+                  className="opacity-80 brightness-0 invert"
                 />
               </button>
             </div>
