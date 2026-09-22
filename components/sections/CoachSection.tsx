@@ -129,6 +129,7 @@ export default function CoachSection({
               imageSrc={coach.imageSrc}
               href={coach.href}
               className="shrink-0 snap-start"
+              imageClassName="object-[center_15%]"
             />
           ))}
           {/* Spacer to preserve right-side padding on scroll */}

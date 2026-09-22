@@ -11,6 +11,7 @@ interface ClassCardProps {
   imageSrc?: string;
   href?: string;
   className?: string;
+  imageClassName?: string;
 }
 
 export default function ClassCard({
@@ -20,6 +21,7 @@ export default function ClassCard({
   imageSrc = "/images/class-rides.jpg",
   href,
   className = "",
+  imageClassName = "",
 }: ClassCardProps) {
   const cardContent = (
     <div className={`inline-flex flex-col justify-start items-start gap-3 sm:gap-4 bg-transparent group cursor-pointer font-sans text-left w-[16.5rem] sm:w-[19rem] md:w-[var(--component-classcard-width,25rem)] snap-start flex-shrink-0 ${className}`}>
@@ -31,7 +33,7 @@ export default function ClassCard({
             src={imageSrc}
             alt={title}
             className="w-full h-full"
-            imageClassName="transition-transform duration-700 ease-out group-hover:scale-105"
+            imageClassName={`transition-transform duration-700 ease-out group-hover:scale-105 ${imageClassName}`}
             sizes="(max-width: 768px) 80vw, 400px"
             parallaxOffset={12}
           />
